@@ -199,7 +199,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    order:2;
+  
   }
   .header {
  
@@ -323,5 +323,149 @@
   .worksSteps {
     max-width: 100%;
   
+  }
+}
+
+
+
+/* Styles for Testimonial Section */
+.testimonial {
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.testimonialTitle {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.testimonialSubtitle {
+  font-size: 14px;
+  color: #f87070;
+  margin-bottom: 30px;
+}
+
+.testimonialContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  color: #333;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.testimonialImage {
+  max-width: 200px;
+  border-radius: 15px;
+  margin-right: 20px;
+}
+
+.testimonialText {
+  flex: 1;
+  text-align: left;
+}
+
+.testimonialText p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.testimonialNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navButton {
+  padding: 10px;
+  margin: 0 5px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
+/* components/FAQ.module.css */
+.faqSection {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.faqSection h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.faqSection p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #666;
+}
+
+.faqContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.faqItem {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faqQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+
+.faqQuestion h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.faqAnswer {
+  padding: 15px 20px;
+  background-color: #fff;
+}
+
+.faqAnswer p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .faqSection h2 {
+    font-size: 28px;
+  }
+
+  .faqSection p {
+    font-size: 16px;
+  }
+
+  .faqQuestion h3 {
+    font-size: 16px;
+  }
+
+  .faqAnswer {
+    font-size: 14px;
   }
 }

@@ -1,6 +1,92 @@
 import Head from 'next/head';
 import styles from '../styles/index.module.css';
 import Image  from 'next/image';
+import React, { useState } from 'react';
+
+
+
+const FAQ = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    if (index === activeIndex) {
+      setActiveIndex(null);
+    } else {
+      setActiveIndex(index);
+    }
+  };
+
+  const faqs = [
+    {
+      question:'What is the cost of your website creation service?',
+      answer:'Cost for any one of or sites are $150. Or pay ONLY for the Domain name and get the site for free but you have to do a video testimonial.'
+    },
+    {
+      question:'Do you offer e-commerce options if I decide to sell products in the future?',
+      answer:'We do not make e-commerce sites.'
+    },
+    {
+      question:'Are there any hidden fees or additional charges?',
+      answer:'No addition fees, all domains name are renewed every 2 years.'
+    },
+
+    {
+      question: "What can the websites that we create do?",
+      answer: "The website offers a variety of functionalities including showcasing your business, advertise your services, add Workflow, booking appointments, capturing leads, providing information, and facilitating contact with potential clients."
+    },
+    {
+      question: "How long does it take to create and launch the website?",
+      answer: "All our sites are deployed in 1 - 2 business day."
+    },
+    {
+      question:'What kind of support do you offer after the website is live?',
+      answer:'We maintain all sites for free.'
+    },
+    {
+      question:'Can I update the content on my website myself?',
+      answer:'No, changes are done by our team. Just state what you need.'
+    },
+    {
+      question:'Do you provide domain registration and hosting services?      ',
+      answer:'No, this is external to us.'
+    },
+    {
+      question:'How customizable are the templates?',
+      answer:'We can change the template to your desired outcome.'
+    },
+    {
+      question:'Will my website be mobile-friendly?',
+      answer:'All sites are made for all devices by default.'
+    },
+    {
+      question: "what are you going to do differently that I can’t get for free?",
+      answer: "As a software engineer, I code all my sites from scratch. You won't incur monthly or yearly fees like those other codeless sites. We also maintain your site at no additional cost. So focus on you business and reduce friction."
+    },
+ 
+    {
+      question: "What is included in the simple site?",
+      answer: "Options include a custom-built website tailored to your needs, a landing page for your business,  SEO optimization, responsive design, and ongoing support and maintenance. We do all the work for you."
+    }
+  ];
+
+  return (
+    <section className={styles.faqSection}>
+      <h2>Frequently asked questions</h2>
+      <p>Have no worries, we got you.</p>
+      <div className={styles.faqContainer}>
+        {faqs.map((faq, index) => (
+          <div key={index} className={styles.faqItem}>
+            <div className={styles.faqQuestion} onClick={() => toggleAccordion(index)}>
+              <h3>{faq.question}</h3>
+              <span>{activeIndex === index ? '-' : '+'}</span>
+            </div>
+            {activeIndex === index && <div className={styles.faqAnswer}><p>{faq.answer}</p></div>}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default function Home() {
   return (
@@ -71,7 +157,7 @@ export default function Home() {
               <div className={styles.step}>
                 <span className={styles.stepNumber}>2</span>
                 <div className={styles.stepText}>
-                  <h3>Select a template your that works with your brand from our list of Templates</h3>
+                  <h3>Select a template that works with your brand, from our list of Templates</h3>
                 </div>
               </div>
               <div className={styles.step}>
@@ -92,9 +178,11 @@ export default function Home() {
             </div>
           </div>
         </section>
+      <FAQ/>
+        
       </main>
+
       <footer className={styles.footer}>
-        {/* <p>© 2024 Rentawhip, Ltd</p> */}
         <p>Powered By Dosnine™</p>
       </footer>
     </div>
