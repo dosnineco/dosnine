@@ -67,12 +67,13 @@ h2,h3,h4,h5{
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+  line-height: 1.8;
 }
 
 p{
   padding: 1em 0;
   display: block;
-  line-height: 1.5;
+  line-height: 1.8;
   font-size: 1.5em;
   /* color:var(--para_color); */
   font-family: "Montserrat", sans-serif;
