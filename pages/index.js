@@ -22,7 +22,7 @@ const FAQ = () => {
       answer:'Cost for any one of or sites are $150. Or pay ONLY for the Domain name and get the site for free but you have to do a video testimonial.'
     },
     {
-      question:'Do you offer e-commerce options if I decide to sell products in the future?',
+      question:'Do you offer e-commerce options if I decide to sell products in the future?  ',
       answer:'We do not make e-commerce sites.'
     },
     {
@@ -106,11 +106,12 @@ export default function Home() {
       <main className={styles.main}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>
-            <span className={styles.tagline}>One Day Service Delivery</span>
-            <h1 className={styles.title}>Do You Need A Website For Your Service Business?</h1>
+            <span className={styles.tagline}>3 Day Service Delivery.</span>
+            <h1 className={styles.title}>Premium Website Templates for Service Business?</h1>
+            
             <div className={styles.buttons}>
-              <a href='https://wa.me/message/5LXYP7EBAUHMD1' className={styles.button}>Yes</a>
-              <a href='https://wa.me/message/5LXYP7EBAUHMD1' className={styles.button}>No</a>
+            <a href='https://wa.me/message/5LXYP7EBAUHMD1' className={styles.button}>Book a Call</a>
+
             </div>
           </div>
           {/* <img src="/construction-site.jpg" alt="Construction site" /> */}
@@ -184,6 +185,7 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <p>Powered By Dosnine™</p>
+        
       </footer>
     </div>
   );
