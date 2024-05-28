@@ -123,7 +123,6 @@ export default function Home() {
         <meta name="description" content="Website creation service for service businesses" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      // <Header_1 />
 
 
 
