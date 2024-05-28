@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from '../styles/index.module.css';
 import Image  from 'next/image';
 import React, { useState } from 'react';
-
+import Header_1 from 'Components/Headers/header_1';
 
 
 const FAQ = () => {
@@ -88,6 +88,33 @@ const FAQ = () => {
   );
 };
 
+
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    /**This code is templates for headers */
+    <header className={styles.header}>
+      <div className={styles.container_h}>
+        <div className={styles.logo}>
+        <Image src="/logo.png" layout='intrinsic' width={40} height={33} placeholder='blur' blurDataURL priority/>
+        </div>
+        <nav className={`${styles.nav} ${isOpen ? styles.navOpen : ''}`}>
+          <a href="/blog">Blog</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <div className={styles.hamburger} onClick={toggleMenu}>
+          <div>{isOpen ? 'X' : '='}</div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -96,12 +123,13 @@ export default function Home() {
         <meta name="description" content="Website creation service for service businesses" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      // <Header_1 />
 
-      <header className={styles.header}>
-     
-        <Image src="/logo.png" layout='intrinsic' width={40} height={33} placeholder='blur' blurDataURL priority/>
-        <p className={styles.logo}>Dosnine Media</p>
-      </header>
+
+
+      <Header/>
+
+
 
       <main className={styles.main}>
         <section className={styles.hero}>
