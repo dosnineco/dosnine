@@ -141,10 +141,10 @@ export default function Home() {
 
             </div>
           </div>
-          {/* <img src="/construction-site.jpg" alt="Construction site" /> */}
+          {/* <img src="/construction-site.jpg" alt="Construction site" /> 
           <div className={styles.heroImage_con} >
           <Image className={styles.heroImage}  src="/cta_bg.jpg" layout='intrinsic' width={1920} height={1280} placeholder='blur' blurDataURL priority/>
-          </div>
+          </div>*/}
         </section>
 
         <section className={styles.whyChooseUs}>
