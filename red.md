@@ -31,3 +31,22 @@
         </ol>
       ))}
     </div>
+
+
+
+      const [banks, setBanks] = useState([]);
+
+  useEffect(() => {
+    const fetchBanks = async () => {
+      try {
+        const response = await fetch('/api/loan');
+        const data = await response.json();
+        setBanks(data.loan.rows);
+        console.log(data.loan);
+      } catch (error) {
+        console.error("Error fetching banks:", error);
+      }
+    };
+
+    fetchBanks();
+  }, []);
