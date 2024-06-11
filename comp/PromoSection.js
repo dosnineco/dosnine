@@ -13,7 +13,8 @@ const PromoSection = () => {
         </div>
         </p>
      
-        <button className={styles.ctaButton}>⚡ Get ShipFast</button>
+        <button className={styles.ctaButton}><a href='https://7617327545561.gumroad.com/l/Servicelaunch' >Get Service launch</a></button>
+
         <p className={styles.discount}>$100 off for the first 3610 customers (13 left)</p>
    
       </div>
