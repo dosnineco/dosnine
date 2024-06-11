@@ -1,0 +1,47 @@
+.promoSection {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+
+  .highlight  {
+    display: inline-block; /* Make span behave like a block to enable transformation */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for the rotation */
+    background-color: var(--shade);
+    color: var(--bkg);
+    padding: 0 10px;
+    transform: rotate(-4deg);
+    margin-top:0.23em
+  }
+
+  
+  .description {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+  }
+  
+  .ctaButton {
+    background-color: var(--primary);
+    /* color: #fff; */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+.rating{
+    color:var(--primary);
+}
+
+.discount{
+    line-height: 1.625;
+    font-size: 1.1em;
+}

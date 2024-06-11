@@ -1,40 +1,21 @@
-.regular{
-    padding:0.5em  0.3em;
-    border-radius: 5px;
-    text-transform: capitalize;
-    color:var(--black);
-}
-.blue{
-    background-color: #fff;
-    color:#000;
-    padding:0.5em  1em;
-    border-radius: 1em;
-    text-transform: capitalize;
-    border: 3px solid transparent;
-    transition: all 100ms ease-in;
 
-
-}
-.pages{
+.lists{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
+    justify-content: center;
+    margin:auto 0;
 }
 
 
 .footer{
-    padding:2em;
-    background-color: var(--primary);
-    width: 100%;
-    height: 15em;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    margin:auto 0;
+    padding:2em;
+    width: 100%;
     text-align: left;
-    margin-top:5em;
-    border-radius: 1em;
+    margin:auto 0;
     
 }
 
@@ -48,9 +29,6 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: row;
-    border-top:1px solid #fff;
-    border-bottom:1px solid #fff;
-
     margin:1em 0;
 
 }
@@ -58,30 +36,51 @@
 .footer li{
     list-style-type: none;
     padding: 1em;
-    color:white;
-    font-weight: 600;
+    font-size: .875rem;
+
 
 }
 
 .footer li a{
-    color:white;
-    /* border-bottom: 1px solid var(--primary); */
+    color:var(--shade);
+}
+.footer li a:hover{
+    color:var(--primary);
+    transition: color .60s ease-in-out;
+}
+.footer li :hover{
+    color:var(--primary);
+}
+.madeby{
+    font-size: .875rem;
+    line-height: 1.25rem;
+    color:var(--shade);
 }
 
-.footer span{
-    font-size: 14px;
-    color:#fff;
+.footer div{
+    color:var(--shade);
+    font-size: .875rem;
     font-weight: 400;
     text-transform: capitalize;
 }
 
-.footer div{
-    color:#fff;
-    font-size: 23px;
-    font-weight: 600;
-    text-transform: capitalize;
+.footer h2{
+    color:var(--shade);
 }
 
-.footer h2{
-    color:#fff;
+@media screen and (max-width: 800px){
+    .footer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        
+    }
+
+    .footer h2{
+        color:var(--shade);
+        margin:1em 0;
+    }
 }

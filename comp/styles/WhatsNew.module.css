@@ -1,0 +1,36 @@
+.container {
+    padding: 1em 4em;
+    background-color: var(--primary);
+    border-radius: 8px;
+    text-align: center;
+    color: var(--bkg);
+
+  }
+  
+  .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    color: var(--bkg);
+    margin-bottom: 20px;
+    line-height: 1.625;
+    max-width: 36rem;
+    font-weight: 400;
+    padding: 1em;
+    font-size: .875rem;
+  }
+  
+  .button {
+    background-color: var(--bkg);
+    color:var(--shade);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  

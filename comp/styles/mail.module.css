@@ -7,14 +7,13 @@
     border-top: 2px solid rgb(220, 219, 219);
     padding: 3em 1em;
     background-color: var(--gray);
-    color:white;
+   
 
 
 }
 
 .main h2{
     font-size: 2em;
-    color: var(--heading-color-light);
 }
 
 .form{
@@ -30,7 +29,6 @@
 .form label{
     display: block;
     margin: 14px 0 4px;
-    color: var(--dark);
 }
 
 .form input{
@@ -44,7 +42,6 @@
     transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, -webkit-box-shadow 200ms ease;
     border-radius: 8px;
     outline: none;
-    background-color: #f3f3f4;
     color: var(--dark);
 }
 
@@ -59,7 +56,6 @@
     transition: background-color 200ms ease, outline 200ms ease, color 200ms ease, -webkit-box-shadow 200ms ease;
     border-radius: 8px;
     outline: none;
-    background-color: #f3f3f4;
     color: var(--dark);
 }
 

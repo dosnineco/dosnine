@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import css from '@/comp/styles/contact.module.css'
+import css from './styles/mail.module.css'
 
 
 export default ({title}) => {
@@ -62,7 +62,7 @@ export default ({title}) => {
   };
   return (
     <main className={css.main}>
-
+    <h2> </h2>
       <form  className={css.form} onSubmit={handleOnSubmit}>
         <label htmlFor="email">Email</label>
         <input
