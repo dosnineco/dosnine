@@ -3,9 +3,9 @@
 
 
 :root{
-  --bkg: #ffffff ;
-  --primary:#0ECD69;
-  --shade:#000000;
+  --bkg: #fff	 ;
+  --primary:#FFC300;
+  --shade:#293238;
   --heading:5em;
   --heading-color:#293238;
   --heading-color-light:#222223;

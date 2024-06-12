@@ -5,7 +5,8 @@ import Services from 'comp/Services';
 import PromoSection from 'comp/PromoSection';
 import Faq from 'comp/Faq';
 import WhatsNew from 'comp/WhatsNew';
-
+import Appointment from 'comp/Appointment';
+import { getSession } from 'next-auth/react';
 
 const servicesData = [
   { title: "Brand Strategy Consultation", description: "Tailored sessions to define your brand’s message and identity..." },
@@ -61,9 +62,19 @@ export default function RetrieveBanks() {
       <PromoSection/>
       <Services title="Join creators on the fast track to success" services={servicesData} />
       <WhatsNew />
+      <Appointment/>
       <Faq faq={faqs}/>
       <Footer/>
     </>
   
   );
+}
+
+
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  return {
+    props: { session },
+  };
 }
