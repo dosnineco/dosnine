@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.rentawhipja.com
+
+# Sitemaps
+Sitemap: https://www.rentawhipja.com/sitemap.xml
+Sitemap: https://www.rentawhipja.com/server-sitemap.xml
