@@ -10,7 +10,29 @@
   --heading-color:#293238;
   --heading-color-light:#222223;
 }
+
+.theme-red {
+  --bkg: #fff	 ;
+  --primary:red;
+  --shade:#293238;
+
+  }
+
+.theme-gray-light{
+  --bkg: #EEF7FF	 ;
+  --primary:#7AB2B2;
+  --shade:#293238;
+}
+
+.theme-gray-peach{
+  --bkg: #FFF5E1	 ;
+  --primary:#FF6969 ;
+  --shade:#0C1844;
+
+}
+
 ::selection{
+  
   color: var(--bkg);
   background: var(--primary);
 
@@ -22,6 +44,7 @@ body {
   margin: 0;
   background-color:var(--bkg) ;
   overflow-x: hidden;
+  
   font-family: "Montserrat", sans-serif;
   color:var(--shade);
 }

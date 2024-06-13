@@ -1,40 +1,26 @@
 import Head from 'next/head';
 import React from 'react';
 
-const Meta = ({title,des,url,img,pub,mod}) => {
+const Seo = ({siteTitle,pageTitle,description,url}) => {
     return (
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
-          <title>{`${title}`}</title>
-          <meta name="Description" content={`${des}`}/>
-          <meta property="og:title" content={`${title}`} />
+          <title>{`${pageTitle}`}</title>
+          <meta name="Description" content={`${description}}`}/>
+          <meta property="og:title" content={`${pageTitle}`} />
           <meta property="og:type" content='article' />
           <meta property="og:url" content={`${url}`} />
-          <meta property="og:image" content={`${img}`} />
-          <meta property="og:description" content={`${des}`} />
+          <meta property="og:description" content={`${description}}`} />
           <meta property="og:determiner" content="the" />
           <meta property="og:locale" content="en" />
-          <meta property="og:site_name" content="rentawhip" />
-          <meta property="article:publisher" content="https://www.rentawhipja.com" />
-          <meta property="datePublished" content={`${pub}`}/>
-          <meta property="author" content="rentawhip"/>
-          <meta property="article:author" content="rentawhipja.com"/>
-          <meta property="article:published_time" content={`${pub}`}/>
-          <meta property="article:modified_time" content={`${mod}`}/>
-   
-
+          <meta property="og:site_name" content={`${siteTitle}`} />
+          <meta property="article:publisher" content={`www.${siteTitle}.com`} />
+          <meta property="author"content={`${siteTitle}`}/>
           <link rel="canonical" href={`${url}`}/>
-          <meta property="og:image:height" content="1920"/>
-          <meta property="og:image:width" content="1080"/>
-          <meta name="twitter:card" content="summary_large_image"/>
+         
           <meta name="twitter:url" content={`${url}`}/>
-          <meta name="twitter:title" content={`${title}`}/>
-          <meta name="twitter:description"  content={`${des}`}/>
-          <meta name="twitter:image"content={`${img}`}/>
-          <meta name="twitter:site" content="https://www.rentawhipja.com"/>
-          <meta name="keywords" 
-              content=""/>
-        {/* pinterest */}
+          <meta name="twitter:title" content={`${pageTitle}`}/>
+          <meta name="twitter:description"  content={`${description}`}/>
         <link rel="manifest" href="/site.webmanifest"/>
         <link href="/favicon.ico" rel="shortcut icon" />
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png"/>
@@ -60,4 +46,4 @@ const Meta = ({title,des,url,img,pub,mod}) => {
     )
 }
 
-export default Meta;
+export default Seo;

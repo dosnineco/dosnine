@@ -1,9 +1,14 @@
 .container {
-    padding: 1em 4em;
     background-color: var(--primary);
-    border-radius: 8px;
     text-align: center;
     color: var(--bkg);
+    width:100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
 
   }
   
@@ -49,4 +54,21 @@
     margin-bottom: 20px;
     font-weight: 700;
 
+  }
+
+  @media screen and (max-width: 800px){
+
+    .container {
+      background-color: var(--primary);
+      text-align: center;
+      color: var(--bkg);
+      width:100%;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+  
+    }
   }

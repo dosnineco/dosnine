@@ -5,9 +5,7 @@ const Services = ({ title, services }) => {
   return (
     <section className={styles.services}>
       <h2>{title}</h2>
-
-
-
+        
     </section>
   );
 };

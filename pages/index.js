@@ -1,12 +1,11 @@
-import { useEffect, useState } from 'react';
 import Header from 'comp/Header';
 import Footer from 'comp/Footer';
 import Services from 'comp/Services';
 import PromoSection from 'comp/PromoSection';
 import Faq from 'comp/Faq';
 import WhatsNew from 'comp/WhatsNew';
-import Appointment from 'comp/Appointment';
-import { getSession } from 'next-auth/react';
+import HowItWorks from 'comp/Howitworks';
+import Seo from 'comp/Seo';
 
 const servicesData = [
   { title: "Brand Strategy Consultation", description: "Tailored sessions to define your brand’s message and identity..." },
@@ -58,23 +57,14 @@ export default function RetrieveBanks() {
 
   return (
     <>
+      <Seo siteTitle='dosnine' pageTitle='Dosnine Media' description='' url='www.dosnine.com'/>
       <Header/>
       <PromoSection/>
-      <Services title="Join creators on the fast track to success" services={servicesData} />
+      <HowItWorks/>
       <WhatsNew />
-      <Appointment/>
       <Faq faq={faqs}/>
       <Footer/>
     </>
   
   );
-}
-
-
-
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
-  return {
-    props: { session },
-  };
 }

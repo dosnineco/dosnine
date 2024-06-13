@@ -1,50 +1,26 @@
 .services {
-    padding: 60px 20px;
-    /* text-align: center; */
+    text-align: center;
+    width:1200px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100px;
+    margin: 2em 0;
+   
   }
   
   .services h2 {
     font-size: 2.5em;
-    /* margin-bottom: 40px; */
   }
   
-  .servicesGrid {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px; */
-  }
-  
-  .serviceItem {
-    /* padding: 20px; */
-    border-radius: 10px;
-    transition: transform 0.3s;
-    list-style-type: none;
-  }
-  
-  .serviceItem h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-  
-  .serviceItem p {
-    font-size: 1em;
-  }
-  
-  .serviceItem:hover {
-    transform: translateY(-10px);
-  }
-  
+
   @media (max-width: 768px) {
-    .services h2 {
-      font-size: 2em;
+    .services {
+      width:100%;
+
+     
     }
-  
-    .serviceItem h3 {
-      font-size: 1.2em;
-    }
-  
-    .serviceItem p {
-      font-size: 0.9em;
-    }
+    
   }
   

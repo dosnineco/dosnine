@@ -1,5 +1,11 @@
 .promoSection {
-    padding: 60px 20px;
+  font-size: 80%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
     text-align: center;
   }
   
@@ -23,6 +29,8 @@
   .description {
     font-size: 1.2em;
     margin-bottom: 40px;
+    padding:1.5em;
+    
   }
   
   .ctaButton {
@@ -54,4 +62,18 @@
 .discount{
     line-height: 1.625;
     font-size: 1.1em;
+}
+
+@media screen and (max-width: 800px){
+  .promoSection {
+    padding:1em;
+    font-size: 80%;
+    width:100%;
+  }
+
+  .content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
 }

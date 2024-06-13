@@ -5,17 +5,16 @@ const PromoSection = () => {
   return (
     <section className={styles.promoSection}>
       <div className={styles.content}>
-        <h1>Ship your startup in days, <br/><span className={styles.highlight}>not weeks</span></h1>
+        <h1>Ship your Services Online in 2 days, <br/><span className={styles.highlight}>not headaches</span></h1>
         <p className={styles.description}>
-          The NextJS boilerplate with all you need to build your SaaS, AI tool, or any other web app and make your first $ online fast.
-          <div className={styles.rating}>
-          ★★★★★ 3597 makers ship faster
+          Our NextJS boilerplate made only for businesses that offer services. <br/> 
+          Our site is for <strong>$129USD = $19974JMD</strong> for a boilerplate Website.   
+          <div className={styles.rating}>Rated:  ★★★★★
         </div>
         </p>
      
         <button className={styles.ctaButton}><a href='https://7617327545561.gumroad.com/l/Servicelaunch' >Get Service launch</a></button>
 
-        <p className={styles.discount}>$100 off for the first 3610 customers (13 left)</p>
    
       </div>
     </section>

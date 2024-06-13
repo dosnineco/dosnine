@@ -54,7 +54,7 @@ class MyDocument extends Document {
           />
                     
         </Head>     
-        <body>
+        <body className='theme-gray-peach'>
           
           <Main />
           <NextScript />
