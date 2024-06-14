@@ -31,7 +31,7 @@ const HowItWorks = () => {
         <h3>Book a appointment </h3>
         <p>Once step 1 to 2 is ok, on call we will collect info on your business to tailor the boilerplate to your business and Publish to your domain. </p>
 
-        <a href='https://wa.me/message/5LXYP7EBAUHMD1'  className={styles.howItWorksButton}>Book here</a>
+        <a href='#contact'  className={styles.howItWorksButton}>Book here</a>
       </div>
     </div>
     <div className={styles.step}>

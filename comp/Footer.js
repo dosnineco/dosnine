@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <>
         <footer  className={css.footer}>
-            <h2 className={css.h2}>Service website Experts</h2>
+            <h2 className={css.h2}>Dosnine™ Media - Service website Experts</h2>
             <ul className={css.lists} >
                 <li><Link href='/' passHref><a className={css.regular}>	About</a></Link></li>
                 <li><Link href='/privacy-policy' passHref><a className={css.regular}>	Privacy Policy</a></Link></li>

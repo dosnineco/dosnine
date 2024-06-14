@@ -29,6 +29,7 @@ function ContactForm() {
         Message
       </label>
       <textarea
+      placeholder='Your Name and Phone Number'
         id="message"
         name="message"
         className={styles.textarea}

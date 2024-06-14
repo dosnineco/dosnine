@@ -16,11 +16,11 @@ const servicesData = [
 ];
 
 const faqs = [
-  { question:'What is the cost of your website creation service?', answer:'Cost for any one of or sites are $150. Or pay ONLY for the Domain name and get the site for free but you have to do a video testimonial.'
+  { question:'What is the cost of your website creation service?', answer:'Cost for a boilerplate is $79USD. Or pay ONLY 50% but you have to do a video testimonial for us.'
   },
 
   {
-    question:'Are there any hidden fees or additional charges?', answer:'No addition fees, all domains name are renewed every 2 years.'
+    question:'Are there any hidden fees or additional charges?', answer:'No addition fees, all domains name are renewed every 2 years. which you have to pay for.'
   },
 
   {
@@ -30,7 +30,7 @@ const faqs = [
     question: "How long does it take to create and launch the website?", answer: "All our sites are deployed in 1 - 2 business day."
   },
   {
-    question:'What kind of support do you offer after the website is live?',  answer:'We maintain all sites for free.'
+    question:'What kind of support do you offer after the website is live?',  answer:'We maintain all sites, extra maintance is for $6USD yearly.'
   },
   {
     question:'Can I update the content on my website myself?',    answer:'No, changes are done by our team. Just state what you need.'
@@ -39,18 +39,12 @@ const faqs = [
     question:'Do you provide domain registration and hosting services? ',  answer:'No, this is external to us.'
   },
   {
-    question:'How customizable are the templates?', answer:'We can change the template to your desired outcome.'
+    question:'How customizable are the templates?', answer:'The boilerplate is as is. You can only add your business info and change theme..'
   },
   {
     question:'Will my website be mobile-friendly?',  answer:'All sites are made for all devices by default.'
   },
-  {
-    question: "what are you going to do differently that I can’t get for free?",  answer: "As a software engineer, I code all my sites from scratch. You won't incur monthly or yearly fees like those other codeless sites. We also maintain your site at no additional cost. So focus on you business and reduce friction."
-  },
 
-  {
-    question: "What is included in the simple site?",  answer: "Options include a custom-built website tailored to your needs, a landing page for your business,  SEO optimization, responsive design, and ongoing support and maintenance. We do all the work for you."
-  }
 ];
 
 
