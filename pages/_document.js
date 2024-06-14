@@ -23,36 +23,7 @@ class MyDocument extends Document {
             `,
             }}
           />
-                    <link
-            rel="prefetch"
-            href='/font/OpenSans/OpenSans-ExtraBold.ttf'
-            as='font'
-            crossOrigin="anonymous"
-            type="font/ttf"
-          />
-
-            <link
-            rel="prefetch"
-            href='/font/Roboto/Roboto-Regular.ttf'
-            as='font'
-            crossOrigin="anonymous"
-            type="font/ttf"
-          />
-          <link
-            rel="prefetch"
-            href='/font/Roboto/Roboto-Bold.ttf'
-            as='font'
-            crossOrigin="anonymous"
-            type="font/ttf"
-          />
-          <link
-            rel="prefetch"
-            href='/font/Roboto/Roboto-Medium.ttf'
-            as='font'
-            crossOrigin="anonymous"
-            type="font/ttf"
-          />
-                    
+    
         </Head>     
         <body className='theme-gray-peach'>
           

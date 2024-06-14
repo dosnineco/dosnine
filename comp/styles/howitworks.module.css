@@ -2,12 +2,11 @@
 /* Styles for How AI Writer Works Section */
 .howItWorks {
     width: 100%;
-    padding: 40px 20px;
-    /* background-color: #fff; */
-  
+    padding: 100px 0;
+  background-color: var(--shade);
     text-align: left;
     transition: background-color 0.3s, padding 0.3s;
-  
+  color:var(--bkg);
   }
   
   .worksTitle {

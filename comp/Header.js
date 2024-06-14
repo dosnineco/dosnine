@@ -19,16 +19,26 @@ const Header =()=>{
 			<a href="/">Dosnine Media</a>
 		  </div>
 		  <nav className={`${styles.nav} ${isOpen ? styles.navOpen : ''}`}>
-			<a href="/blog">Services</a>
-			<a href="#contact">Contact Us</a>
+			<div className={styles.nav_wrapper}>
+				<a href="/blog">Services</a>
+				<a href="#contact">Contact Us</a>
+	
+			</div>
 		  </nav>
 		  <div className={styles.hamburger_} onClick={toggleMenu}>
-			<div>{isOpen ? 'X' :  
-			    <div className={styles.hamburger}>
+			<div>{isOpen ? 
+				<div className={styles.close_icon}>
 				<div className={styles.bar1}></div>
 				<div className={styles.bar2}></div>
-				<div className={styles.bar3}></div>
-   			 </div>
+		
+				</div>
+				
+				:  
+			    <div className={styles.hamburger}>
+					<div className={styles.bar1}></div>
+					<div className={styles.bar2}></div>
+					<div className={styles.bar3}></div>
+   			 	</div>
 			    }</div>
 		  </div>
 		</div>

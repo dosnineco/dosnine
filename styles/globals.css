@@ -6,7 +6,7 @@
   --bkg: #fff	 ;
   --primary:#FFC300;
   --shade:#293238;
-  --heading:5em;
+  --heading:5rem;
   --heading-color:#293238;
   --heading-color-light:#222223;
 }
@@ -16,7 +16,7 @@
   --primary:red;
   --shade:#293238;
 
-  }
+}
 
 .theme-gray-light{
   --bkg: #EEF7FF	 ;
@@ -28,14 +28,17 @@
   --bkg: #FFF5E1	 ;
   --primary:#FF6969 ;
   --shade:#0C1844;
+}
 
+.theme-yellow-deep{
+  --bkg: #fff	 ;
+  --primary:#ffb703 ;
+  --shade:#023047;
 }
 
 ::selection{
-  
   color: var(--bkg);
   background: var(--primary);
-
 }
 
 html,
@@ -90,6 +93,11 @@ p{
 }
 
 
+@media (max-width: 768px) {
+  h1{
+  font-size: 3rem;
+  }
+}
 
 
 

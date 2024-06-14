@@ -5,10 +5,13 @@
   left: 0;
   z-index: 14;
   width: 100%;
-  display: block;
   height: 80px;
-    background-color: #0a152f;
+    background-color: var(--shade);
     padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
 
 
   }
@@ -18,6 +21,8 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    width: 100%;
+
   }
 
   .container{
@@ -34,29 +39,34 @@
   }
   .nav {
     display: flex;
-    gap: 1rem;
+    flex-direction: row;
+    background-color: var(--shade);
+    align-items: center;
+    justify-content: space-between;
+
   }
 
   
   .logo a {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
     text-decoration: none;
+    color:white
   }
-  
-  
-  
+
   .nav a {
-    color: white;
+    color: var(--primary);
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
+    padding: 13px 1em;
+
   }
   
-  .nav a:hover {
-    color: #219653;
-  }
+  
+  
+ 
+
   
   .hamburger {
     display: none;
@@ -95,7 +105,7 @@
 
   .hamburger_ {
     cursor: pointer;
-    display: inline-block;
+    display: none;
 }
 
 .bar1, .bar2, .bar3 {
@@ -107,25 +117,87 @@
     border-radius: 1px;
 }
 
-  /* Responsive styles */
+/* close icon */
+
+.close_icon {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 35px;
+  height: 35px;
+}
+
+.close_icon .bar1, .close_icon .bar2 {
+  position: absolute;
+  width: 35px;
+  height: 5px;
+  background-color: var(--primary);
+  margin: 6px 0;
+  transition: 0.4s;
+  border-radius: 1px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.close_icon .bar1 {
+  transform: rotate(45deg);
+}
+
+.close_icon .bar2 {
+  transform: rotate(-45deg);
+}
+
+.nav_wrapper{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+/* Responsive styles */
   @media (max-width: 768px) {
     .nav {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 4rem;
-      right: 0;
+      z-index: 1000;
       width: 100%;
       text-align: center;
       padding: 1rem;
+      position: absolute;
+      left: 0;
+      top:80px;
+      right: 0;
+      height: fit-content;
+      padding: 1.2em;
+      padding: 0 20px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
     }
   
     .navOpen {
       display: flex;
+      align-items: center;
+      justify-content: center;
     }
   
     .hamburger {
       display: block;
     }
+    .hamburger_ {
+      cursor: pointer;
+      display: inline-block;
+  }
+
+  .nav_wrapper{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
   }
   

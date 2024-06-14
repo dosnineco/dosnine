@@ -8,7 +8,7 @@ function ContactForm() {
       return <p className={styles.successMessage}>Thanks for joining!</p>;
   }
   return (
-    <form onSubmit={handleSubmit} className={styles.formContainer}>
+    <form id= 'contact' onSubmit={handleSubmit} className={styles.formContainer}>
     <h2 className={styles.h2}>Create, customize, and launch effortlessly.</h2>
 
       <label htmlFor="email" className={styles.label}>
