@@ -3,7 +3,7 @@ import axios from 'axios';
 import css from './styles/mail.module.css'
 
 
-export default ({title}) => {
+export default  ({title}) => {
   const [status, setStatus] = useState({
     submitted: false,
     submitting: false,
@@ -47,7 +47,7 @@ export default ({title}) => {
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
     axios({
       method: 'POST',
-      url: 'https://formspree.io/f/moqbvjql',
+      url: 'https://formspree.io/f/xgeggljb',
       data: inputs,
     })
       .then((response) => {
@@ -89,12 +89,12 @@ export default ({title}) => {
             : 'Submitting...'}
         </button>
 
-
+/** 
         <span  className={css.phone}>
         <a href="tel:876-208-5353">876 208-5353</a>
         </span>
 
-
+*/
       </form>
       {status.info.error && (
         <div className="error">Error: {status.info.msg}</div>

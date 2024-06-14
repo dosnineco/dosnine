@@ -1,24 +1,41 @@
 
-.container{
-    width: 100%;
-    padding:1em 3em;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-width:1200px;
-background-color: var(--shade);
-
-}
-
-
 .header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    font-weight: 600;
-    z-index: 1000;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 14;
+  width: 100%;
+  display: block;
+  height: 80px;
+    background-color: #0a152f;
+    padding: 0 20px;
+
+
   }
   
+  .header_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .container{
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    padding:1em;
+    text-align: center;
+
+  
+  }
+  .nav {
+    display: flex;
+    gap: 1rem;
+  }
 
   
   .logo a {
@@ -28,10 +45,7 @@ background-color: var(--shade);
     text-decoration: none;
   }
   
-  .nav {
-    display: flex;
-    gap: 1rem;
-  }
+  
   
   .nav a {
     color: white;
@@ -78,6 +92,21 @@ background-color: var(--shade);
     animation: slideOut 0.3s forwards;
   }
   
+
+  .hamburger_ {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: var(--primary);
+    margin: 6px 0;
+    transition: 0.4s;
+    border-radius: 1px;
+}
+
   /* Responsive styles */
   @media (max-width: 768px) {
     .nav {

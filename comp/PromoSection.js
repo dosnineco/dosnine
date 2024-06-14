@@ -8,7 +8,7 @@ const PromoSection = () => {
         <h1>Ship your Services Online in 2 days, <br/><span className={styles.highlight}>not headaches</span></h1>
         <p className={styles.description}>
           Our NextJS boilerplate made only for businesses that offer services. <br/> 
-          Our site is for <strong>$129USD = $19974JMD</strong> for a boilerplate Website.   
+          Our site is for <strong>$79USD</strong> for a boilerplate Website.   
           <div className={styles.rating}>Rated:  ★★★★★
         </div>
         </p>

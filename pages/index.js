@@ -6,6 +6,7 @@ import Faq from 'comp/Faq';
 import WhatsNew from 'comp/WhatsNew';
 import HowItWorks from 'comp/Howitworks';
 import Seo from 'comp/Seo';
+import ContactForm from 'comp/ContactForm';
 
 const servicesData = [
   { title: "Brand Strategy Consultation", description: "Tailored sessions to define your brand’s message and identity..." },
@@ -63,6 +64,7 @@ export default function RetrieveBanks() {
       <HowItWorks/>
       <WhatsNew />
       <Faq faq={faqs}/>
+      <ContactForm/>
       <Footer/>
     </>
   
