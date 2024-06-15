@@ -1,0 +1,40 @@
+import React, { useState } from 'react';
+import styles from './styles/ImagePopup.module.css';
+
+const ImagePopup = ({ src, alt }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <div>
+      <div className={styles.imageContainer}>
+        <img
+          src={src}
+          alt={alt}
+          width={1920}
+          height={1080}
+          className={styles.image}
+          onClick={openModal}
+        />
+      </div>
+
+      {isOpen && (
+        <div className={styles.modal} onClick={closeModal}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={closeModal}>&times;</button>
+            <img src={src} alt={alt} className={styles.modalImage} />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ImagePopup;

@@ -55,7 +55,7 @@
   }
 
   .nav a {
-    color: var(--primary);
+    color: var(--bkg);
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;

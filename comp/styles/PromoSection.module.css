@@ -24,6 +24,21 @@
     margin-top:0.23em
   }
 
+  .strikeThroughRed {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .strikeThroughRed::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4px; /* Adjust the height of the line */
+    background-color: red; /* Color of the line */
+    top: 50%; /* Position the line in the middle of the text */
+    transform: translateY(-50%);
+  }
   
   .description {
     font-size: 1.2em;
@@ -50,7 +65,7 @@
     width:100%;
     height: 100%;
     text-decoration: none;
-    color:var(--shade);
+    color:var(--bkg);
 
   }
 
