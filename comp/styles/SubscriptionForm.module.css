@@ -1,0 +1,76 @@
+/* components/SubscriptionForm.module.css */
+.subscriptionForm {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .pricePerImage {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .price {
+    font-size: 32px;
+    font-weight: bold;
+    color: #0070f3;
+  }
+  
+  .plans {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .plan input {
+    margin-right: 10px;
+  }
+  
+  .planPrice, .pricePerImage {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .paymentCycle {
+    margin-bottom: 20px;
+  }
+  
+  .saveText {
+    color: #ff0000;
+    font-weight: bold;
+  }
+  
+  .subscribeButton {
+    background-color: #0070f3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .subscribeButton:hover {
+    background-color: #005bb5;
+  }
+  
+  .priceInfo {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+  }
+  

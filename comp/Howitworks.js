@@ -15,29 +15,34 @@ const HowItWorks = () => {
       <span className={styles.stepNumber}>1</span>
       <div className={styles.stepText}>
         <h3>You have to be a service business that does not sell products online.</h3>
-        <p>Online stores are time consuming to implement, which would make our websites more expensive to develop.</p>
-        {/* <a href="#" className={styles.getStarted}>Get Started →</a> */}
+        <p>Take a look at this site. Yes! It was made with the template. Do you like it? </p>
       </div>
     </div>
     <div className={styles.step}>
       <span className={styles.stepNumber}>2</span>
       <div className={styles.stepText}>
-        <h3>Deside if your service business needs a website.</h3>
+        <h3>Are you all set on getting the template? </h3>
+        <p>Contact me through my contact form. I will then contact you via one of the medium you provided to get your business info to add to your website. </p>
+        <a href='#contact'  className={styles.howItWorksButton}>Book here</a> 
+
       </div>
     </div>
     <div className={styles.step}>
       <span className={styles.stepNumber}>3</span>
       <div className={styles.stepText}>
-        <h3>Book a appointment </h3>
-        <p>Once step 1 to 2 is ok, on call we will collect info on your business to tailor the boilerplate to your business and Publish to your domain. </p>
+        <h3>Make your payment for your template. </h3>
+        <p>Once payment is made, you have the option to make us pay for your domain name. Or if you would like to buy the domain and configure your DNS to connect to your template.
 
-        <a href='#contact'  className={styles.howItWorksButton}>Book here</a>
+        </p>
+
       </div>
     </div>
     <div className={styles.step}>
       <span className={styles.stepNumber}>4</span>
       <div className={styles.stepText}>
         <h3>Your Website Is now live! </h3>
+        <p></p>
+
       </div>
     </div>
   </div>

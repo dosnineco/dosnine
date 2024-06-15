@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/PromoSection.module.css';
-
+import ImagePopup from './ImagePopup';
 
 const PromoSection = () => {
   return (
@@ -11,8 +11,9 @@ const PromoSection = () => {
           Our NextJS boilerplate made only for business that offer services. <br/> 
           Why get a website
           Our boilerplate is for <strong>$79USD</strong> for a boilerplate Website.    
-  
         </p>
+        <ImagePopup src="./themes.png" alt="themes" />
+
         <button className={styles.ctaButton}><a href='https://7617327545561.gumroad.com/l/yrccb' >Buy Template</a></button>
 
    

@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './styles/services.module.css';
-// see red.md
+import SubscriptionForm from './SubscriptionForm';
+
 const Services = ({ title, services }) => {
   return (
     <section className={styles.services}>
       <h2>{title}</h2>
-        
+        <SubscriptionForm/>
     </section>
   );
 };

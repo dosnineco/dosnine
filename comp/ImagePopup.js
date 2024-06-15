@@ -13,8 +13,8 @@ const ImagePopup = ({ src, alt }) => {
   };
 
   return (
-    <div>
-      <div className={styles.imageContainer}>
+    <div className={styles.imageContainer}>
+      <div className={styles.imagewrapper}>
         <img
           src={src}
           alt={alt}
