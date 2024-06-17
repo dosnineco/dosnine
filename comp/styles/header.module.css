@@ -41,10 +41,10 @@
   .nav {
     display: flex;
     flex-direction: row;
-    background-color: var(--shade);
     align-items: center;
     justify-content: space-between;
-
+    z-index: 1000;
+    background-color: var(--shade);
   }
 
   
@@ -97,12 +97,13 @@
   
   .navOpen {
     animation: slideIn 0.3s forwards;
+    z-index: 1000;
     background-color: var(--shade);
-
   }
   
   .navClosed {
     animation: slideOut 0.3s forwards;
+    z-index: 1000;
     background-color: var(--shade);
 
   }
@@ -182,15 +183,16 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-
+      z-index: 1000;
+      background-color: var(--shade);
     }
   
     .navOpen {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--shade);
-    }
+      z-index: 1000;
+      background-color: var(--shade);    }
   
     .hamburger {
       display: block;
