@@ -9,7 +9,7 @@ class MyDocument extends Document {
           <Head>
           <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=G-M2GFWEF7NY`}
+            src={`https://www.googletagmanager.com/gtag/js?id=G-NGV3PXNNH5`}
           />           
           <script
             dangerouslySetInnerHTML={{
