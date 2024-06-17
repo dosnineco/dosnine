@@ -176,7 +176,7 @@
       left: 0;
       top:80px;
       right: 0;
-      height: fit-content;
+      height: 100px;
       padding: 1.2em;
       padding: 0 20px;
       display: none;
@@ -192,7 +192,10 @@
       align-items: center;
       justify-content: center;
       z-index: 1000;
-      background-color: var(--shade);    }
+      background-color: var(--shade);
+      height: 100px;
+
+    }
   
     .hamburger {
       display: block;
@@ -211,6 +214,8 @@
     height: 100%;
     background-color: var(--shade);
     z-index: 1000;
+    height: 100px;
+
   }
   }
   
