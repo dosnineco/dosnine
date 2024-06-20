@@ -3,8 +3,8 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.rentawhipja.com
+Host: https://www.dosnine.com
 
 # Sitemaps
-Sitemap: https://www.rentawhipja.com/sitemap.xml
-Sitemap: https://www.rentawhipja.com/server-sitemap.xml
+Sitemap: https://www.dosnine.com/sitemap.xml
+Sitemap: https://www.dosnine.com/server-sitemap.xml
