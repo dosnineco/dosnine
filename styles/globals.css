@@ -142,6 +142,12 @@
   --shade: #212529;
 }
 
+/* Dosnine brand Theme */
+.theme-brand-theme {
+  --bkg: #fff;
+  --primary: #71E0A8;
+  --shade: #131417;
+}
 
 ::selection{
   color: var(--bkg);

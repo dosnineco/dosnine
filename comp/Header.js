@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from './styles/header.module.css'
+import ImagePopup from './ImagePopup';
 
 
 
@@ -16,7 +17,8 @@ const Header =()=>{
 	  <section className={styles.header_wrapper}>
 		<div className={styles.container}>
 		  <div className={styles.logo}>
-			<a href="/">Dosnine Media</a>
+		  <ImagePopup src="./logo.png" alt="themes" width={54} height={54} />
+		  {/* <a href="/">Dosnine Media</a> */}
 		  </div>
 		  <nav className={`${styles.nav} ${isOpen ? styles.navOpen : ''}`}>
 			<div className={styles.nav_wrapper}>

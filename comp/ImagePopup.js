@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './styles/ImagePopup.module.css';
 
-const ImagePopup = ({ src, alt }) => {
+const ImagePopup = ({ src, alt,width,height }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -18,8 +18,8 @@ const ImagePopup = ({ src, alt }) => {
         <img
           src={src}
           alt={alt}
-          width={1920}
-          height={1080}
+          width={width}
+          height={height}
           className={styles.image}
           onClick={openModal}
         />
