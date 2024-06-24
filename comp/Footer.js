@@ -10,7 +10,7 @@ const Footer = () => {
             <ul className={css.lists} >
                 <li><Link href='/' passHref><a className={css.regular}>	About</a></Link></li>
                 <li><Link href='/privacy-policy' passHref><a className={css.regular}>	Privacy Policy</a></Link></li>
-                <li><GlitterButton text={`WIN $100 EASY`}/></li>
+                {/* <li><GlitterButton text={`WIN $100 EASY`}/></li> */}
                 <li><Link href='#contact' passHref><a className={css.regular}>	Contact</a></Link></li>
 
 			</ul>

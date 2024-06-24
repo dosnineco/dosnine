@@ -7,7 +7,7 @@ import WhatsNew from 'comp/WhatsNew';
 import HowItWorks from 'comp/Howitworks';
 import Seo from 'comp/Seo';
 import ContactForm from 'comp/ContactForm';
-
+import FeaturedItems from 'comp/FeaturedItems';
 
 
 export default function RetrieveBanks() {
@@ -19,6 +19,7 @@ export default function RetrieveBanks() {
       <HowItWorks/>
       {/* <WhatsNew /> */}
       {/* <Services /> */}
+      {/* <FeaturedItems/> */}
       <Faq />
       <ContactForm/>
       <Footer/>
