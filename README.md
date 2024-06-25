@@ -1,24 +1,14 @@
-import Meta from 'seo/meta';
-
-<Meta 
-title ='Bests Picks - Tahjay Thompson'
-des='The best designed gadgets to buy with the greatest deals there is.'
-url='https://www.tahjaythompson.com/'
-img=''
-pub='2022-06-11T22:09:00Z'
-mod=''
-/> 
-
-<!-- For SEO -->
+     <Seo siteTitle='Dosnine' pageTitle={`Service Delivery Industry #1 Website Template - Dosnine Media`} description='Get Your Website Up In A Day!,Not In Weeks!' url='www.dosnine.com'/>
 
 
-styles/index.module.css
-```
-![alt](url) 
-```
-<!-- for image -->
+      <Header/>
 
-
-
-https://www.greencleanmaine.com/
-https://www.zippia.com/cleaner-jobs/best-states/
+      
+      <PromoSection/>
+      <HowItWorks/>
+      {/* <WhatsNew /> */}
+      {/* <Services /> */}
+      <FeaturedItems/>
+      <Faq />
+      <ContactForm/>
+      <Footer/>

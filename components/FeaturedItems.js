@@ -2,18 +2,18 @@
 import styles from './styles/FeaturedItems.module.css'
 
 const featuredItems = [
-    "Hot Tub Removal",
-    "Sofa Removal",
-    "Storage Unit Cleanout",
-    "Dryer Removal",
-    "Garage Cleanout",
+    "Website Template",
+    "Analytics",
+    "Contact Form",
+    "Search Engine Optimization",
+    "Deployment And Configuration",
     "And More..."
   ];
   
   const FeaturedItems = () => {
     return (
       <div className={styles.featured_items_container}>
-        <h2>Featured Items We Remove:</h2>
+        <h2>Features By default:</h2>
         <div className={styles.featured_items_list}>
           {featuredItems.map((item, index) => (
             <div className={styles.featured_item} key={index}>

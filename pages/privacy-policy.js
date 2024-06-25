@@ -3,8 +3,8 @@ import Head from 'next/head';
 const PrivacyPolicy = () => (
   <div>
     <Head>
-      <title>Privacy Policy - The Goat Notebook</title>
-      <meta name="description" content="Privacy Policy for The Goat Notebook" />
+      <title>Privacy Policy</title>
+      <meta name="description" content="Privacy Policy " />
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
