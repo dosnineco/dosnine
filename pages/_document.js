@@ -25,7 +25,7 @@ class MyDocument extends Document {
           />
     
         </Head>     
-        <body className='theme-brand-theme'>
+        <body className='Default'>
           
           <Main />
           <NextScript />
