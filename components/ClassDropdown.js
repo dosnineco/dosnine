@@ -13,7 +13,7 @@ const ClassDropdown = ({ classNames, onSelect }) => {
   return (
     <div className={styles.dropdownContainer}>
       <select className={styles.dropdown} value={selectedClass} onChange={handleChange}>
-        <option value="">Preview Theme Colors</option>
+        <option value="">Select a class</option>
         {classNames.map((className) => (
           <option key={className} value={className}>
             {className}
