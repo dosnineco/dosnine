@@ -24,7 +24,7 @@ const Header =()=>{
 		  <nav className={`${styles.nav} ${isOpen ? styles.navOpen : ''}`}>
 			<div className={styles.nav_wrapper}>
 				{/* <a href="#services">Services</a> */}
-				<a href="tel:+18763369045" className={styles.phoneNumber}>+1 (876)336-9045</a>
+				{/* <a href="tel:+18763369045" className={styles.phoneNumber}>+1 (876)336-9045</a> */}
 				<a href="" className={styles.phoneNumber}>Instagram</a>
 				<a href="https://www.linkedin.com/company/dosnine-media?trk=ppro_cprof" className={styles.phoneNumber}>linkedin</a>
 				<a href="#contact">Contact Us</a>
