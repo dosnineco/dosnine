@@ -27,7 +27,7 @@
 .highlight {
   display: inline-block;
   transition: transform 0.3s ease-in-out;
-  background-color: var(--shade);
+  background-color: var(--primary);
   color: var(--bkg);
   padding: 0 10px;
   transform: rotate(-4deg);
