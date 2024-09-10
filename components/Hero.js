@@ -9,11 +9,10 @@ const PromoSection = () => {
         <ImagePopup src="./design.png" alt="themes" width={1135} height={1016} />
       </div>
       <div className={styles.content}>
-        <h1>Get your Website up in <span className={styles.highlight}>a day!</span>, <br/>Not in <span className={styles.strikeThroughRed}>weeks</span>!</h1>
+        <h1>Get a Website <span className={styles.highlight}>in hours</span>, <br/>Not in <span className={styles.strikeThroughRed}>weeks</span>! </h1>
         <p className={styles.description}>
-          Our NextJS boilerplate made only for business that offer services. <br/> 
-          Why get a website
-          Our boilerplate is for <strong>$79USD</strong>.    
+          Our Website Template is made only for businesses that offer a Service. <br/>
+          our boilerplate is for <strong>$140USD/2yr</strong>.    
         </p>
         <button className={styles.ctaButton}><a href='https://7617327545561.gumroad.com/l/yrccb' >Buy Template</a></button>
       </div>

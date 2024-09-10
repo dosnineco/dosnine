@@ -25,14 +25,13 @@ export default function Home() {
   return (
     <>
       <Seo siteTitle='dosnine' pageTitle={`Service Delivery Industry #1 Website Template - Dosnine Media`} description='Get Your Website Up In A Day!,Not In Weeks!' url='www.dosnine.com'/>
-      <Header/>
+      {/* <Header/> */}
       <Hero/>
-      <ClassDropdown classNames={classNames} onSelect={setSelectedClass} />
-
-      <HowItWorks/>
-      {/* <WhatsNew /> */}
-      {/* <Services /> */}
+      {/* <ClassDropdown classNames={classNames} onSelect={setSelectedClass} /> */}
       {/* <FeaturedItems/> */}
+      {/* <HowItWorks/> */}
+      <WhatsNew />
+      {/* <Services /> */}
       <Faq />
       <ContactForm/>
       <Footer/>

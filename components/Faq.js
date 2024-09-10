@@ -10,7 +10,7 @@ const faqs = [
 
 
 
-  { question:'What is the cost of your website creation service?', answer:'Cost for a boilerplate is $79 USD.'
+  { question:'What is the cost of your website creation service?', answer:'our boilerplate is for $140USD/2yr    '
   },
   
   {
