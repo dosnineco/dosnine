@@ -145,8 +145,8 @@
 /* Dosnine brand Theme */
 .Default {
   --bkg: #fff;
-  --primary: #0079FF;
-  --shade: #131417;
+  --primary: #63E6BE;
+  --shade: #061802;
 }
 
 ::selection{
@@ -180,7 +180,7 @@ h1{
   text-transform: capitalize;
 }
 
-h1,h2,h3,h4,h5{
+h1{
   color:var(--heading_color);
   font-optical-sizing: auto;
   font-weight: 900;
@@ -190,7 +190,7 @@ h1,h2,h3,h4,h5{
 h2,h3,h4,h5{
   color:var(--heading_color);
   font-optical-sizing: auto;
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
   line-height: 1.8;
   /* font-family: "Bricolage Grotesque", sans-serif; */

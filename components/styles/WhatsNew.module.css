@@ -27,7 +27,7 @@
   }
   
   .button {
-    background-color: #ffa41c;
+    background-color: var(--bkg);
     color:var(--shade);
     padding: 15px 30px;
     border: none;
@@ -43,8 +43,8 @@
     height: 100%;
     text-decoration: none;
     color:var(--shade);
-    /* background-color: var(--bkg); */
-    background-color: #ffa41c;
+    background-color: var(--bkg);
+    /* background-color: #ffa41c; */
 
     color:var(--shade);
     padding: 15px 30px;

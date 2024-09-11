@@ -1,9 +1,14 @@
 {
   "dependencies": {
     "@formspree/react": "^2.5.1",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@vercel/postgres": "^0.8.0",
     "canvas-confetti": "^1.9.3",
-    "googleapis": "^140.0.0",
+    "googleapis": "^144.0.0",
     "next": "^12.0.8",
     "next-sitemap": "^3.1.7",
     "nodemailer": "^6.7.8",
