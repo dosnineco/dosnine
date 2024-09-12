@@ -19,7 +19,7 @@ const Header =()=>{
 		<div className={styles.container}>
 		  <div className={styles.logo}>
 		  {/* <ImagePopup src="./logo.png" alt="themes" width={54} height={54} /> */}
-		  <a href="/">Dosnine Media</a>
+		  <a href="/">Dosnine ™</a>
 		  </div>
 		  {/* <h2 className={styles.logo}>876823575</h2> */}
 		  <nav className={`${styles.nav} ${isOpen ? styles.navOpen : ''}`}>
