@@ -1,0 +1,6 @@
+user_id (text, foreign key from Clerk user)
+name (text)
+phone (text)
+business_name (text)
+industry (text)
+color_preferences (text)
