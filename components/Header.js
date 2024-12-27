@@ -21,11 +21,18 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex md:space-x-6">
+
           <Link
-            href="/jets-converter"
+            href="/dashboard"
             className="text-foreground/60 transition-colors hover:text-foreground/80"
           >
-            Jets Converter
+            Dashboard
+          </Link>
+          <Link
+            href="/onboard"
+            className="text-foreground/60 transition-colors hover:text-foreground/80"
+          >
+            Onboard
           </Link>
         </nav>
 
