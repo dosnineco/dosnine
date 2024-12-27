@@ -1,23 +1,13 @@
-import React from 'react';
-import Link from 'next/link';
-import css from './styles/footer.module.css';
-const Footer = () => {
+
+export default function Footer() {
     return (
-        <>
-        <footer  className={css.footer}>
-            <h2 className={css.h2}>Dosnine™ Media - Service website Experts</h2>
-            <ul className={css.lists} >
-                <li><a className={css.regular}>	About</a></li>
-                <li><a className={css.regular}>	Privacy Policy</a></li>
-                <li><a className={css.regular}>	Contact</a></li>
+      <footer className=" py-8 mt-12">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-gray-600 text-sm">
+            © {new Date().getFullYear()} All rights reserved to Tahjay Thompson. Powered By Dosnine™
+          </p>
 
-			</ul>
-            <span className={css.madeby} > © {new Date().getFullYear()}   Powered By Dosnine™   </span>
-            
+        </div>
       </footer>
-
-      </>
-    )
-}
-
-export default Footer
+    );
+  }

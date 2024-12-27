@@ -28,9 +28,9 @@ export default function Home() {
       <Hero/>
       <ClassDropdown classNames={classNames} onSelect={setSelectedClass} />
       <WhatsNew />
+      <Services/>
       <Faq />
       <ContactForm/>
-      <Footer/>
     </>
   
   );
