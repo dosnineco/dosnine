@@ -22,7 +22,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex md:space-x-6">
+        {/* <nav className="hidden md:flex md:space-x-6">
           <Link
             href="/dashboard"
             className="text-foreground/60 transition-colors hover:text-foreground/80"
@@ -35,7 +35,7 @@ const Header = () => {
           >
             Onboard
           </Link>
-        </nav>
+        </nav> */}
 
         {/* User Button */}
         <div className="hidden md:flex items-center space-x-4">
@@ -44,25 +44,10 @@ const Header = () => {
           </SignedIn>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="text-base hover:bg-transparent focus-visible:ring-0"
-            onClick={toggleMenu}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
-        </div>
+        
       </section>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden fixed inset-0 bg-white bg-opacity-90 p-4 z-50">
-          <MobileNav toggleMenu={toggleMenu} />
-        </div>
-      )}
+  
     </header>
   );
 };

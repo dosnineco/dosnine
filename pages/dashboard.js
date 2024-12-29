@@ -97,9 +97,9 @@ export default function Dashboard() {
         <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
         <button
           onClick={() => router.push('/dashboard/new')}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+          className="bg-green-400 text-black py-1 px-2 rounded-md hover:bg-green-500"
         >
-          Add New Template
+          + Template
         </button>
       </div>
 
