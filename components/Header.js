@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { SignedIn, UserButton } from "@clerk/nextjs";
+import { useUser } from '@clerk/nextjs';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isLoaded, isSignedIn, user } = useUser();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -21,7 +23,6 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex md:space-x-6">
-
           <Link
             href="/dashboard"
             className="text-foreground/60 transition-colors hover:text-foreground/80"
@@ -39,29 +40,29 @@ const Header = () => {
         {/* User Button */}
         <div className="hidden md:flex items-center space-x-4">
           <SignedIn>
-            <UserButton />
+            <UserButton/>  
           </SignedIn>
         </div>
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-base hover:bg-transparent focus-visible:ring-0"
-                onClick={toggleMenu}
-              >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
-            </SheetTrigger>
-            <SheetContent>
-              <MobileNav toggleMenu={toggleMenu} />
-            </SheetContent>
-          </Sheet>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-base hover:bg-transparent focus-visible:ring-0"
+            onClick={toggleMenu}
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
         </div>
       </section>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden fixed inset-0 bg-white bg-opacity-90 p-4 z-50">
+          <MobileNav toggleMenu={toggleMenu} />
+        </div>
+      )}
     </header>
   );
 };
@@ -85,23 +86,6 @@ const MobileNav = ({ toggleMenu }) => {
       </Link>
     </div>
   );
-};
-
-// Components for Sheet
-const Sheet = ({ open, onOpenChange, children }) => {
-  return (
-    <div className={`${open ? "block" : "hidden"}`} onClick={() => onOpenChange(!open)}>
-      {children}
-    </div>
-  );
-};
-
-const SheetTrigger = ({ children }) => {
-  return <div>{children}</div>;
-};
-
-const SheetContent = ({ children }) => {
-  return <div className="fixed inset-0 bg-white p-4 z-50">{children}</div>;
 };
 
 // Component for Button

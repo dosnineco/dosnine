@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase'; // Ensure Supabase client is correctly initialized
+import { supabase } from '../../lib/supabase'; // Ensure Supabase client is correctly initialized
 import { useUser } from '@clerk/nextjs';
 
 export default function AddTemplatePage() {

@@ -5,152 +5,141 @@
 @tailwind components;
 @tailwind utilities;
 
-
-:root{
-  --bkg: #fff	 ;
-  --primary:#FFC300;
-  --shade:#293238;
-  --heading:5rem;
-  --heading-color:#293238;
-  --heading-color-light:#222223;
+:root {
+  --bkg: #ffffff;
+  --primary: #ffc107; /* Vibrant yellow */
+  --shade: #212529; /* Deep neutral for contrast */
+  --heading: 5rem;
+  --heading-color: #212529;
+  --heading-color-light: #343a40;
 }
 
 .theme-red {
-  --bkg: #fff	 ;
-  --primary:red;
-  --shade:#293238;
-
+  --bkg: #fff5f5;
+  --primary: #e63946; /* Modern crimson */
+  --shade: #1d3557; /* Deep blue for contrast */
 }
 
-.theme-gray-light{
-  --bkg: #EEF7FF	 ;
-  --primary:#7AB2B2;
-  --shade:#293238;
+.theme-gray-light {
+  --bkg: #f4faff;
+  --primary: #4a90e2; /* Light blue for a fresh look */
+  --shade: #2c3e50; /* Neutral deep shade */
 }
 
-.theme-gray-peach{
-  --bkg: #FFF5E1	 ;
-  --primary:#FF6969 ;
-  --shade:#0C1844;
+.theme-gray-peach {
+  --bkg: #fff9f3;
+  --primary: #ff6f61; /* Soft coral */
+  --shade: #2a2e45; /* Rich navy */
 }
 
-.theme-yellow-deep{
-  --bkg: #fff	 ;
-  --primary:#ffb703 ;
-  --shade:#023047;
+.theme-yellow-deep {
+  --bkg: #fffcf5;
+  --primary: #ffb703; /* Rich amber */
+  --shade: #023047; /* Deep ocean blue */
 }
-.theme-dark-green{
-  --bkg: #ebf2fa	 ;
-  --primary:#427aa1 ;
-  --shade:#05668d;
+
+.theme-dark-green {
+  --bkg: #f2f9f6;
+  --primary: #2a9d8f; /* Calm teal */
+  --shade: #264653; /* Muted navy-green */
 }
 
 .theme-blue {
   --bkg: #f0f8ff;
-  --primary: #007acc;
-  --shade: #333333;
+  --primary: #0077b6; /* Modern blue */
+  --shade: #1d3557; /* Deep neutral blue */
 }
 
 .theme-green {
-  --bkg: #f4fff4;
-  --primary: #28a745;
-  --shade: #343a40;
+  --bkg: #f5fff5;
+  --primary: #38b000; /* Vibrant green */
+  --shade: #2a2e35; /* Neutral deep gray */
 }
 
 .theme-purple {
-  --bkg: #f8f0ff;
-  --primary: #6f42c1;
-  --shade: #212529;
+  --bkg: #f9f5ff;
+  --primary: #9c27b0; /* Modern purple */
+  --shade: #311b92; /* Rich deep violet */
 }
 
 .theme-orange {
-  --bkg: #fffaf0;
-  --primary: #fd7e14;
-  --shade: #343a40;
+  --bkg: #fff8f0;
+  --primary: #ff8800; /* Vibrant orange */
+  --shade: #3a3335; /* Deep grayish brown */
 }
 
 .theme-pink {
-  --bkg: #fff0f6;
-  --primary: #e83e8c;
-  --shade: #212529;
+  --bkg: #fff0f5;
+  --primary: #ff3d68; /* Soft magenta */
+  --shade: #3d2f39; /* Neutral deep purple-gray */
 }
 
 .theme-teal {
   --bkg: #e6fffa;
-  --primary: #20c997;
-  --shade: #343a40;
+  --primary: #2ec4b6; /* Bright teal */
+  --shade: #264653; /* Deep greenish blue */
 }
 
 .theme-brown {
-  --bkg: #faf3f0;
-  --primary: #795548;
-  --shade: #212529;
+  --bkg: #f8f4f0;
+  --primary: #6d4c41; /* Warm brown */
+  --shade: #3e2723; /* Rich dark brown */
 }
 
 .theme-cyan {
-  --bkg: #e0ffff;
-  --primary: #17a2b8;
-  --shade: #333333;
-}
-
-.theme-indigo {
-  --bkg: #f9fff0;
-  --primary: #cddc39;
-  --shade: #343a40;
+  --bkg: #e0f7ff;
+  --primary: #0288d1; /* Cool cyan */
+  --shade: #1b3b5e; /* Deep ocean blue */
 }
 
 .theme-indigo {
   --bkg: #f0f5ff;
-  --primary: #6610f2;
-  --shade: #212529;
+  --primary: #5a67d8; /* Soft indigo */
+  --shade: #1c1f33; /* Deep midnight blue */
 }
 
 .theme-olive {
-  --bkg: #f8f9f0;
-  --primary: #808000;
-  --shade: #343a40;
+  --bkg: #faf9f5;
+  --primary: #556b2f; /* Muted olive */
+  --shade: #3e4235; /* Neutral earthy tone */
 }
 
-
-
 .theme-gold {
-  --bkg: #fffaf0;
-  --primary: #ffd700;
-  --shade: #343a40;
+  --bkg: #fffef5;
+  --primary: #ffbf00; /* Vibrant gold */
+  --shade: #3a2c1e; /* Warm deep brown */
 }
 
 .theme-silver {
   --bkg: #f9f9f9;
-  --primary: #c0c0c0;
-  --shade: #333333;
+  --primary: #b0bec5; /* Modern silver */
+  --shade: #2c3e50; /* Neutral dark gray */
 }
 
 .theme-maroon {
-  --bkg: #fff0f0;
-  --primary: #800000;
-  --shade: #343a40;
+  --bkg: #fff5f5;
+  --primary: #800020; /* Rich maroon */
+  --shade: #3a2323; /* Neutral deep brown-red */
 }
-
 
 .theme-rose {
-  --bkg: #fff0f5;
-  --primary: #ff007f;
-  --shade: #343a40;
+  --bkg: #fff7f9;
+  --primary: #f72585; /* Modern rose pink */
+  --shade: #3b2238; /* Deep purple-pink */
 }
 
-/* love this */
-
+/* Mint is excellent as-is */
 .theme-mint {
   --bkg: #f0fff4;
   --primary: #3eb489;
   --shade: #212529;
 }
 
-/* Dosnine brand Theme */
+/* Default Dosnine Theme */
 .Default {
-  --bkg: #fff;
-  --primary: #63E6BE;
-  --shade: #061802;
+  --bkg: #4C585B;
+  --primary: #23be90; /* Bright mint green */
+  --shade: #fff;
 }
 
 ::selection{

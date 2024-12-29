@@ -1,206 +1,191 @@
 import { useState, useEffect } from 'react';
-import supabase from '../lib/supabase';
+import { supabase } from '../lib/supabase'; // Ensure Supabase client is correctly initialized
+import { useRouter } from 'next/router';
+import { useUser } from '@clerk/nextjs';
 
 export default function Dashboard() {
-  const [clients, setClients] = useState([]);
+  const { isLoaded, isSignedIn, user } = useUser();
+  const [templates, setTemplates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [newClient, setNewClient] = useState({
-    name: '',
-    business_name: '',
-    industry: '',
-    description: '',  // Added description field for new clients
-    created_at: '',
-    updated_at: '',
-    user_id: '',
-  });
-  const [editingClient, setEditingClient] = useState(null);
+  const [notification, setNotification] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filter, setFilter] = useState('all');
+  const router = useRouter();
 
-  // Fetch all clients
-  const fetchClients = async () => {
+  useEffect(() => {
+    if (isLoaded && isSignedIn && user) {
+      fetchTemplates();
+    }
+  }, [isLoaded, isSignedIn, user]);
+
+  const fetchTemplates = async () => {
+    setLoading(true);
     try {
-      setLoading(true);
       const { data, error } = await supabase
-        .from('user_onboarding_info')  // Updated table name
-        .select('id, name, business_name, industry, description, created_at, updated_at, user_id');  // Adjusted field selection
+        .from('email_templates')
+        .select('*')
+        .eq('user_id', user.id);
 
       if (error) throw error;
-      setClients(data);
-    } catch (err) {
-      setError(err.message);
+
+      setTemplates(data);
+    } catch (error) {
+      setError(error.message);
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    fetchClients();
-  }, []);
-
-  // Add a new client
-  const handleAddClient = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('user_onboarding_info')  // Adjusted table name
-        .insert([newClient]);
-
-      if (error) throw error;
-      setClients([...clients, ...data]);
-      setNewClient({
-        name: '',
-        business_name: '',
-        industry: '',
-        description: '',  // Reset the description field
-        created_at: '',
-        updated_at: '',
-        user_id: '',
-      });
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  // Edit an existing client
-  const handleEditClient = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('user_onboarding_info')  // Adjusted table name
-        .update(editingClient)
-        .eq('id', editingClient.id);
-
-      if (error) throw error;
-      setClients(
-        clients.map((client) => (client.id === editingClient.id ? data[0] : client))
-      );
-      setEditingClient(null);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  // Delete a client
-  const handleDeleteClient = async (id) => {
+  const handleUpdate = async (id, field, value) => {
     try {
       const { error } = await supabase
-        .from('user_onboarding_info')  // Adjusted table name
-        .delete()
+        .from('email_templates')
+        .update({ [field]: value })
         .eq('id', id);
 
       if (error) throw error;
-      setClients(clients.filter((client) => client.id !== id));
-    } catch (err) {
-      setError(err.message);
+      fetchTemplates();
+      setNotification('Template updated successfully!');
+    } catch (error) {
+      setError(error.message);
+      setNotification('Failed to update template.');
     }
   };
 
-  const handleSendReminder = async (clientId) => {
-    alert(`Reminder sent to client ID: ${clientId}`);
+  const handleSave = async (template) => {
+    try {
+      const { error } = await supabase
+        .from('email_templates')
+        .update({
+          template_name: template.template_name,
+          template_content: template.template_content,
+        })
+        .eq('id', template.id);
+
+      if (error) throw error;
+      fetchTemplates();
+      setNotification('Template saved successfully!');
+    } catch (error) {
+      setError(error.message);
+      setNotification('Failed to save template.');
+    }
   };
 
-  
+  const handlePin = async (id, isPinned) => {
+    handleUpdate(id, 'is_pinned', !isPinned);
+  };
+
+  const filteredTemplates = templates
+    .filter((template) => {
+      if (filter === 'pinned') {
+        return template.is_pinned;
+      } else if (filter === 'unpinned') {
+        return !template.is_pinned;
+      }
+      return true;
+    })
+    .filter((template) =>
+      template.template_name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+  if (loading) return <p>Loading...</p>;
 
   return (
-    
-    <div className="min-h-screen bg-gray-100 py-8 px-4">
-      <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">Admin Dashboard</h1>
-
-      {loading && <p className="text-gray-500">Loading...</p>}
-      {error && <p className="text-red-500">{error}</p>}
-
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Add New Client</h2>
-        <div className="grid gap-4 grid-cols-2">
-          {Object.keys(newClient).map((key) => (
-            <input
-              key={key}
-              type={key === 'created_at' || key === 'updated_at' ? 'date' : 'text'}
-              placeholder={key}
-              value={newClient[key]}
-              onChange={(e) => setNewClient({ ...newClient, [key]: e.target.value })}
-              className="p-2 border rounded"
-            />
-          ))}
-        </div>
+    <div className="min-h-screen p-8 max-w-4xl mx-auto">
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
         <button
-          onClick={handleAddClient}
-          className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          onClick={() => router.push('/dashboard/new')}
+          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
         >
-          Add Client
+          Add New Template
         </button>
       </div>
 
-      {!loading && clients.length > 0 && (
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border rounded-lg">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="px-6 py-3 text-left font-medium text-gray-700">Business Name</th>
-                <th className="px-6 py-3 text-left font-medium text-gray-700">Industry</th>
-                <th className="px-6 py-3 text-left font-medium text-gray-700">Description</th>
-                <th className="px-6 py-3 text-left font-medium text-gray-700">Created At</th>
-                <th className="px-6 py-3 text-left font-medium text-gray-700">Actions</th>
+      {error && <div className="text-red-500 mb-4">{error}</div>}
+      {notification && <div className="text-green-500 mb-4">{notification}</div>}
+
+      <div className="flex justify-between items-center mb-4">
+        <input
+          type="text"
+          placeholder="Search templates..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-full border px-2 py-1 mr-4"
+        />
+        <select
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          className="border px-2 py-1"
+        >
+          <option value="all">All</option>
+          <option value="pinned">Pinned</option>
+          <option value="unpinned">Unpinned</option>
+        </select>
+      </div>
+
+      {filteredTemplates.length === 0 ? (
+        <p>No templates found.</p>
+      ) : (
+        <table className="min-w-full bg-white">
+          <thead>
+            <tr>
+              <th className="py-2 px-4 border-b">Template Name</th>
+              <th className="py-2 px-4 border-b">Template Content</th>
+              <th className="py-2 px-4 border-b">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredTemplates.map((template) => (
+              <tr key={template.id}>
+                <td className="py-2 px-4 border-b">
+                  <input
+                    type="text"
+                    value={template.template_name}
+                    onChange={(e) =>
+                      setTemplates((prevTemplates) =>
+                        prevTemplates.map((t) =>
+                          t.id === template.id ? { ...t, template_name: e.target.value } : t
+                        )
+                      )
+                    }
+                    className="w-full border px-2 py-1"
+                  />
+                </td>
+                <td className="py-2 px-4 border-b">
+                  <textarea
+                    value={template.template_content}
+                    onChange={(e) =>
+                      setTemplates((prevTemplates) =>
+                        prevTemplates.map((t) =>
+                          t.id === template.id ? { ...t, template_content: e.target.value } : t
+                        )
+                      )
+                    }
+                    className="w-full border px-2 py-1"
+                  />
+                </td>
+                <td className="py-2 px-4 border-b flex items-center">
+                  <button
+                    onClick={() => handlePin(template.id, template.is_pinned)}
+                    className={`py-1 px-2 rounded-md ${
+                      template.is_pinned ? 'bg-yellow-500' : 'bg-gray-300'
+                    }`}
+                  >
+                    {template.is_pinned ? 'Unpin' : 'Pin'}
+                  </button>
+                  <button
+                    onClick={() => handleSave(template)}
+                    className="ml-2 py-1 px-2 bg-blue-500 text-white rounded-md"
+                  >
+                    Save
+                  </button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {clients.map((client) => (
-                <tr key={client.id} className="border-t">
-                  <td className="px-6 py-4">{client.business_name}</td>
-                  <td className="px-6 py-4">{client.industry}</td>
-                  <td className="px-6 py-4">{client.description}</td>
-                  <td className="px-6 py-4">{new Date(client.created_at).toLocaleDateString()}</td>
-                  <td className="px-6 py-4 space-x-2">
-                    <button
-                      onClick={() => setEditingClient(client)}
-                      className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDeleteClient(client.id)}
-                      className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      onClick={() => handleSendReminder(client.id)}
-                      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                    >
-                      Send Reminder
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-
-      {!loading && clients.length === 0 && <p className="text-gray-500">No clients found.</p>}
-
-      {editingClient && (
-        <div className="mt-8">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">Edit Client</h2>
-          <div className="grid gap-4 grid-cols-2">
-            {Object.keys(editingClient).map((key) => (
-              <input
-                key={key}
-                type={key === 'created_at' || key === 'updated_at' ? 'date' : 'text'}
-                placeholder={key}
-                value={editingClient[key]}
-                onChange={(e) =>
-                  setEditingClient({ ...editingClient, [key]: e.target.value })
-                }
-                className="p-2 border rounded"
-              />
             ))}
-          </div>
-          <button
-            onClick={handleEditClient}
-            className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
-          >
-            Save Changes
-          </button>
-        </div>
+          </tbody>
+        </table>
       )}
     </div>
   );
