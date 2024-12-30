@@ -3,6 +3,8 @@ import { supabase } from '../lib/supabase';
 import { useRouter } from 'next/router';
 import { useUser } from '@clerk/nextjs';
 import dynamic from 'next/dynamic';
+import Modal from 'react-modal'; // Import Modal from react-modal
+import { FaEdit, FaTrash, FaThumbtack, FaThumbtackSlash, FaCopy, FaEye } from 'react-icons/fa';
 
 // Dynamically import QuillEditor to avoid SSR issues
 const QuillEditor = dynamic(() => import('../components/QuillEditor'), { ssr: false });
@@ -16,7 +18,7 @@ export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const [filter, setFilter] = useState('all');
   const [sortBy, setSortBy] = useState('date_created');
-  const [selectedTemplate, setSelectedTemplate] = useState(null); // State for selected template
+  const [selectedTemplate, setSelectedTemplate] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -121,7 +123,7 @@ export default function Dashboard() {
         <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
         <button
           onClick={() => router.push('/dashboard/new')}
-          className="bg-green-400 text-black py-1 px-2 rounded-md hover:bg-green-500"
+          className="bg-green-400 text-black py-1 px-2  hover:bg-green-500"
         >
           + Template
         </button>
@@ -162,16 +164,17 @@ export default function Dashboard() {
       ) : (
         <table className="min-w-full bg-white">
           <thead>
-            <tr>
-              <th className="py-2 px-4 border-b">Template Name</th>
-              <th className="py-2 px-4 border-b">Template Content</th>
-              <th className="py-2 px-4 border-b">Actions</th>
+            <tr className="border-gray-700">
+              <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border-gray-700">Template Name</th>
+              <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border-gray-700">Template Content</th>
+              <th className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border-gray-700">Actions</th>
             </tr>
           </thead>
           <tbody>
             {filteredTemplates.map((template) => (
-              <tr key={template.id} className="flex flex-col md:table-row">
-                <td className="py-2 px-4 border-b">
+              
+              <tr key={template.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border-gray-700">
                   <input
                     type="text"
                     value={template.template_name}
@@ -182,12 +185,13 @@ export default function Dashboard() {
                         )
                       )
                     }
-                    className="w-full border px-2 py-1"
+                    className="h-12 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </td>
-                <td className="py-2 px-4 border-b">
+                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border-gray-700">
                   <textarea
                     value={template.template_content}
+                    readOnly
                     onChange={(e) =>
                       setTemplates((prevTemplates) =>
                         prevTemplates.map((t) =>
@@ -195,30 +199,35 @@ export default function Dashboard() {
                         )
                       )
                     }
-                    className="w-full border px-2 py-1"
+                    className="h-12 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none "
                   />
                 </td>
-                <td className="py-2 px-4 border-b flex items-center space-x-2">
+                <td className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center justify-center px-6 py-6  whitespace-nowrap dark:text-white ">
                   <button
                     onClick={() => handlePin(template.id, template.is_pinned)}
-                    className={`py-1 px-2 rounded-md ${
+                    className={`py-1 px-2  ${
                       template.is_pinned ? 'bg-yellow-500' : 'bg-gray-300'
                     }`}
                   >
-                    {template.is_pinned ? 'Unpin' : 'Pin'}
-                  </button>
+                    <FaThumbtack /> 
+                               </button>
                   <button
-                    onClick={() => setSelectedTemplate(template)} // Open Quill editor
-                    className="py-1 px-2 bg-blue-500 text-white rounded-md"
+                    onClick={() => setSelectedTemplate(template)}
+                    className="py-1 px-2 bg-blue-500 text-white "
                   >
-                    Edit
+                    <FaEdit />
                   </button>
-           
                   <button
                     onClick={() => handleDelete(template.id)}
-                    className="py-1 px-2 bg-red-500 text-white rounded-md"
+                    className="py-1 px-2 bg-red-500 text-white "
                   >
-                    Delete
+                   <FaTrash />
+                  </button>
+                  <button
+                    onClick={() => router.push(`/template/${template.id}`)}
+                    className="py-1 px-2 bg-purple-500 text-white "
+                  >
+                    <FaEye />
                   </button>
                 </td>
               </tr>

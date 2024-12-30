@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }) {
           <SignedOut>
             <div className="flex items-center justify-center min-h-screen bg-gray-50">
               <div className="text-center">
-                <h1 className="text-4xl font-semibold text-gray-900 mb-6">Automate the dump stuff!</h1>
+                <h1 className="text-4xl font-semibold text-gray-900 mb-6">Your Shortcut to a Smoother Email Workflow!</h1>
                 <p className="text-xl text-gray-700 mb-6">Please sign in to continue.</p>
                 <div className="flex space-x-4 justify-center">
                   <SignInButton>

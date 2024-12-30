@@ -27,15 +27,7 @@ const Header = () => {
           <SignedIn>
             <UserButton />
           </SignedIn>
-          <SignedOut>
-            <Link href="/sign-in" className="text-sm font-medium">
-              Sign In
-            </Link>
-            <Link href="/sign-up" className="text-sm font-medium">
-              Sign Up
-            </Link>
-            
-          </SignedOut>
+
        
 
         </div>
@@ -50,17 +42,7 @@ const Header = () => {
           <SignedIn>
             <UserButton />
           </SignedIn>
-          <SignedOut>
-            <Link href="/sign-in" className="text-sm font-medium">
-              Sign In
-            </Link>
-            <Link href="/sign-up" className="text-sm font-medium">
-              Sign Up
-            </Link>
-            <Link href="/dashboard" className="text-sm font-medium">
-              Dashboard
-            </Link>
-          </SignedOut>
+         
         </section>
       )}
     </header>

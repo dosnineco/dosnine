@@ -26,7 +26,7 @@ export default function Home() {
     <>
       <Seo siteTitle='dosnine' pageTitle={`Service Delivery Industry #1 Website Template - Dosnine Media`} description='Get Your Website Up In A Day!,Not In Weeks!' url='www.dosnine.com'/>
       <Hero/>
-      {/* <ClassDropdown classNames={classNames} onSelect={setSelectedClass} /> */}
+      <ClassDropdown classNames={classNames} onSelect={setSelectedClass} />
       <WhatsNew />
       {/* <Services/> */}
       <Faq />
