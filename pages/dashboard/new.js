@@ -1,14 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { supabase } from '../../lib/supabase'; // Ensure Supabase client is correctly initialized
 import { useUser } from '@clerk/nextjs';
+import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+import 'quill/dist/quill.snow.css';
+
+// Dynamically import Quill to avoid SSR issues
+const Quill = dynamic(() => import('quill'), { ssr: false });
 
 export default function AddTemplatePage() {
   const { isLoaded, isSignedIn, user } = useUser();
+  const router = useRouter();
   const [userId, setUserId] = useState('');
   const [templateName, setTemplateName] = useState('');
   const [templateContent, setTemplateContent] = useState('');
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const quillRef = useRef(null);
 
   useEffect(() => {
     if (isLoaded && isSignedIn && user) {
@@ -19,12 +27,27 @@ export default function AddTemplatePage() {
     }
   }, [isLoaded, isSignedIn, user]);
 
+  useEffect(() => {
+    // Dynamically import Quill and initialize it
+    async function initializeQuill() {
+      if (typeof window !== 'undefined' && quillRef.current) {
+        const Quill = (await import('quill')).default;
+        const quill = new Quill(quillRef.current, {
+          theme: 'snow',
+        });
+
+        // Set the initial content if needed
+        quill.on('text-change', () => {
+          setTemplateContent(quill.root.innerHTML);
+        });
+      }
+    }
+
+    initializeQuill();
+  }, []);
+
   const handleTemplateNameChange = (e) => {
     setTemplateName(e.target.value);
-  };
-
-  const handleTemplateContentChange = (e) => {
-    setTemplateContent(e.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -51,7 +74,9 @@ export default function AddTemplatePage() {
       setSuccess('Template added successfully!');
       setError(null);
       setTemplateName('');
-      setTemplateContent('');
+      if (quillRef.current) {
+        quillRef.current.firstChild.innerHTML = ''; // Clear the Quill editor content
+      }
     } catch (error) {
       setError(error.message);
       setSuccess(null);
@@ -86,15 +111,11 @@ export default function AddTemplatePage() {
           <label htmlFor="template_content" className="block text-sm font-medium text-gray-700">
             Template Content
           </label>
-          <textarea
+          <div
             id="template_content"
-            name="template_content"
-            value={templateContent}
-            onChange={handleTemplateContentChange}
-            required
-            aria-required="true"
-            placeholder="Enter template content"
+            ref={quillRef}
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            style={{ height: '200px' }} // Set height for Quill editor
           />
         </div>
 
@@ -108,6 +129,15 @@ export default function AddTemplatePage() {
         {error && <div className="text-red-500 mt-4">{error}</div>}
         {success && <div className="text-green-500 mt-4">{success}</div>}
       </form>
+
+      {success && (
+        <button
+          onClick={() => router.push('/dashboard')}
+          className="w-full bg-gray-500 text-white py-2 rounded-md mt-4 hover:bg-gray-600"
+        >
+          Back to Dashboard
+        </button>
+      )}
     </div>
   );
 }

@@ -1,206 +1,123 @@
 import { useState, useEffect } from 'react';
-import supabase from '../lib/supabase';
+import { supabase } from '../../lib/supabase'; // Ensure Supabase client is correctly initialized
+import { useUser } from '@clerk/nextjs';
+import { useRouter } from 'next/router';
 
-export default function Dashboard() {
-  const [clients, setClients] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function AddTemplatePage() {
+  const { isLoaded, isSignedIn, user } = useUser();
+  const router = useRouter();
+  const [userId, setUserId] = useState('');
+  const [templateName, setTemplateName] = useState('');
+  const [templateContent, setTemplateContent] = useState('');
   const [error, setError] = useState(null);
-  const [newClient, setNewClient] = useState({
-    name: '',
-    business_name: '',
-    industry: '',
-    description: '',  // Added description field for new clients
-    created_at: '',
-    updated_at: '',
-    user_id: '',
-  });
-  const [editingClient, setEditingClient] = useState(null);
-
-  // Fetch all clients
-  const fetchClients = async () => {
-    try {
-      setLoading(true);
-      const { data, error } = await supabase
-        .from('user_onboarding_info')  // Updated table name
-        .select('id, name, business_name, industry, description, created_at, updated_at, user_id');  // Adjusted field selection
-
-      if (error) throw error;
-      setClients(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [success, setSuccess] = useState(null);
 
   useEffect(() => {
-    fetchClients();
-  }, []);
+    if (isLoaded && isSignedIn && user) {
+      setUserId(user.id);
+      setError(null);
+    } else {
+      setError('User is not signed in');
+    }
+  }, [isLoaded, isSignedIn, user]);
 
-  // Add a new client
-  const handleAddClient = async () => {
+  const handleTemplateNameChange = (e) => {
+    setTemplateName(e.target.value);
+  };
+
+  const handleTemplateContentChange = (e) => {
+    setTemplateContent(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!templateName || !templateContent) {
+      setError('Template name and content are required');
+      return;
+    }
+
+    if (!userId) {
+      setError('User is not signed in');
+      return;
+    }
+
     try {
+      // Insert data directly as fields
       const { data, error } = await supabase
-        .from('user_onboarding_info')  // Adjusted table name
-        .insert([newClient]);
+        .from('email_templates')
+        .insert([{ user_id: userId, template_name: templateName, template_content: templateContent }]);
 
-      if (error) throw error;
-      setClients([...clients, ...data]);
-      setNewClient({
-        name: '',
-        business_name: '',
-        industry: '',
-        description: '',  // Reset the description field
-        created_at: '',
-        updated_at: '',
-        user_id: '',
-      });
-    } catch (err) {
-      setError(err.message);
+      if (error) throw new Error(error.message);
+
+      setSuccess('Template added successfully!');
+      setError(null);
+      setTemplateName('');
+      setTemplateContent('');
+    } catch (error) {
+      setError(error.message);
+      setSuccess(null);
     }
   };
-
-  // Edit an existing client
-  const handleEditClient = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('user_onboarding_info')  // Adjusted table name
-        .update(editingClient)
-        .eq('id', editingClient.id);
-
-      if (error) throw error;
-      setClients(
-        clients.map((client) => (client.id === editingClient.id ? data[0] : client))
-      );
-      setEditingClient(null);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  // Delete a client
-  const handleDeleteClient = async (id) => {
-    try {
-      const { error } = await supabase
-        .from('user_onboarding_info')  // Adjusted table name
-        .delete()
-        .eq('id', id);
-
-      if (error) throw error;
-      setClients(clients.filter((client) => client.id !== id));
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  const handleSendReminder = async (clientId) => {
-    alert(`Reminder sent to client ID: ${clientId}`);
-  };
-
-  
 
   return (
-    
-    <div className="min-h-screen bg-gray-100 py-8 px-4">
-      <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">Admin Dashboard</h1>
+    <div className="min-h-screen mt-10 mx-auto p-8 max-w-4xl">
+      <h1 className="text-3xl font-bold text-gray-900 mb-2 text-center">Add New Template</h1>
 
-      {loading && <p className="text-gray-500">Loading...</p>}
-      {error && <p className="text-red-500">{error}</p>}
+      {user?.fullName && <p className="text-center mb-4">Welcome, {user.fullName}!</p>}
 
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Add New Client</h2>
-        <div className="grid gap-4 grid-cols-2">
-          {Object.keys(newClient).map((key) => (
-            <input
-              key={key}
-              type={key === 'created_at' || key === 'updated_at' ? 'date' : 'text'}
-              placeholder={key}
-              value={newClient[key]}
-              onChange={(e) => setNewClient({ ...newClient, [key]: e.target.value })}
-              className="p-2 border rounded"
-            />
-          ))}
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label htmlFor="template_name" className="block text-sm font-medium text-gray-700">
+            Template Name
+          </label>
+          <input
+            type="text"
+            id="template_name"
+            name="template_name"
+            value={templateName}
+            onChange={handleTemplateNameChange}
+            required
+            aria-required="true"
+            placeholder="Enter template name"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
         </div>
+
+        <div className="mb-4">
+          <label htmlFor="template_content" className="block text-sm font-medium text-gray-700">
+            Template Content
+          </label>
+          <textarea
+            id="template_content"
+            name="template_content"
+            value={templateContent}
+            onChange={handleTemplateContentChange}
+            required
+            aria-required="true"
+            placeholder="Enter template content"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
         <button
-          onClick={handleAddClient}
-          className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 rounded-md mt-4 hover:bg-blue-600"
         >
-          Add Client
+          Add Template
         </button>
-      </div>
 
-      {!loading && clients.length > 0 && (
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border rounded-lg">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="px-6 py-3 text-left font-medium text-gray-700">Business Name</th>
-                <th className="px-6 py-3 text-left font-medium text-gray-700">Industry</th>
-                <th className="px-6 py-3 text-left font-medium text-gray-700">Description</th>
-                <th className="px-6 py-3 text-left font-medium text-gray-700">Created At</th>
-                <th className="px-6 py-3 text-left font-medium text-gray-700">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {clients.map((client) => (
-                <tr key={client.id} className="border-t">
-                  <td className="px-6 py-4">{client.business_name}</td>
-                  <td className="px-6 py-4">{client.industry}</td>
-                  <td className="px-6 py-4">{client.description}</td>
-                  <td className="px-6 py-4">{new Date(client.created_at).toLocaleDateString()}</td>
-                  <td className="px-6 py-4 space-x-2">
-                    <button
-                      onClick={() => setEditingClient(client)}
-                      className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDeleteClient(client.id)}
-                      className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      onClick={() => handleSendReminder(client.id)}
-                      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                    >
-                      Send Reminder
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+        {error && <div className="text-red-500 mt-4">{error}</div>}
+        {success && <div className="text-green-500 mt-4">{success}</div>}
+      </form>
 
-      {!loading && clients.length === 0 && <p className="text-gray-500">No clients found.</p>}
-
-      {editingClient && (
-        <div className="mt-8">
-          <h2 className="text-2xl font-semibold text-gray-700 mb-4">Edit Client</h2>
-          <div className="grid gap-4 grid-cols-2">
-            {Object.keys(editingClient).map((key) => (
-              <input
-                key={key}
-                type={key === 'created_at' || key === 'updated_at' ? 'date' : 'text'}
-                placeholder={key}
-                value={editingClient[key]}
-                onChange={(e) =>
-                  setEditingClient({ ...editingClient, [key]: e.target.value })
-                }
-                className="p-2 border rounded"
-              />
-            ))}
-          </div>
-          <button
-            onClick={handleEditClient}
-            className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
-          >
-            Save Changes
+      {success && (
+        <button
+          onClick={() => router.push('/dashboard')}
+          className="w-full bg-gray-500 text-white py-2 rounded-md mt-4 hover:bg-gray-600"
+        >
+          Back to Dashboard
           </button>
-        </div>
       )}
     </div>
   );

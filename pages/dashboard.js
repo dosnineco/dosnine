@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase'; // Ensure Supabase client is correctly initialized
+import { supabase } from '../lib/supabase';
 import { useRouter } from 'next/router';
 import { useUser } from '@clerk/nextjs';
+import dynamic from 'next/dynamic';
+
+// Dynamically import QuillEditor to avoid SSR issues
+const QuillEditor = dynamic(() => import('../components/QuillEditor'), { ssr: false });
 
 export default function Dashboard() {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -11,6 +15,8 @@ export default function Dashboard() {
   const [notification, setNotification] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [filter, setFilter] = useState('all');
+  const [sortBy, setSortBy] = useState('date_created');
+  const [selectedTemplate, setSelectedTemplate] = useState(null); // State for selected template
   const router = useRouter();
 
   useEffect(() => {
@@ -25,7 +31,8 @@ export default function Dashboard() {
       const { data, error } = await supabase
         .from('email_templates')
         .select('*')
-        .eq('user_id', user.id);
+        .eq('user_id', user.id)
+        .order(sortBy, { ascending: sortBy !== 'usage_count' });
 
       if (error) throw error;
 
@@ -37,11 +44,11 @@ export default function Dashboard() {
     }
   };
 
-  const handleUpdate = async (id, field, value) => {
+  const handlePin = async (id, isPinned) => {
     try {
       const { error } = await supabase
         .from('email_templates')
-        .update({ [field]: value })
+        .update({ is_pinned: !isPinned })
         .eq('id', id);
 
       if (error) throw error;
@@ -72,8 +79,25 @@ export default function Dashboard() {
     }
   };
 
-  const handlePin = async (id, isPinned) => {
-    handleUpdate(id, 'is_pinned', !isPinned);
+  const handleCopy = (templateContent) => {
+    navigator.clipboard.writeText(templateContent);
+    setNotification('Template copied to clipboard!');
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const { error } = await supabase
+        .from('email_templates')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+      fetchTemplates();
+      setNotification('Template deleted successfully!');
+    } catch (error) {
+      setError(error.message);
+      setNotification('Failed to delete template.');
+    }
   };
 
   const filteredTemplates = templates
@@ -106,7 +130,7 @@ export default function Dashboard() {
       {error && <div className="text-red-500 mb-4">{error}</div>}
       {notification && <div className="text-green-500 mb-4">{notification}</div>}
 
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-4 space-y-4 md:space-y-0">
         <input
           type="text"
           placeholder="Search templates..."
@@ -117,11 +141,19 @@ export default function Dashboard() {
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="border px-2 py-1"
+          className="border px-2 py-1 mr-4"
         >
           <option value="all">All</option>
           <option value="pinned">Pinned</option>
           <option value="unpinned">Unpinned</option>
+        </select>
+        <select
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+          className="border px-2 py-1"
+        >
+          <option value="date_created">Date Created</option>
+          <option value="usage_count">Most Used</option>
         </select>
       </div>
 
@@ -138,7 +170,7 @@ export default function Dashboard() {
           </thead>
           <tbody>
             {filteredTemplates.map((template) => (
-              <tr key={template.id}>
+              <tr key={template.id} className="flex flex-col md:table-row">
                 <td className="py-2 px-4 border-b">
                   <input
                     type="text"
@@ -166,7 +198,7 @@ export default function Dashboard() {
                     className="w-full border px-2 py-1"
                   />
                 </td>
-                <td className="py-2 px-4 border-b flex items-center">
+                <td className="py-2 px-4 border-b flex items-center space-x-2">
                   <button
                     onClick={() => handlePin(template.id, template.is_pinned)}
                     className={`py-1 px-2 rounded-md ${
@@ -176,16 +208,31 @@ export default function Dashboard() {
                     {template.is_pinned ? 'Unpin' : 'Pin'}
                   </button>
                   <button
-                    onClick={() => handleSave(template)}
-                    className="ml-2 py-1 px-2 bg-blue-500 text-white rounded-md"
+                    onClick={() => setSelectedTemplate(template)} // Open Quill editor
+                    className="py-1 px-2 bg-blue-500 text-white rounded-md"
                   >
-                    Save
+                    Edit
+                  </button>
+           
+                  <button
+                    onClick={() => handleDelete(template.id)}
+                    className="py-1 px-2 bg-red-500 text-white rounded-md"
+                  >
+                    Delete
                   </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+      )}
+
+      {selectedTemplate && (
+        <QuillEditor
+          template={selectedTemplate}
+          onClose={() => setSelectedTemplate(null)}
+          onSave={handleSave}
+        />
       )}
     </div>
   );

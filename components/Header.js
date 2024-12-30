@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { SignedIn, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useUser } from '@clerk/nextjs';
 
 const Header = () => {
@@ -20,68 +20,50 @@ const Header = () => {
             Dosnine
           </Link>
         </div>
-
-        {/* Desktop Navigation */}
-        {/* <nav className="hidden md:flex md:space-x-6">
-          <Link
-            href="/dashboard"
-            className="text-foreground/60 transition-colors hover:text-foreground/80"
-          >
-            Dashboard
-          </Link>
-          <Link
-            href="/onboard"
-            className="text-foreground/60 transition-colors hover:text-foreground/80"
-          >
-            Onboard
-          </Link>
-        </nav> */}
-
-        {/* User Button */}
         <div className="hidden md:flex items-center space-x-4">
+        <Link href="/dashboard" className="text-sm font-medium">
+              Dashboard
+            </Link>
           <SignedIn>
-            <UserButton/>  
+            <UserButton />
           </SignedIn>
+          <SignedOut>
+            <Link href="/sign-in" className="text-sm font-medium">
+              Sign In
+            </Link>
+            <Link href="/sign-up" className="text-sm font-medium">
+              Sign Up
+            </Link>
+            
+          </SignedOut>
+       
+
         </div>
-
-        
+        <div className="md:hidden flex items-center">
+          <button onClick={toggleMenu} aria-label="Toggle menu">
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </section>
-
-  
+      {isOpen && (
+        <section className="md:hidden container flex flex-col items-center space-y-4 py-4">
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+          <SignedOut>
+            <Link href="/sign-in" className="text-sm font-medium">
+              Sign In
+            </Link>
+            <Link href="/sign-up" className="text-sm font-medium">
+              Sign Up
+            </Link>
+            <Link href="/dashboard" className="text-sm font-medium">
+              Dashboard
+            </Link>
+          </SignedOut>
+        </section>
+      )}
     </header>
-  );
-};
-
-const MobileNav = ({ toggleMenu }) => {
-  return (
-    <div className="flex flex-col space-y-4">
-      <Link
-        href="/"
-        className="text-foreground/60 transition-colors hover:text-foreground/80"
-        onClick={toggleMenu}
-      >
-        Home
-      </Link>
-      <Link
-        href="/jets-converter"
-        className="text-foreground/60 transition-colors hover:text-foreground/80"
-        onClick={toggleMenu}
-      >
-        Jets Converter
-      </Link>
-    </div>
-  );
-};
-
-// Component for Button
-const Button = ({ children, className, ...props }) => {
-  return (
-    <button
-      className={`px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 ${className}`}
-      {...props}
-    >
-      {children}
-    </button>
   );
 };
 
