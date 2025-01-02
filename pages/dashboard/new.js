@@ -12,7 +12,8 @@ export default function AddTemplatePage() {
   const { isLoaded, isSignedIn, user } = useUser();
   const router = useRouter();
   const [userId, setUserId] = useState('');
-  const [templateName, setTemplateName] = useState('');
+  const [subject, setSubject] = useState('');
+  const [recipient, setRecipient] = useState('');
   const [templateContent, setTemplateContent] = useState('');
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
@@ -46,15 +47,19 @@ export default function AddTemplatePage() {
     initializeQuill();
   }, []);
 
-  const handleTemplateNameChange = (e) => {
-    setTemplateName(e.target.value);
+  const handleSubjectChange = (e) => {
+    setSubject(e.target.value);
+  };
+
+  const handleRecipientChange = (e) => {
+    setRecipient(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!templateName || !templateContent) {
-      setError('Template name and content are required');
+    if (!subject || !recipient || !templateContent) {
+      setError('Subject, recipient, and content are required');
       return;
     }
 
@@ -67,13 +72,14 @@ export default function AddTemplatePage() {
       // Insert data directly as fields
       const { data, error } = await supabase
         .from('email_templates')
-        .insert([{ user_id: userId, template_name: templateName, template_content: templateContent }]);
+        .insert([{ user_id: userId, subject: subject, recipient: recipient, template_content: templateContent }]);
 
       if (error) throw new Error(error.message);
 
       setSuccess('Template added successfully!');
       setError(null);
-      setTemplateName('');
+      setSubject('');
+      setRecipient('');
       if (quillRef.current) {
         quillRef.current.firstChild.innerHTML = ''; // Clear the Quill editor content
       }
@@ -91,18 +97,35 @@ export default function AddTemplatePage() {
 
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="template_name" className="block text-sm font-medium text-gray-700">
-            Template Name
+          <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
+            Subject
           </label>
           <input
             type="text"
-            id="template_name"
-            name="template_name"
-            value={templateName}
-            onChange={handleTemplateNameChange}
+            id="subject"
+            name="subject"
+            value={subject}
+            onChange={handleSubjectChange}
             required
             aria-required="true"
-            placeholder="Enter template name"
+            placeholder="Enter subject"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="recipient" className="block text-sm font-medium text-gray-700">
+            Recipient
+          </label>
+          <input
+            type="text"
+            id="recipient"
+            name="recipient"
+            value={recipient}
+            onChange={handleRecipientChange}
+            required
+            aria-required="true"
+            placeholder="Enter recipient"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
