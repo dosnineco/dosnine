@@ -14,37 +14,31 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 border-b backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <section className="container flex h-16 items-center justify-between px-4">
+      <nav className="flex items-center justify-between p-4">
         <div className="flex items-center">
-          <Link href="/" className="text-xl font-bold">
-            Dosnine
-          </Link>
+          <img src="/logo.png" alt="logo" className="h-10 w-12 mr-2" />
+          <span className="text-xl font-bold font-poppins">Dosnine</span>
         </div>
-        <div className="hidden md:flex items-center space-x-4">
-        <Link href="/dashboard" className="text-sm font-medium">
+        <div className="flex items-center space-x-4">
+          {/* Show dashboard link and user button if the user is signed in */}
+          <SignedIn>
+            <Link href="/dashboard" className="text-sm font-medium">
               Dashboard
             </Link>
-          <SignedIn>
             <UserButton />
           </SignedIn>
 
-       
-
+          {/* Show signup and signin links if the user is signed out */}
+          <SignedOut>
+            <Link href="/signin" className="text-sm font-medium">
+              Sign In
+            </Link>
+            <Link href="/signup" className="text-sm font-medium">
+              Sign Up
+            </Link>
+          </SignedOut>
         </div>
-        <div className="md:hidden flex items-center">
-          <button onClick={toggleMenu} aria-label="Toggle menu">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </section>
-      {isOpen && (
-        <section className="md:hidden container flex flex-col items-center space-y-4 py-4">
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-         
-        </section>
-      )}
+      </nav>
     </header>
   );
 };

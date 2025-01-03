@@ -8,9 +8,6 @@
       "@/seo/*":["/seo/*"],
       "@/pages/*":["/pages/*"],
       "@/styles/*":["/styles/*"]
-
-
-
     }
   }
 }

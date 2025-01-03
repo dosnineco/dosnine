@@ -14,7 +14,12 @@ const PromoSection = () => {
           Our Website Template is made only for businesses that offer a Service. <br/>
           our boilerplate is for <strong>$140USD/2yr</strong>.    
         </p>
-        <button className={styles.ctaButton}><a href='https://7617327545561.gumroad.com/l/yrccb' >Buy Template</a></button>
+        {/* <button className={styles.ctaButton}><a href='https://7617327545561.gumroad.com/l/yrccb' >Buy Template</a></button> */}
+        <button className="relative bg-yellow-400 text-black text-xl font-bold py-6 px-12 rounded hover:bg-yellow-500 transition-colors">
+          <a href='https://7617327545561.gumroad.com/l/yrccb'>Buy Template</a>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-25 pointer-events-none animate-glitter"></div>
+        </button>
+     
       </div>
     </section>
   );

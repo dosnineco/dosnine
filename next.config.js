@@ -1,12 +1,8 @@
+const path = require('path');
+
 module.exports = {
-  images:{
-    formats: ['image/avif', 'image/webp'],
-    domains: ['https://image.shields.io/badge'],
+  webpack: (config) => {
+    config.resolve.alias['@components'] = path.join(__dirname, 'components');
+    return config;
   },
-}
-
-
-
-
-
-
+};

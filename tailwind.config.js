@@ -6,7 +6,17 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}", // For `app` directory in Next.js 13+
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        glitter: {
+          '0%': { backgroundPosition: '0 0' },
+          '100%': { backgroundPosition: '50px 50px' },
+        },
+      },
+      animation: {
+        glitter: 'glitter 2s linear infinite',
+      },
+    },
   },
   plugins: [],
 };
