@@ -10,7 +10,7 @@ const faqs = [
 
 
 
-  { question:'What is the cost of your website creation service?', answer:'our boilerplate is for $140USD/2yr    '
+  { question:'What is the cost of your website creation service?', answer:'our boilerplate is for $178USD/1yr    '
   },
   
   {
@@ -23,9 +23,7 @@ const faqs = [
   {
       question: "How long does it take to create and launch the website?", answer: "All our sites are deployed in 1–2 business days."
     },
-    {
-      question:'What kind of support do you offer after the website is live?',  answer:'We maintain all sites, extra maintenance is for $8 USD a year.'
-    },
+ 
     {
   question:'Can I update the content on my website myself?',    answer:'No, changes are done by our team. Just state what you need.'
     },

@@ -15,7 +15,7 @@ const Hero = () => {
         <h1>Get a Website <span className={styles.highlight}>in hours</span>, <br/>Not in <span className={styles.strikeThroughRed}>weeks</span>! </h1>
         <p className={styles.description}>
           Our Website Template is made only for businesses that offer a Service. <br/>
-          our boilerplate is for <strong>$140USD/2yr</strong>.    
+          our boilerplate is for <strong>$178USD/1yr</strong>.    
         </p>
         {/* <button className={styles.ctaButton}><a href='https://7617327545561.gumroad.com/l/yrccb' >Buy Template</a></button> */}
         <button className="relative bg-yellow-400 text-black text-xl font-bold py-6 px-12 rounded hover:bg-yellow-500 transition-colors">

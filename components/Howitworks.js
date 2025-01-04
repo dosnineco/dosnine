@@ -22,8 +22,8 @@ const HowItWorks = () => {
       <span className={styles.stepNumber}>2</span>
       <div className={styles.stepText}>
         <h3>Are you all set on getting the template? </h3>
-        <p>Contact me through my contact form. I will then contact you via one of the medium you provided to get your business info to add to your website. </p>
-        <a href='#contact'  className={styles.howItWorksButton}>Book here</a> 
+        <p>Contact me through my contact form or whats app. I will then contact you via one of the medium you provided to get your business info to add to your website. </p>
+        <a href='#contact'  className={styles.howItWorksButton}>Contact Here</a> 
 
       </div>
     </div>
