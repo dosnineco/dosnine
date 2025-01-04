@@ -30,12 +30,15 @@ const Header = () => {
 
           {/* Show signup and signin links if the user is signed out */}
           <SignedOut>
-            <Link href="/signin" className="text-sm font-medium">
+          <Link href="/dashboard" className="text-sm font-medium">
+              Dashboard
+            </Link>
+            {/* <Link href="/signin" className="text-sm font-medium">
               Sign In
             </Link>
             <Link href="/signup" className="text-sm font-medium">
               Sign Up
-            </Link>
+            </Link> */}
           </SignedOut>
         </div>
       </nav>

@@ -144,8 +144,8 @@
 }
 
 ::selection{
-  color: var(--bkg);
-  background: var(--primary);
+  background-color: #59c178;
+  color:#fff;
 }
 
 html,

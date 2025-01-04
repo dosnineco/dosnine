@@ -6,9 +6,9 @@ import WhatsNew from 'components/WhatsNew';
 import HowItWorks from 'components/Howitworks';
 import Seo from 'components/Seo';
 import ContactForm from 'components/ContactForm';
-import FeaturedItems from 'components/FeaturedItems';
 import React, { useState, useEffect } from 'react';
 import ClassDropdown from 'components/ClassDropdown';
+import YouTubeVideo from 'components/YouTubeVideo';
 
 const classNames = ['theme-maroon', 'theme-mint','theme-rose','theme-silver','theme-gold ','theme-olive','theme-indigo','theme-lime','theme-cyan','theme-brown','theme-teal','theme-pink','theme-orange','theme-purple','theme-green','theme-blue','theme-dark-green','theme-yellow-deep','theme-gray-peach','theme-gray-light','theme-red'];
 
@@ -27,9 +27,8 @@ export default function Home() {
       <Hero/>
       {/* <ClassDropdown classNames={classNames} onSelect={setSelectedClass} /> */}
       <HowItWorks/>
+      {/* <Services/> */}
       <WhatsNew />
-      <Services/>
-      <FeaturedItems />
       <Faq />
       <ContactForm/>
     </>
