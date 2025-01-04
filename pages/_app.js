@@ -2,6 +2,8 @@ import '../styles/globals.css';
 import Layout from "../components/Layout";
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import PageViewTracker from "components/PageViewTracker";
+
 import {
   ClerkProvider,
   SignInButton,
@@ -18,6 +20,8 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ClerkProvider {...pageProps}>
+       <PageViewTracker />
+
       {isIndexPage ? (
         <Layout className="container mx-auto px-4 py-8">
           <Header />
