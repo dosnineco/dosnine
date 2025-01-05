@@ -59,8 +59,8 @@ const QuillEditor = ({ template, onClose, onSave }) => {
   }, [template, subject, recipient, onSave, onClose]);
 
   return (
-    <div className="fixed inset-0 bg-white flex justify-center items-center">
-      <div className="bg-white p-4 rounded-lg shadow-lg max-w-3xl w-full max-h-full overflow-y-auto">
+    <div className="z-100 fixed inset-0 bg-white flex justify-center items-center">
+      <div className="bg-white p-4 rounded-lg shadow-lg w-full h-full max-h-full overflow-y-auto">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">Edit Template</h2>
           <button onClick={onClose} className="text-gray-700">
@@ -91,7 +91,7 @@ const QuillEditor = ({ template, onClose, onSave }) => {
             className="h-10 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
-        <div ref={quillRef} className="mb-4" style={{ height: '300px' }}></div>
+        <div ref={quillRef} className="mb-4 h-96"></div>
         <div className="flex justify-end space-x-2">
           <button onClick={onClose} className="py-1 px-3 bg-red-500 text-white rounded-md">
             Cancel

@@ -6,6 +6,7 @@ import { supabase } from "lib/supabase";
 const WebsiteTraffic = () => {
   const [pageViews, setPageViews] = useState([]);
   const [weeklyStats, setWeeklyStats] = useState([]);
+  const [totalViews, setTotalViews] = useState(0);
 
   useEffect(() => {
     const fetchPageViews = async () => {
@@ -19,6 +20,9 @@ const WebsiteTraffic = () => {
         console.error("Error fetching page views:", pageError);
       } else {
         setPageViews(pages);
+        // Calculate total views
+        const total = pages.reduce((sum, page) => sum + page.view_count, 0);
+        setTotalViews(total);
       }
 
       // Fetch total views grouped by week
@@ -37,10 +41,16 @@ const WebsiteTraffic = () => {
 
   return (
     <div className="p-6 bg-white mt-4 rounded-lg shadow-md">
-      <h2 className="text-lg font-semibold mb-4">Website Traffic Dashboard</h2>
+  <h2 className="text-lg font-semibold mb-5">Website Traffic Dashboard</h2>
+
+      {/* Total Page Views */}
+      <div className="p-4 mb-4 bg-green-100 text-green-800 rounded-lg text-center">
+        <h1 className="text-xl font-bold">Total Page Views: {totalViews}</h1>
+      </div>
+
 
       {/* Weekly Summary */}
-      <h3 className="text-md font-medium mb-2">Weekly Traffic Summary</h3>
+      {/* <h3 className="text-md font-medium mb-2">Weekly Traffic Summary</h3>
       <table className="table-auto w-full text-left border-collapse border border-gray-200 mb-6">
         <thead>
           <tr className="bg-gray-100">
@@ -56,7 +66,7 @@ const WebsiteTraffic = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
 
       {/* Page Views */}
       <h3 className="text-md font-medium mb-2">Page View Details</h3>

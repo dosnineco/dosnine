@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles/howitworks.module.css';
+import ContactForm from 'components/ContactForm';
 
 const HowItWorks = () => {
   return (
@@ -22,9 +23,8 @@ const HowItWorks = () => {
       <span className={styles.stepNumber}>2</span>
       <div className={styles.stepText}>
         <h3>Are you all set on getting the template? </h3>
-        <p>Contact me through my contact form or whats app. I will then contact you via one of the medium you provided to get your business info to add to your website. </p>
-        <a href='#contact'  className={styles.howItWorksButton}>Contact Here</a> 
-
+        {/* <p>Contact me through my contact form or whats app. I will then contact you via one of the medium you provided to get your business info to add to your website. </p> */}
+        <ContactForm/>
       </div>
     </div>
     <div className={styles.step}>

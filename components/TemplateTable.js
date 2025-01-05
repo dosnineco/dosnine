@@ -12,7 +12,7 @@ export default function TemplateTable({ templates, handlePin, handleDelete, setS
                 <thead className="bg-gray-200">
                     <tr>
                         <th className="px-6 py-4 font-medium text-gray-900 border-b border-gray-300">Subject</th>
-                        <th className="px-6 py-4 font-medium text-gray-900 border-b border-gray-300">Recipient</th>
+                        {/* <th className="px-6 py-4 font-medium text-gray-900 border-b border-gray-300">Recipient</th> */}
                         <th className="px-6 py-4 font-medium text-gray-900 border-b border-gray-300">Actions</th>
                     </tr>
                 </thead>
@@ -33,7 +33,7 @@ export default function TemplateTable({ templates, handlePin, handleDelete, setS
                                     className="h-10 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                             </td>
-                            <td className="px-6 py-4 border-b border-gray-300">
+                            {/* <td className="px-6 py-4 border-b border-gray-300">
                                 <input
                                     type="text"
                                     value={template.recipient}
@@ -46,7 +46,7 @@ export default function TemplateTable({ templates, handlePin, handleDelete, setS
                                     }
                                     className="h-10 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
-                            </td>
+                            </td> */}
                             <td className="px-6 py-4 flex space-x-2">
                                 <button
                                     onClick={() => handlePin(template.id, template.is_pinned)}

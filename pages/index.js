@@ -5,7 +5,6 @@ import Faq from 'components/Faq';
 import WhatsNew from 'components/WhatsNew';
 import HowItWorks from 'components/Howitworks';
 import Seo from 'components/Seo';
-import ContactForm from 'components/ContactForm';
 import React, { useState, useEffect } from 'react';
 import ClassDropdown from 'components/ClassDropdown';
 import YouTubeVideo from 'components/YouTubeVideo';
@@ -32,7 +31,6 @@ export default function Home() {
       {/* <Services/> */}
       <WhatsNew />
       <Faq />
-      <ContactForm/>
     </>
   
   );
