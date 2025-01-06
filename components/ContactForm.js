@@ -12,8 +12,12 @@ function ContactForm() {
   const handleFormSubmit = (event) => {
     handleSubmit(event);
     if (state.succeeded) {
-      setIsFormVisible(false);
+      setIsFormVisible(false); // Minimize form on successful submission
     }
+  };
+
+  const handleClose = () => {
+    setIsFormVisible(false); // Close form when "X" button is clicked
   };
 
   return (
@@ -21,7 +25,7 @@ function ContactForm() {
       {!isFormVisible && (
         <button
           onClick={handleClick}
-          className=" m-2 relative bg-green-400 text-black text-xl font-bold py-4 px-10 rounded hover:bg-green-500 transition-colors"
+          className="box-shadow m-2 relative bg-green-400 text-black text-xl font-bold py-4 px-10 rounded hover:bg-green-500 transition-colors"
         >
           Register For A Website
         </button>
@@ -31,8 +35,17 @@ function ContactForm() {
         <form
           id="contact"
           onSubmit={handleFormSubmit}
-          className="bg-white shadow-md rounded-lg p-6"
+          className="bg-white shadow-md rounded-lg p-6 relative"
         >
+          {/* Close Button */}
+          <button
+            type="button"
+            onClick={handleClose}
+            className="absolute top-2 right-2 text-gray-600 font-bold text-xl"
+          >
+            X
+          </button>
+
           <h2 className="text-2xl font-semibold text-center mb-6 text-gray-800">
             Get Your Service Business Online
           </h2>

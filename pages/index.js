@@ -8,6 +8,8 @@ import Seo from 'components/Seo';
 import React, { useState, useEffect } from 'react';
 import ClassDropdown from 'components/ClassDropdown';
 import YouTubeVideo from 'components/YouTubeVideo';
+import SalePopup from 'components/SalePopup';
+
 
 const classNames = ['theme-maroon', 'theme-mint','theme-rose','theme-silver','theme-gold ','theme-olive','theme-indigo','theme-lime','theme-cyan','theme-brown','theme-teal','theme-pink','theme-orange','theme-purple','theme-green','theme-blue','theme-dark-green','theme-yellow-deep','theme-gray-peach','theme-gray-light','theme-red'];
 
@@ -26,6 +28,7 @@ export default function Home() {
       <Seo siteTitle='dosnine' pageTitle={`Service Delivery Industry #1 Website Template - Dosnine Media`} description='Get Your Website Up In A Day!,Not In Weeks!' url='www.dosnine.com'/>
 
       <Hero/>
+      {/* <SalePopup/> */}
       {/* <ClassDropdown classNames={classNames} onSelect={setSelectedClass} /> */}
       <HowItWorks/>
       {/* <Services/> */}
