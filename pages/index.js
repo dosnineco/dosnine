@@ -9,6 +9,7 @@ import React, { useState, useEffect } from 'react';
 import ClassDropdown from 'components/ClassDropdown';
 import YouTubeVideo from 'components/YouTubeVideo';
 import SalePopup from 'components/SalePopup';
+import CalendlyEmbed from 'components/CalendlyEmbed';
 
 
 const classNames = ['theme-maroon', 'theme-mint','theme-rose','theme-silver','theme-gold ','theme-olive','theme-indigo','theme-lime','theme-cyan','theme-brown','theme-teal','theme-pink','theme-orange','theme-purple','theme-green','theme-blue','theme-dark-green','theme-yellow-deep','theme-gray-peach','theme-gray-light','theme-red'];
@@ -33,6 +34,7 @@ export default function Home() {
       <HowItWorks/>
       {/* <Services/> */}
       <WhatsNew />
+      <CalendlyEmbed url='https://calendly.com/d/cmtr-dn6-xb7/dosnine-meeting'/>
       <Faq />
     </>
   
