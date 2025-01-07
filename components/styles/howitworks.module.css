@@ -89,9 +89,9 @@
   @media screen and (max-width: 800px){
     .howItWorks {
       width: 100%;
-      padding: 0;
+      padding: 1em;
       /* background-color: #fff; */
-    
+      margin: 2em 0 ;
       text-align: left;
       transition: background-color 0.3s, padding 0.3s;
       

@@ -16,7 +16,7 @@ const Header = () => {
     <header className=" sticky top-0 z-50 w-full bg-background/95 border-b backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="flex items-center justify-between p-4">
         <div className="flex items-center">
-          <img src="/logo.png" alt="logo" className="h-10 w-12 mr-2" />
+          <img src="/logo.png" alt="logo" className="  h-10 w-12 mr-2" />
           <span className="text-xl font-bold font-poppins">Dosnine</span>
         </div>
         <div className="flex items-center space-x-4">
