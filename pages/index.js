@@ -29,7 +29,7 @@ export default function Home() {
       <Seo siteTitle='Dosnine' pageTitle={`Service-based business Template - Dosnine Media`} description='Service-based business Template paired with 5+ workflow tools
 for common business needs.' url='www.dosnine.com'/>
       <Hero/>
-      <IconGrid/>
+      {/* <IconGrid/> */}
       {/* <SalePopup/> */}
       {/* <ClassDropdown classNames={classNames} onSelect={setSelectedClass} /> */}
       <HowItWorks/>

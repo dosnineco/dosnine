@@ -32,7 +32,7 @@ const YouTubeVideo = ({ url }) => {
   };
 
   return (
-    <div className=" flex justify-center">
+    <div className=" mb-3 sm:mt-10 flex justify-center">
       {/* Responsive container */}
       <div className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl">
         {/* Mobile view */}
