@@ -17,7 +17,7 @@ const Header = () => {
       <nav className="flex items-center justify-between p-4">
         <div className="flex items-center">
           {/* <img src="/logo.png" alt="logo" className="  h-5 w-6 mr-1" /> */}
-          <span className="text-3xl text-black-600 font-light font-poppins">dosnine.com</span>
+          <span className="text-3xl text-black-900 font-medium font-poppins">dosnine.com</span>
         </div>
         <div className="flex items-center space-x-4">
           {/* Show dashboard link and user button if the user is signed in */}
