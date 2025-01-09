@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { useUser } from '@clerk/nextjs';
+import { useUser } from "@clerk/nextjs";
+import { MdOutlineVerified } from "react-icons/md";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,14 +14,24 @@ const Header = () => {
   };
 
   return (
-    <header className=" sticky top-0 z-50 w-full bg-background/95 border-b backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full bg-background/95 border-b backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="flex items-center justify-between p-4">
-        <div className="flex items-center">
-          {/* <img src="/logo.png" alt="logo" className="  h-5 w-6 mr-1" /> */}
-          <span className="text-3xl text-black-900 font-medium font-poppins">dosnine.com</span>
+        {/* Logo Section */}
+        <div className="flex items-center space-x-2">
+          <MdOutlineVerified
+            className="text-sky-600" // Google Verified sky-blue color
+            size={24} // Icon size
+          />
+          <span
+            className="text-xl font-medium font-poppins text-black-900"
+            style={{ color: "#4285F4" }} // Google Verified blue
+          >
+            dosnine.com
+          </span>
         </div>
+
+        {/* Navigation Links */}
         <div className="flex items-center space-x-4">
-          {/* Show dashboard link and user button if the user is signed in */}
           <SignedIn>
             <Link href="/dashboard" className="box-shadow text-sm font-medium">
               Dashboard
@@ -28,17 +39,10 @@ const Header = () => {
             <UserButton />
           </SignedIn>
 
-          {/* Show signup and signin links if the user is signed out */}
           <SignedOut>
-          <Link href="/dashboard" className="text-sm font-medium">
+            <Link href="/dashboard" className="text-sm font-medium">
               Dashboard
             </Link>
-            {/* <Link href="/signin" className="text-sm font-medium">
-              Sign In
-            </Link>
-            <Link href="/signup" className="text-sm font-medium">
-              Sign Up
-            </Link> */}
           </SignedOut>
         </div>
       </nav>

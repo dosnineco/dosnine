@@ -9,49 +9,59 @@ const PageViewTracker = () => {
 
   useEffect(() => {
     const handlePageView = async (url) => {
-      // Check if the page already exists in the database
-      const { data, error } = await supabase
-        .from("page_views")
-        .select("view_count")
-        .eq("page_url", url)
-        .single();
+      if (!url) return;
 
-      if (error && error.code === "PGRST116") {
-        // If no record exists, insert a new one
-        const { error: insertError } = await supabase
+      try {
+        // Check if the page already exists in the database
+        const { data, error } = await supabase
           .from("page_views")
-          .insert({ page_url: url, view_count: 1 });
+          .select("view_count")
+          .eq("page_url", url)
+          .single();
 
-        if (insertError) {
-          console.error("Error inserting page view:", insertError);
-        }
-      } else if (data) {
-        // If record exists, increment the view count
-        const { error: updateError } = await supabase
-          .from("page_views")
-          .update({ view_count: data.view_count + 1 })
-          .eq("page_url", url);
+        if (error) {
+          if (error.code === "PGRST116") {
+            // Insert a new record if it doesn't exist
+            const { error: insertError } = await supabase
+              .from("page_views")
+              .insert({ page_url: url, view_count: 1 });
 
-        if (updateError) {
-          console.error("Error updating page view:", updateError);
+            if (insertError) {
+              console.error("Error inserting new page view record:", insertError);
+            }
+          } else {
+            console.error("Error fetching page view data:", error);
+          }
+        } else if (data) {
+          // Increment the view count for an existing record
+          const { error: updateError } = await supabase
+            .from("page_views")
+            .update({ view_count: data.view_count + 1 })
+            .eq("page_url", url);
+
+          if (updateError) {
+            console.error("Error updating page view record:", updateError);
+          }
         }
+      } catch (err) {
+        console.error("Unexpected error in handlePageView:", err);
       }
     };
 
-    // Track page view when the route changes
+    // Track initial page view
     handlePageView(router.asPath);
 
-    // Listen for route changes
+    // Listen for route changes and track page views
     const handleRouteChange = (url) => handlePageView(url);
     router.events.on("routeChangeComplete", handleRouteChange);
 
-    // Cleanup event listener on unmount
+    // Cleanup listener on unmount
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router]);
 
-  return null; // This component does not render anything
+  return null; // This component does not render any UI
 };
 
 export default PageViewTracker;

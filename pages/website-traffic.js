@@ -40,7 +40,7 @@ const WebsiteTraffic = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-white mt-4 rounded-lg shadow-md">
+    <div className="overflow-x-auto p-6 bg-white mt-4 rounded-lg shadow-md">
   <h2 className="text-lg font-semibold mb-5">Website Traffic Dashboard</h2>
 
       {/* Total Page Views */}
@@ -81,9 +81,9 @@ const WebsiteTraffic = () => {
         <tbody>
           {pageViews.map((view) => (
             <tr key={view.page_url}>
-              <td className="border border-gray-200 px-4 py-2">{view.page_url}</td>
-              <td className="border border-gray-200 px-4 py-2">{view.view_count}</td>
-              <td className="border border-gray-200 px-4 py-2">
+                <td className=" border border-gray-200 px-4 py-2 max-w-xs truncate ">{view.page_url}</td>
+                <td className="border border-gray-200 px-4 py-2 max-w-xs">{view.view_count}</td>
+              <td className="border border-gray-200 px-4 py-2 max-w-xs">
                 {new Date(view.last_viewed).toLocaleString()}
               </td>
             </tr>
