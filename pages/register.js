@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-
+import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
-function ContactForm() {
+function Register() {
   const [state, handleSubmit] = useForm("xgeggljb");
   const [isFormVisible, setIsFormVisible] = useState(false);
 
@@ -23,29 +22,13 @@ function ContactForm() {
 
   return (
     <div className="max-w-lg mx-auto">
-      {!isFormVisible && (
-        <button
-          onClick={handleClick}
-          className="box-shadow m-2 relative bg-red-500 text-black text-xl font-bold py-4 px-10 rounded hover:bg-green-500 transition-colors"
-        >
-          Register For A Website
-        </button>
-      )}
-
-      {isFormVisible && (
+      
         <form
           id="contact"
           onSubmit={handleFormSubmit}
           className="bg-white shadow-md rounded-lg p-6 relative"
         >
-          {/* Close Button */}
-          <button
-            type="button"
-            onClick={handleClose}
-            className="absolute top-2 right-2 text-gray-600 font-bold text-xl"
-          >
-            X
-          </button>
+      
 
           <h2 className="text-2xl font-semibold text-center mb-6 text-gray-800">
             Get Your Service Business Online
@@ -153,46 +136,9 @@ function ContactForm() {
             Submit
           </button>
         </form>
-      )}
+        
     </div>
   );
 }
 
-
-const SalePopup = () => {
-  const prices = [
-    { price: "$49.50", duration: "quarterly" },
-    { price: "$98", duration: "6 months" },
-    { price: "$178", duration: "yearly" },
-    { price: "$356", duration: "2 years" },
-  ];
-
-  const [currentPriceIndex, setCurrentPriceIndex] = useState(0);
-  const [secondsAgo, setSecondsAgo] = useState(3);
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const priceInterval = setInterval(() => {
-      setCurrentPriceIndex((prevIndex) => (prevIndex + 1) % prices.length);
-    }, 5000); // Change price every 5 seconds
-
-    const secondsInterval = setInterval(() => {
-      setSecondsAgo((prevSeconds) => prevSeconds + 122);
-    }, 5000); // Increment seconds every 5 seconds
-
-    return () => {
-      clearInterval(priceInterval);
-      clearInterval(secondsInterval);
-    };
-  }, []);
-
-  if (!isVisible) return null;
-
-  return (
-    <div className="fixed top-20 right-5   p-2 flex items-center space-x-2 h-12">
-     <ContactForm />
-    </div>
-  );
-};
-
-export default SalePopup;
+export default Register;

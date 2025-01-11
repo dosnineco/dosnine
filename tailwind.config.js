@@ -19,4 +19,10 @@ module.exports = {
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+      scrollBehavior: ['responsive'],
+    },
+  },
+
 };
