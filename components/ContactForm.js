@@ -27,7 +27,7 @@ function ContactForm() {
           onClick={handleClick}
           className="box-shadow m-2 relative bg-green-400 text-black text-xl font-bold py-4 px-10 rounded hover:bg-green-500 transition-colors"
         >
-          Register For A Website
+          Register
         </button>
       )}
 
