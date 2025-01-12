@@ -25,7 +25,10 @@ const Header = () => {
           <span
             className="text-xl font-medium font-poppins text-white"
           >
+            <Link href="/" >
             Dosnine.com
+
+            </Link>
           </span>
         </div>
 
