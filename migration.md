@@ -7,6 +7,20 @@ create table invoices (
   total_amount numeric not null,
   user_id uuid references auth.users not null
 );
+CREATE TABLE quotes (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  client_name text NOT NULL,
+  client_email text NOT NULL,
+  items jsonb NOT NULL,
+  notes text,
+  subtotal numeric NOT NULL,
+  tax numeric NOT NULL,
+  total numeric NOT NULL,
+  created_at timestamptz DEFAULT now(),
+  updated_at timestamptz DEFAULT now(),
+  user_id uuid REFERENCES auth.users(id)
+);
+
 
 
 -- Create the table if it does not exist

@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   return (
-    <header className=" sticky top-0 z-50 w-full  bg-background/95 border-b backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className=" sticky top-0 z-50 w-full  bg-background/95  backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="flex items-center justify-between p-4">
         {/* Logo Section */}
         <div className="flex items-center space-x-2">
