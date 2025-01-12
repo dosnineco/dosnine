@@ -23,24 +23,23 @@ const Header = () => {
             size={24} // Icon size
           />
           <span
-            className="text-xl font-medium font-poppins text-black-900"
-            style={{ color: "#4285F4" }} // Google Verified blue
+            className="text-xl font-medium font-poppins text-white"
           >
-            dosnine.com
+            Dosnine.com
           </span>
         </div>
 
         {/* Navigation Links */}
         <div className="flex items-center space-x-4">
           <SignedIn>
-            <Link href="/dashboard" className="box-shadow text-sm font-medium">
+            <Link href="/dashboard" className="text-white box-shadow text-sm font-medium">
               Dashboard
             </Link>
             <UserButton />
           </SignedIn>
 
           <SignedOut>
-            <Link href="/dashboard" className="text-sm font-medium">
+            <Link href="/dashboard" className=" text-white text-sm font-medium">
               Dashboard
             </Link>
           </SignedOut>

@@ -21,30 +21,14 @@ function ContactForm() {
   };
 
   return (
-    <div className="max-w-lg mx-auto">
-      {!isFormVisible && (
-        <button
-          onClick={handleClick}
-          className="box-shadow m-2 relative bg-green-400 text-black text-xl font-bold py-4 px-10 rounded hover:bg-green-500 transition-colors"
-        >
-          Register
-        </button>
-      )}
-
-      {isFormVisible && (
+    <div className="max-w-full pt-10 mx-auto">
+     
         <form
           id="contact"
           onSubmit={handleFormSubmit}
-          className="bg-white shadow-md rounded-lg p-6 relative"
+          className="max-w-full	 bg-white shadow-md rounded-lg p-6 relative"
         >
-          {/* Close Button */}
-          <button
-            type="button"
-            onClick={handleClose}
-            className="absolute top-2 right-2 text-gray-600 font-bold text-xl"
-          >
-            X
-          </button>
+    
 
           <h2 className="text-2xl font-semibold text-center mb-6 text-gray-800">
             Get Your Service Business Online
@@ -152,7 +136,6 @@ function ContactForm() {
             Submit
           </button>
         </form>
-      )}
     </div>
   );
 }

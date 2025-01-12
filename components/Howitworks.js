@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/howitworks.module.css';
-import ContactForm from 'components/ContactForm';
+import YouTubeVideo from './YouTubeVideo';
 
 const HowItWorks = () => {
   return (
@@ -15,16 +15,19 @@ const HowItWorks = () => {
     <div className={styles.step}>
       <span className={styles.stepNumber}>1</span>
       <div className={styles.stepText}>
+        
         <h3>You have to be a service business that does not sell products online.</h3>
         <p>Take a look at this site. Yes! It was made with the template. Do you like it? </p>
+        {/* <YouTubeVideo url="https://youtu.be/EXfFBEuCAr0?si=lrIwWS3oVWik8_6V" /> */}
+
       </div>
     </div>
     <div className={styles.step}>
       <span className={styles.stepNumber}>2</span>
       <div className={styles.stepText}>
         <h3>Are you all set on getting the template? </h3>
-        {/* <p>Contact me through my contact form or whats app. I will then contact you via one of the medium you provided to get your business info to add to your website. </p> */}
-        <ContactForm/>
+        <p></p>
+
       </div>
     </div>
     <div className={styles.step}>

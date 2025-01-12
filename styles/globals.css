@@ -157,7 +157,7 @@ body {
   overflow-x: hidden;
   font-family: "Work Sans", sans-serif;
   /* font-family: "Poppins", serif; */
-  color:var(--shade);
+  color:var(--bkg);
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }

@@ -4,10 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px 0;
+  padding: 2em 0;
   text-align: center;
   flex-direction: row;
-  margin:2em 0;
+  /* margin:2em 0; */
+  background-color: rgb(240, 242, 243);
 }
 
 .imageWrapper {
@@ -86,9 +87,9 @@
 
 @media screen and (max-width: 800px) {
   .promoSection {
-    padding: 1em;
+    padding: 2em 1em;
     flex-direction: column;
-    margin:2em 0;
+    /* margin:2em 0; */
 
   }
 
@@ -96,7 +97,9 @@
     max-width: 100%;
     /* text-align: center; */
     order: 1; /* Ensure text is on top */
-    font-size: 90%;
+      margin: 0 0 0 0;
+      text-align: start;
+
   }
 
   .imageWrapper {
