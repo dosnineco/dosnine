@@ -7,7 +7,7 @@ const CallOrText = () => {
            <div className="flex flex-col items-center  text-white ">
         <div className="flex items-center justify-center text-white text-4xl font-bold">
           {/* <FaPhoneAlt className=" animate-ping	" /> */}
-          <a className="text-6xl	text-white text-base	" href="tel:18763369045">(1876) 336-9045</a>
+          <a className="text-6xl	text-white" href="tel:18763369045">(1876) 336-9045</a>
         </div>
       </div>
       <h2 className="text-base font-bold text-white ">

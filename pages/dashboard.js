@@ -1,40 +1,120 @@
-import Link from "next/link";
-import { useUser } from '@clerk/nextjs';
+import { useState } from "react";
+import { 
+  BarChart2, 
+  FileSpreadsheet, 
+  Calculator, 
+  Mail, 
+  DollarSign,
+  Settings,
+  Search
+} from "lucide-react";
 
-export default function Dashboard() {
-  const { isLoaded, isSignedIn, user } = useUser();
+function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const tools = [
+    {
+      title: "Website Analytics",
+      description: "Track and analyze your website traffic data",
+      icon: BarChart2,
+      path: "/website-traffic",
+      color: "text-blue-600",
+      bgHover: "hover:bg-blue-50",
+    },
+    {
+      title: "Text to Excel",
+      description: "Convert text data to Excel format easily",
+      icon: FileSpreadsheet,
+      path: "/texttoexcel",
+      color: "text-green-600",
+      bgHover: "hover:bg-green-50",
+    },
+    {
+      title: "Service Quoting Tool",
+      description: "Generate professional service quotes instantly",
+      icon: Calculator,
+      path: "/quote",
+      color: "text-purple-600",
+      bgHover: "hover:bg-purple-50",
+    },
+    {
+      title: "Email Template Tool",
+      description: "Manage and use email templates efficiently",
+      icon: Mail,
+      path: "/email-template",
+      color: "text-red-600",
+      bgHover: "hover:bg-red-50",
+    },
+    {
+      title: "Salary Calculator",
+      description: "Convert salary to hourly rates and vice versa",
+      icon: DollarSign,
+      path: "/salary-to-hourly",
+      color: "text-yellow-600",
+      bgHover: "hover:bg-yellow-50",
+    },
+  ];
+
+  const filteredTools = tools.filter(tool =>
+    tool.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    tool.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <div className="min-h-screen p-8 ">
-      <div className=" border rounded-lg max-w-4xl mx-auto bg-white  p-6">
+    <div className="min-h-screen p-4 md:p-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white rounded-xl shadow-sm p-6 md:p-8">
+          {/* Header */}
+          <div className="mb-8">
+    
+            <p className="text-gray-600 font-semibold text-xl mb-2">
+            <Settings className="animate-spin	 inline mr-2"/>
 
+            Dashboard
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:grid-cols-1">
-          <Link className="box-shadow block p-6 bg-white    hover:bg-blue-100" href="/website-traffic">
-            <h2 className="mb-2 text-xl font-semibold text-gray-900">Website Analytics</h2>
-            <p className="block text-sm font-medium text-gray-700 mb-1">See your website data.</p>
-          </Link>
+          {/* Search */}
+          <div className="relative mb-8">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search tools..."
+              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
 
-          <Link className="box-shadow block p-6 bg-white    hover:bg-blue-100" href="/texttoexcel">
-            <h2 className="mb-2 text-xl font-semibold text-gray-900">Text to Excel</h2>
-            <p className="block text-sm font-medium text-gray-700 mb-1">Convert text data to Excel format easily.</p>
-          </Link>
-
-          <Link className="box-shadow block p-6 bg-white    hover:bg-blue-100" href="/quote">
-            <h2 className="mb-2 text-xl font-semibold text-gray-900">Service Quoting Tool</h2>
-            <p className="block text-sm font-medium text-gray-700 mb-1">Automatically calculate service quotes.</p>
-          </Link>
-          <Link className="box-shadow block p-6 bg-white    hover:bg-blue-100" href="/email-template">
-            <h2 className="mb-2 text-xl font-semibold text-gray-900">Email template Tool</h2>
-            <p className="block text-sm font-medium text-gray-700 mb-1">Save commonly sent emails.</p>
-          </Link>
-
-          <Link className="box-shadow block p-6 bg-white    hover:bg-blue-100" href="/salary-to-hourly">
-            <h2 className="mb-2 text-xl font-semibold text-gray-900">Salary Calculator</h2>
-            <p className="block text-sm font-medium text-gray-700 mb-1">Automatically calculate Salaries</p>
-          </Link>
+          {/* Tools Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {filteredTools.map((tool) => {
+              const Icon = tool.icon;
+              return (
+                <a
+                  key={tool.path}
+                  href={tool.path}
+                  className={`group block p-2 rounded-lg border border-gray-200 transition-all duration-200 ${tool.bgHover}`}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className={`p-2 rounded-lg ${tool.color} bg-opacity-10`}>
+                      <Icon className={`w-6 h-6 ${tool.color}`} />
+                    </div>
+                    <h2 className="text-lg font-semibold text-gray-900">
+                      {tool.title}
+                    </h2>
+                  </div>
+                  <p className="text-gray-600 text-sm">
+                    {tool.description}
+                  </p>
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
   );
 }
+
+export default App;
