@@ -26,8 +26,8 @@ const Services = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
         {servicesData.map((service, index) => (
           <div key={index} className="bg-white p-6 rounded-lg border-t-4 border-blue-500 transition-transform transform hover:scale-105">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">{service.title}</h3>
-            <p className="text-sm text-gray-700">{service.description}</p>
+            <h3 className="text-xl font-semibold text-inherit mb-4">{service.title}</h3>
+            <p className="text-sm text-inherit">{service.description}</p>
           </div>
         ))}
       </div>

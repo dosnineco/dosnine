@@ -67,7 +67,7 @@ function App() {
           {/* Header */}
           <div className="mb-8">
     
-            <p className="text-gray-600 font-semibold text-xl mb-2">
+            <p className="text-inherit font-semibold text-xl mb-2">
             <Settings className="animate-spin	 inline mr-2"/>
 
             Dashboard
@@ -76,7 +76,7 @@ function App() {
 
           {/* Search */}
           <div className="relative mb-8">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-inherit" />
             <input
               type="text"
               placeholder="Search tools..."
@@ -94,17 +94,17 @@ function App() {
                 <a
                   key={tool.path}
                   href={tool.path}
-                  className={`group block p-2 rounded-lg border border-gray-200 transition-all duration-200 ${tool.bgHover}`}
+                  className={`group block p-3 py-2 rounded-lg border border-gray-200 transition-all duration-200 ${tool.bgHover}`}
                 >
                   <div className="flex items-center gap-2 mb-2">
                     <div className={`p-2 rounded-lg ${tool.color} bg-opacity-10`}>
                       <Icon className={`w-6 h-6 ${tool.color}`} />
                     </div>
-                    <h2 className="text-lg font-semibold text-gray-900">
+                    <h2 className="text-lg font-semibold text-inherit">
                       {tool.title}
                     </h2>
                   </div>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-inherit text-sm">
                     {tool.description}
                   </p>
                 </a>

@@ -31,11 +31,11 @@ const CountdownTimer = () => {
   return (
     <div className="w-full bg-yellow-300 flex  items-center justify-center space-x-4 py-2 px-4">
       <div className="flex items-center space-x-2">
-        <Timer className="w-4 h-4 text-gray-800" />
-        <span className="text-sm font-medium text-gray-800">Launch in:</span>
+        <Timer className="w-4 h-4 text-inherit" />
+        <span className="text-sm font-medium text-inherit">Launch in:</span>
       </div>
       
-      <div className="text-gray-800 flex space-x-3">
+      <div className="text-inherit flex space-x-3">
         {[
           { label: 'd', value: timeLeft.days },
           { label: 'h', value: timeLeft.hours },
@@ -44,11 +44,11 @@ const CountdownTimer = () => {
         ].map(({ label, value }) => (
           <div key={label} className="flex items-center">
             <div className="bg-white bg-opacity-10 rounded px-2 py-1">
-              <span className="text-sm font-bold text-gray-800">
+              <span className="text-sm font-bold text-inherit">
                 {value.toString().padStart(2, '0')}
               </span>
             </div>
-            <span className="ml-1 text-xs text-gray-800 opacity-90">{label}</span>
+            <span className="ml-1 text-xs text-inherit opacity-90">{label}</span>
           </div>
         ))}
       </div>

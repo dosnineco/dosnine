@@ -20,7 +20,7 @@ for common business needs.' url='www.dosnine.com'/>
       <PhoneNumber/>
       <HowItWorks />
       <WhatsNew />
-      <CalendlyEmbed url='https://calendly.com/d/cmtr-dn6-xb7/dosnine-meeting'/>
+      {/* <CalendlyEmbed url='https://calendly.com/d/cmtr-dn6-xb7/dosnine-meeting'/> */}
       <Faq />
     </>
   );

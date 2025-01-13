@@ -1,6 +1,6 @@
 export default function SearchFilterSort({ searchQuery, setSearchQuery, filter, setFilter, sortBy, setSortBy }) {
   return (
-    <div className="flex flex-col sm:flex-row md:flex-row justify-end items-center mb-4 space-y-4 md:space-y-0">
+    <div className="text-inherit flex flex-col sm:flex-row md:flex-row justify-end items-center mb-4 space-y-4 md:space-y-0">
       <input
         type="text"
         placeholder="Search templates..."

@@ -64,10 +64,10 @@ const SalaryCalculator = () => {
   };
 
   return (
-    <div className=" max-w-4xl  mx-auto mt-10 p-5 border rounded-lg shadow-lg bg-white">
+    <div className=" w-full mx-auto mt-10 p-5  rounded-lg shadow-lg bg-white">
       <h2 className="text-2xl font-bold mb-5 text-center">Salary Calculator</h2>
       <div className="mb-4">
-        <label className="block text-gray-700">Annual Salary (JMD)</label>
+        <label className="block text-inherit">Annual Salary (JMD)</label>
         <input
           type="number"
           value={annualSalary}
@@ -76,7 +76,7 @@ const SalaryCalculator = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Monthly Wage (JMD)</label>
+        <label className="block text-inherit">Monthly Wage (JMD)</label>
         <input
           type="number"
           value={monthlyWage}
@@ -85,7 +85,7 @@ const SalaryCalculator = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Weekly Wage (JMD)</label>
+        <label className="block text-inherit">Weekly Wage (JMD)</label>
         <input
           type="number"
           value={weeklyWage}
@@ -94,7 +94,7 @@ const SalaryCalculator = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Daily Wage (JMD)</label>
+        <label className="block text-inherit">Daily Wage (JMD)</label>
         <input
           type="number"
           value={dailyWage}
@@ -103,7 +103,7 @@ const SalaryCalculator = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Hourly Wage (JMD)</label>
+        <label className="block text-inherit">Hourly Wage (JMD)</label>
         <input
           type="number"
           value={hourlyWage}
@@ -112,7 +112,7 @@ const SalaryCalculator = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Hours per Week</label>
+        <label className="block text-inherit">Hours per Week</label>
         <input
           type="number"
           value={hoursPerWeek}

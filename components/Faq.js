@@ -23,9 +23,9 @@ const FAQ = () => {
   };
 
   return (
-    <section className="bg-gray-100 rounded-lg box-shadow py-10 px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl pt-6 font-bold text-gray-800 text-center mb-4">Frequently Asked Questions</h2>
-      <p className="text-center text-sm text-gray-600 mb-8">Have no worries, we got you.</p>
+    <section className=" rounded-lg py-10 px-4 sm:px-6 lg:px-8">
+      <h2 className="text-3xl pt-6 font-bold text-inherit text-center mb-4">Frequently Asked Questions</h2>
+      <p className="text-center text-sm text-inherit mb-8">Have no worries, we got you.</p>
       <div className="max-w-4xl mx-auto space-y-4">
         {faqs.map((faq, index) => (
           <div

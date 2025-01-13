@@ -23,12 +23,12 @@ function Notification({ error, notification }) {
   return (
     <div>
       {showError && (
-        <div className="bg-red-500 text-white p-2 rounded-md mb-4 ">
+        <div className="bg-red-500 text-inherit p-2  mb-4 ">
           {error}
         </div>
       )}
       {showNotification && (
-        <div className="bg-green-500 text-white p-2 rounded-md mb-4 ">
+        <div className="bg-green-500 text-inherite p-2  mb-4 ">
           {notification}
         </div>
       )}

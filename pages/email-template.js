@@ -114,10 +114,10 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen p-4 sm:p-8 max-w-full sm:max-w-4xl mx-auto">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-4">
-        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Email Templates</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-inherit">Email Templates</h1>
         <button
           onClick={() => router.push('/dashboard/new')}
-          className="mt-2 sm:mt-0 bg-green-400 text-black py-1 px-2 hover:bg-green-500"
+          className="mt-2 sm:mt-0 bg-green-400 text-inherit py-1 px-2 hover:bg-green-500"
         >
           + Template
         </button>

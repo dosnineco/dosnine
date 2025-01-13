@@ -2,23 +2,17 @@ import React from 'react';
 import styles from './styles/PromoSection.module.css';
 import YouTubeVideo from './YouTubeVideo';
 import { 
-  Briefcase, 
   CheckCircle2, 
-  Clock, 
-  FileSpreadsheet, 
-  MessageSquare, 
-  PieChart,
-  Settings,
-  Zap
 } from 'lucide-react';
 import PhoneNumber from './PhoneNumber';
+import ImagePopup from './ImagePopup';
 
 const Hero = () => {
   return (
     <section className={styles.promoSection}>
       <div className={styles.imageWrapper}>
         {/* <ImagePopup src="./design.png" alt="themes" width={1135} height={1016} /> */}
-        <YouTubeVideo url="https://youtu.be/EXfFBEuCAr0?si=lrIwWS3oVWik8_6V" />
+        {/* <YouTubeVideo url="https://youtu.be/EXfFBEuCAr0?si=lrIwWS3oVWik8_6V" /> */}
         {/* <PhoneNumber/> */}
 
       </div>
@@ -46,16 +40,16 @@ const Hero = () => {
           {/* Trust Indicators */}
           <div className="mt-20 text-center">
           <div className="flex flex-wrap justify-center items-center gap-6">
-            <div className="flex items-center text-gray-600">
+            <div className="flex items-center text-inherit	">
               <CheckCircle2 className="w-5 h-5 text-green-500 mr-2" />
               <span>7-day money-back guarantee</span>
             </div>
-            <div className="flex items-center text-gray-600">
+            <div className="flex items-center text-inherit">
               <CheckCircle2 className="w-5 h-5 text-green-500 mr-2" />
               <span>24/7 Support</span>
             </div>
-            <div className="flex items-center text-gray-600">
-              <CheckCircle2 className="w-5 h-5 text-green-500 mr-2" />
+            <div className="flex items-center text-inherit">
+              <CheckCircle2 className="w-5 h-5 text-bold text-green-500 mr-2" />
               <span>Free Updates</span>
             </div>
           </div>

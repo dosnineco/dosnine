@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div className="min-h-screen mt-7 container mx-auto">
       <div className="mx-auto bg-white p-8 rounded-lg shadow-md w-full max-w-3xl">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6 text-center"> Text to excel converter</h1>
+        <h1 className="text-3xl font-bold text-inherit mb-6 text-center"> Text to excel converter</h1>
 
         <textarea
           className="w-full p-4 border border-gray-300 rounded-lg mb-4"
@@ -40,7 +40,7 @@ export default function Home() {
         <div className="text-center mb-4">
           <button
             onClick={convertToText}
-            className="bg-emerald-500 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+            className="bg-emerald-500 text-inherit px-6 py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Convert to Text
           </button>

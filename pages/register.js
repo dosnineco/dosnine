@@ -30,18 +30,18 @@ function Register() {
         >
       
 
-          <h2 className="text-2xl font-semibold text-center mb-6 text-gray-800">
+          <h2 className="text-2xl font-semibold text-center mb-6 text-inherit">
             Get Your Service Business Online
           </h2>
 
-          <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+          <label htmlFor="name" className="block text-inherit font-medium mb-2">
             Name
           </label>
           <input
             id="name"
             type="text"
             name="name"
-            className="w-full px-4 py-2 border rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
+            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
           />
           <ValidationError 
             prefix="Name" 
@@ -50,14 +50,14 @@ function Register() {
             className="text-red-600 text-sm mb-4"
           />
 
-          <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+          <label htmlFor="email" className="block text-inherit font-medium mb-2">
             Email Address
           </label>
           <input
             id="email"
             type="email"
             name="email"
-            className="w-full px-4 py-2 border rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
+            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
           />
           <ValidationError 
             prefix="Email" 
@@ -66,14 +66,14 @@ function Register() {
             className="text-red-600 text-sm mb-4"
           />
 
-          <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
+          <label htmlFor="phone" className="block text-inherit font-medium mb-2">
             Phone Number
           </label>
           <input
             id="phone"
             type="tel"
             name="phone"
-            className="w-full px-4 py-2 border rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
+            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
           />
           <ValidationError 
             prefix="Phone" 
@@ -82,14 +82,14 @@ function Register() {
             className="text-red-600 text-sm mb-4"
           />
 
-          <label htmlFor="business" className="block text-gray-700 font-medium mb-2">
+          <label htmlFor="business" className="block text-inherit font-medium mb-2">
             Business Name
           </label>
           <input
             id="business"
             type="text"
             name="business"
-            className="w-full px-4 py-2 border rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
+            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
           />
           <ValidationError 
             prefix="Business" 
@@ -98,14 +98,14 @@ function Register() {
             className="text-red-600 text-sm mb-4"
           />
 
-          <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+          <label htmlFor="message" className="block text-inherit font-medium mb-2">
             Message
           </label>
           <textarea
             placeholder="Tell us about your business and what you need."
             id="message"
             name="message"
-            className="w-full px-4 py-2 border rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
+            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
           />
           <ValidationError 
             prefix="Message" 
@@ -117,7 +117,7 @@ function Register() {
           <button
             type="submit"
             disabled={state.submitting}
-            className="w-full flex justify-center items-center gap-2 bg-blue-500 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
+            className="w-full flex justify-center items-center gap-2 bg-blue-500 text-inherit font-medium py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import PageViewTracker from "components/PageViewTracker";
+import Breadcrumbs from 'components/BreadCrumbs';
 
 import {
   ClerkProvider,
@@ -34,16 +35,16 @@ function MyApp({ Component, pageProps }) {
           <SignedOut>
             <div className="flex items-center justify-center min-h-screen bg-gray-50">
               <div className="text-center">
-                <h1 className="text-4xl font-semibold text-gray-900 mb-6">Email remains a top productivity blocker in offices.</h1>
-                <p className="text-xl text-gray-700 mb-6">Please sign in to continue.</p>
+                <h1 className="text-4xl font-semibold text-inherit mb-6">Email remains a top productivity blocker in offices.</h1>
+                <p className="text-xl text-inherit mb-6">Please sign in to continue.</p>
                 <div className="flex space-x-4 justify-center">
                   <SignInButton>
-                    <button className="px-6 py-3 text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <button className="px-6 py-3 text-inherit bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none">
                       Sign In
                     </button>
                   </SignInButton>
                   <SignUpButton>
-                    <button className="px-6 py-3 text-white bg-green-600 rounded-lg shadow-lg hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:outline-none">
+                    <button className="px-6 py-3 text-inherit bg-green-600 rounded-lg shadow-lg hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:outline-none">
                       Sign Up
                     </button>
                   </SignUpButton>
@@ -54,6 +55,7 @@ function MyApp({ Component, pageProps }) {
 
           <SignedIn>
             <Header />
+            <Breadcrumbs />
             <Layout className="container mx-auto px-4 py-8">
               <Component {...pageProps} />
             </Layout>

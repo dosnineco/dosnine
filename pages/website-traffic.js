@@ -42,7 +42,7 @@ const WebsiteTraffic = () => {
   });
 
   return (
-    <div className="border rounded-md overflow-x-auto p-6 bg-white mt-4 rounded-lg">
+    <div className="text-inherit border rounded-md overflow-x-auto p-6 bg-white mt-4 rounded-lg">
       <h2 className="text-lg font-semibold mb-5">Website Traffic Dashboard</h2>
 
       {/* Total Page Views */}
@@ -74,7 +74,7 @@ const WebsiteTraffic = () => {
         <tbody className="bg-white divide-y divide-gray-200">
           {filteredPageViews.map((view) => (
             <tr key={view.page_url}>
-              <td className="w-32 px-4 py-3 truncate text-nowrap text-sm text-gray-900 font-medium">
+              <td className="w-32 px-4 py-3 truncate text-nowrap text-sm text-inherit font-medium">
                 {view.page_url}
               </td>
               <td className="border border-gray-200 px-4 py-2">{view.view_count}</td>

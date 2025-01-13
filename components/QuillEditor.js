@@ -63,12 +63,12 @@ const QuillEditor = ({ template, onClose, onSave }) => {
       <div className="bg-white p-4 rounded-lg shadow-lg w-full h-full max-h-full overflow-y-auto">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">Edit Template</h2>
-          <button onClick={onClose} className="text-gray-700">
+          <button onClick={onClose} className="text-inherit">
             Exit
           </button>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="subject">
+          <label className="block text-inherit font-bold mb-2" htmlFor="subject">
             Subject:
           </label>
           <input
@@ -80,7 +80,7 @@ const QuillEditor = ({ template, onClose, onSave }) => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="recipient">
+          <label className="block text-inherit font-bold mb-2" htmlFor="recipient">
             Recipient:
           </label>
           <input
@@ -93,13 +93,13 @@ const QuillEditor = ({ template, onClose, onSave }) => {
         </div>
         <div ref={quillRef} className="mb-4 h-96"></div>
         <div className="flex justify-end space-x-2">
-          <button onClick={onClose} className="py-1 px-3 bg-red-500 text-white rounded-md">
+          <button onClick={onClose} className="py-1 px-3 bg-red-500 text-inherit rounded-md">
             Cancel
           </button>
-          <button id="save-button" className="py-1 px-3 bg-blue-500 text-white rounded-md">
+          <button id="save-button" className="py-1 px-3 bg-blue-500 text-inherit rounded-md">
             Save
           </button>
-          <button id="copy-button" className="py-1 px-3 bg-green-500 text-white rounded-md">
+          <button id="copy-button" className="py-1 px-3 bg-green-500 text-inherit rounded-md">
             Copy
           </button>
         </div>

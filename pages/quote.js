@@ -185,8 +185,8 @@ function App() {
           <div className="flex items-center gap-3 mb-8">
             <Calculator className="w-8 h-8 text-blue-600" />
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Service Quote Generator</h1>
-              <p className="text-gray-600">Create and manage professional service quotes</p>
+              <h1 className="text-2xl font-bold text-inherit">Service Quote Generator</h1>
+              <p className="text-inherit">Create and manage professional service quotes</p>
             </div>
           </div>
 
@@ -194,7 +194,7 @@ function App() {
             {/* Client Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-inherit mb-2">
                   Client Name
                 </label>
                 <input
@@ -206,7 +206,7 @@ function App() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-inherit mb-2">
                   Client Email
                 </label>
                 <input
@@ -222,7 +222,7 @@ function App() {
             {/* Service Items */}
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-900">Services</h2>
+                <h2 className="text-lg font-semibold text-inherit">Services</h2>
                 <button
                   type="button"
                   onClick={addItem}
@@ -237,7 +237,7 @@ function App() {
                 <div key={index} className="p-4 border rounded-lg space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-inherit mb-2">
                         Service
                       </label>
                       <input
@@ -249,7 +249,7 @@ function App() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-inherit mb-2">
                         Hours
                       </label>
                       <input
@@ -263,7 +263,7 @@ function App() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-inherit	 mb-2">
                         Hourly Rate ($)
                       </label>
                       <input
@@ -277,7 +277,7 @@ function App() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-inherit mb-2">
                       Description
                     </label>
                     <textarea
@@ -303,7 +303,7 @@ function App() {
 
             {/* Notes */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-inherit mb-2">
                 Additional Notes
               </label>
               <textarea
@@ -317,15 +317,15 @@ function App() {
             {/* Summary */}
             <div className="bg-gray-50 p-4 rounded-lg">
               <div className="space-y-2">
-                <div className="flex justify-between text-gray-600">
+                <div className="flex justify-between text-inherit">
                   <span>Subtotal:</span>
                   <span>${calculateSubtotal().toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between text-gray-600">
+                <div className="flex justify-between text-inherit">
                   <span>Tax (10%):</span>
                   <span>${(calculateSubtotal() * 0.1).toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between text-lg font-semibold text-gray-900">
+                <div className="flex justify-between text-lg font-semibold text-inherit">
                   <span>Total:</span>
                   <span>${calculateTotal().toFixed(2)}</span>
                 </div>
@@ -346,7 +346,7 @@ function App() {
         <div className="bg-white rounded-xl shadow-sm p-6 md:p-8 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-inherit mb-2">
                 Search
               </label>
               <input
@@ -358,7 +358,7 @@ function App() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-inherit mb-2">
                 Start Date
               </label>
               <input
@@ -369,7 +369,7 @@ function App() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-inherit mb-2">
                 End Date
               </label>
               <input
@@ -389,22 +389,22 @@ function App() {
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-50">
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Client</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Email</th>
-                  <th className="px-4 py-3 text-right text-sm font-medium text-gray-700">Total</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Date</th>
-                  <th className="px-4 py-3 text-right text-sm font-medium text-gray-700">Actions</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-inherit">Client</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-inherit">Email</th>
+                  <th className="px-4 py-3 text-right text-sm font-medium text-inherit">Total</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-inherit">Date</th>
+                  <th className="px-4 py-3 text-right text-sm font-medium text-inherit">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {quotes.map((quote) => (
                   <tr key={quote.id} className="hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm text-gray-900">{quote.client_name}</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">{quote.client_email}</td>
-                    <td className="px-4 py-3 text-sm text-gray-900 text-right">
+                    <td className="px-4 py-3 text-sm text-inherit">{quote.client_name}</td>
+                    <td className="px-4 py-3 text-sm text-inherit">{quote.client_email}</td>
+                    <td className="px-4 py-3 text-sm text-inherit text-right">
                       ${quote.total.toFixed(2)}
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-600">
+                    <td className="px-4 py-3 text-sm text-inherit">
                       {new Date(quote.created_at).toLocaleDateString()}
                     </td>
                     <td className="px-4 py-3 text-right space-x-2">

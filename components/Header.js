@@ -19,11 +19,11 @@ const Header = () => {
         {/* Logo Section */}
         <div className="flex items-center space-x-2">
           <MdOutlineVerified
-            className="text-sky-600" // Google Verified sky-blue color
+            className="text-inherit	" // Google Verified sky-blue color
             size={24} // Icon size
           />
           <span
-            className="text-xl font-medium font-poppins text-white"
+            className="text-xl font-medium font-poppins text-inherit	"
           >
             <Link href="/" >
             Dosnine.com
@@ -35,14 +35,14 @@ const Header = () => {
         {/* Navigation Links */}
         <div className="flex items-center space-x-4">
           <SignedIn>
-            <Link href="/dashboard" className="text-white box-shadow text-sm font-medium">
+            <Link href="/dashboard" className="text-inherit	  text-sm font-medium">
               Dashboard
             </Link>
             <UserButton />
           </SignedIn>
 
           <SignedOut>
-            <Link href="/dashboard" className=" text-white text-sm font-medium">
+            <Link href="/dashboard" className=" text-inherit	 text-sm font-medium">
               Dashboard
             </Link>
           </SignedOut>

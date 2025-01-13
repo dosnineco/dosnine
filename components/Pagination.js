@@ -1,9 +1,7 @@
-import { useRouter } from 'next/router';
-
 
 export default function Pagination({ page, setPage, totalPages }) {
     return (
-      <div className="flex justify-between mt-4">
+      <div className="flex text-inherit justify-between mt-4">
         <button
           onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
           disabled={page === 1}
