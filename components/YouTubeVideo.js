@@ -19,7 +19,7 @@ const YouTubeVideo = ({ url }) => {
     height: '200',
     width: '320',
     playerVars: {
-      autoplay: 0,
+      autoplay: 3,
     },
   };
 
@@ -27,7 +27,7 @@ const YouTubeVideo = ({ url }) => {
     height: '320',
     width: '550',
     playerVars: {
-      autoplay: 0,
+      autoplay: 3,
     },
   };
 
