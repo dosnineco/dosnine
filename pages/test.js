@@ -2,7 +2,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic"; // For dynamic imports
 import { supabase } from "lib/supabase";
 import { arrayMove } from "@dnd-kit/sortable";
-import { CiCircleUp, CiCircleDown, CiTrash } from "react-icons/ci";
+import { LuArrowUp, LuArrowDown, LuTrash } from "react-icons/lu";
 
 // Dynamically import components with SSR disabled
 const componentMap = {
@@ -53,9 +53,7 @@ export default function BespokeStudio() {
   };
 
   const moveComponent = (fromIndex, toIndex) => {
-    if (toIndex >= 0 && toIndex < canvasItems.length) {
-      setCanvasItems((prev) => arrayMove(prev, fromIndex, toIndex));
-    }
+    setCanvasItems((prev) => arrayMove(prev, fromIndex, toIndex));
   };
 
   const deleteComponent = (index) => {
@@ -74,9 +72,18 @@ export default function BespokeStudio() {
   };
 
   return (
-    <div className="min-h-screen flex">
+    <>
+         <header className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-6 shadow-md">
+        <h1 className="text-4xl font-extrabold text-center tracking-wide">
+          Bespoke Studio
+        </h1>
+      </header>
+    <div className="min-h-screen bg-gray-100	w-full flex ">
       {/* Components Library */}
-      <aside className="w-1/4 bg-gray-100 p-4 border-r">
+
+      <aside
+        className=" m-3  rounded-lg	 w-64 h-screen bg-gray-100 p-4 border-r overflow-y-auto"
+      >
         <h2 className="text-lg font-bold mb-4">Components Library</h2>
         {Object.keys(componentMap).map((componentName) => (
           <div
@@ -91,35 +98,37 @@ export default function BespokeStudio() {
       </aside>
 
       {/* Drag-and-Drop Canvas */}
-      <main className="flex-1 p-4">
-        <div
-          className="min-h-[500px] bg-gray-50 border rounded p-4"
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={handleDrop}
-        >
+      <main
+        className="rounded-lg	 flex-1 m-3 h-screen bg-gray-100 p-4 overflow-y-auto"
+        onDragOver={(e) => e.preventDefault()}
+        onDrop={handleDrop}
+      >
+        <div className="min-h-[500px] bg-gray-50 border rounded p-4">
           <h2 className="text-lg font-bold mb-4">Canvas</h2>
           {canvasItems.map((item, index) => {
             const Component = componentMap[item.name];
             return (
-              <div key={item.id} className="relative mb-4 p-4 border rounded bg-white shadow">
-                <div className="absolute top-0 right-0 flex space-x-2">
+              <div key={item.id} className="relative mb-2">
+                <div className="absolute top-0 right-0 flex space-x-1">
                   <button
                     onClick={() => moveComponent(index, index - 1)}
-                    className="text-blue-500 hover:text-blue-700"
+                    disabled={index === 0}
+                    className="bg-gray-300 text-black px-2 py-1 text-xs rounded disabled:opacity-50 flex items-center"
                   >
-                    <CiCircleUp size={24} />
+                    <LuArrowUp className="mr-1" />
                   </button>
                   <button
                     onClick={() => moveComponent(index, index + 1)}
-                    className="text-blue-500 hover:text-blue-700"
+                    disabled={index === canvasItems.length - 1}
+                    className="bg-gray-300 text-black px-2 py-1 text-xs rounded disabled:opacity-50 flex items-center"
                   >
-                    <CiCircleDown size={24} />
+                    <LuArrowDown className="mr-1" />
                   </button>
                   <button
                     onClick={() => deleteComponent(index)}
-                    className="text-red-500 hover:text-red-700"
+                    className="bg-red-500 text-white px-2 py-1 text-xs rounded flex items-center"
                   >
-                    <CiTrash size={24} />
+                    <LuTrash className="mr-1" />
                   </button>
                 </div>
                 <Component />
@@ -131,9 +140,10 @@ export default function BespokeStudio() {
           onClick={saveTemplate}
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded shadow"
         >
-          Publish Template
+          Publish
         </button>
       </main>
     </div>
+    </>
   );
 }

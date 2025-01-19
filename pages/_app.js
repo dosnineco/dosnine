@@ -55,7 +55,7 @@ function MyApp({ Component, pageProps }) {
 
           <SignedIn>
             <Header />
-            <Breadcrumbs />
+            {/* <Breadcrumbs /> */}
             <Layout className="container mx-auto px-4 py-8">
               <Component {...pageProps} />
             </Layout>
