@@ -6,7 +6,8 @@ import {
   Mail, 
   DollarSign,
   Settings,
-  Search
+  Search,
+  Award
 } from "lucide-react";
 
 function App() {
@@ -28,6 +29,14 @@ function App() {
       path: "/texttoexcel",
       color: "text-green-600",
       bgHover: "hover:bg-green-50",
+    },
+    {
+      title: "Bespoke Studio",
+      description: "See the vision of your site.",
+      icon: Award,
+      path: "/bespoke-studio",
+      color: "text-yellow-600",
+      bgHover: "hover:bg-yellow-50",
     },
     {
       title: "Service Quoting Tool",
