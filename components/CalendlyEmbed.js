@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-url = 'https://calendly.com/d/cmtr-dn6-xb7/dosnine-meeting'
 
 const CalendlyEmbed = ({ url }) => {
   useEffect(() => {
