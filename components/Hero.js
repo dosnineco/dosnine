@@ -4,8 +4,7 @@ import YouTubeVideo from './YouTubeVideo';
 import { 
   CheckCircle2, 
 } from 'lucide-react';
-import PhoneNumber from './PhoneNumber';
-import ImagePopup from './ImagePopup';
+
 
 const Hero = () => {
   return (

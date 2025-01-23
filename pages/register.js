@@ -1,144 +1,120 @@
 import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import { useRouter } from 'next/router';
 
-function Register() {
+function ContactForm() {
   const [state, handleSubmit] = useForm("xgeggljb");
-  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(true);
+  const router = useRouter();
 
-  const handleClick = () => {
-    setIsFormVisible(!isFormVisible);
-  };
-
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     handleSubmit(event);
     if (state.succeeded) {
-      setIsFormVisible(false); // Minimize form on successful submission
+      setIsFormVisible(false);
     }
   };
 
-  const handleClose = () => {
-    setIsFormVisible(false); // Close form when "X" button is clicked
+  const goToHomePage = () => {
+    router.push('/');
   };
 
-  return (
-    <div className="max-w-lg mx-auto">
-      
-        <form
-          id="contact"
-          onSubmit={handleFormSubmit}
-          className="bg-white shadow-md rounded-lg p-6 relative"
+  if (!isFormVisible && state.succeeded) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100 text-gray-800">
+        <h2 className="text-2xl font-semibold mb-4">Thank you for your submission!</h2>
+        <p className="text-center mb-6">We’ll review your information and get back to you shortly.</p>
+        <button
+          onClick={goToHomePage}
+          className="bg-blue-500 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
         >
-      
+          Back to Home
+        </button>
+      </div>
+    );
+  }
 
-          <h2 className="text-2xl font-semibold text-center mb-6 text-inherit">
-            Get Your Service Business Online
-          </h2>
+  return (
+    <div className="max-w-3xl mx-auto pt-10 p-6 bg-white rounded-md shadow-md">
+      <form id="contact" onSubmit={handleFormSubmit}>
+        <h2 className="text-2xl font-semibold text-center mb-6">Get Your Service Business Online</h2>
 
-          <label htmlFor="name" className="block text-inherit font-medium mb-2">
-            Name
-          </label>
-          <input
-            id="name"
-            type="text"
-            name="name"
-            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
-          />
-          <ValidationError 
-            prefix="Name" 
-            field="name"
-            errors={state.errors}
-            className="text-red-600 text-sm mb-4"
-          />
+        <label htmlFor="name" className="block font-medium mb-2">Name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+        />
+        <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-600 text-sm mb-4" />
 
-          <label htmlFor="email" className="block text-inherit font-medium mb-2">
-            Email Address
-          </label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
-          />
-          <ValidationError 
-            prefix="Email" 
-            field="email"
-            errors={state.errors}
-            className="text-red-600 text-sm mb-4"
-          />
+        <label htmlFor="email" className="block font-medium mb-2">Email Address</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+        />
+        <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-600 text-sm mb-4" />
 
-          <label htmlFor="phone" className="block text-inherit font-medium mb-2">
-            Phone Number
-          </label>
-          <input
-            id="phone"
-            type="tel"
-            name="phone"
-            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
-          />
-          <ValidationError 
-            prefix="Phone" 
-            field="phone"
-            errors={state.errors}
-            className="text-red-600 text-sm mb-4"
-          />
+        <label htmlFor="phone" className="block font-medium mb-2">Phone Number</label>
+        <input
+          id="phone"
+          type="tel"
+          name="phone"
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+        />
+        <ValidationError prefix="Phone" field="phone" errors={state.errors} className="text-red-600 text-sm mb-4" />
 
-          <label htmlFor="business" className="block text-inherit font-medium mb-2">
-            Business Name
-          </label>
-          <input
-            id="business"
-            type="text"
-            name="business"
-            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
-          />
-          <ValidationError 
-            prefix="Business" 
-            field="business"
-            errors={state.errors}
-            className="text-red-600 text-sm mb-4"
-          />
+        <label htmlFor="business" className="block font-medium mb-2">Business Name</label>
+        <input
+          id="business"
+          type="text"
+          name="business"
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+        />
+        <ValidationError prefix="Business" field="business" errors={state.errors} className="text-red-600 text-sm mb-4" />
 
-          <label htmlFor="message" className="block text-inherit font-medium mb-2">
-            Message
-          </label>
-          <textarea
-            placeholder="Tell us about your business and what you need."
-            id="message"
-            name="message"
-            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
-          />
-          <ValidationError 
-            prefix="Message" 
-            field="message"
-            errors={state.errors}
-            className="text-red-600 text-sm mb-4"
-          />
+        <label htmlFor="industry" className="block font-medium mb-2">Industry</label>
+        <select
+          id="industry"
+          name="industry"
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+        >
+          <option value="">Select an industry</option>
+          <option value="retail">Retail</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="technology">Technology</option>
+          <option value="education">Education</option>
+          <option value="other">Other</option>
+        </select>
 
-          <button
-            type="submit"
-            disabled={state.submitting}
-            className="w-full flex justify-center items-center gap-2 bg-blue-500 text-inherit font-medium py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              aria-hidden="true"
-              focusable="false"
-              role="img"
-              width="20"
-              height="20"
-              className="fill-current text-white"
-            >
-              <path
-                d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376l0 103.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"
-              />
-            </svg>
-            Submit
-          </button>
-        </form>
-        
+        <label htmlFor="features" className="block font-medium mb-2">Desired Features</label>
+        <textarea
+          id="features"
+          name="features"
+          placeholder="E.g., online store, booking system, portfolio gallery."
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+        />
+
+        <label htmlFor="message" className="block font-medium mb-2">Additional Information</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Tell us more about your business and specific needs."
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+        />
+        <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-600 text-sm mb-4" />
+
+        <button
+          type="submit"
+          disabled={state.submitting}
+          className="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
+        >
+          Submit
+        </button>
+      </form>
     </div>
   );
 }
 
-export default Register;
+export default ContactForm;

@@ -20,6 +20,7 @@
     "lucide-react": "^0.469.0",
     "next": "^15.1.2",
     "next-sitemap": "^3.1.7",
+    "nodemailer": "^6.10.0",
     "postcss": "^8.4.49",
     "quill": "^2.0.3",
     "react": "^19.0.0",

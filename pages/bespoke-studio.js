@@ -19,6 +19,8 @@ const componentMap = {
   PhoneNumber: dynamic(() => import("../components/PhoneNumber"), { ssr: false }),
   Services: dynamic(() => import("../components/Services"), { ssr: false }),
   WhatsNew: dynamic(() => import("../components/WhatsNew"), { ssr: false }),
+  HeroCentered: dynamic(() => import("../components/Heros/HeroCentered.js"), { ssr: false }),
+
 };
 
 const servicesList = Array.from({ length: 100 }, (_, i) => `Service ${i + 1}`);
