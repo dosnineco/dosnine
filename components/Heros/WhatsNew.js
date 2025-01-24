@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles/WhatsNew.module.css';
+import styles from '../styles/WhatsNew.module.css';
 
 
 const WhatsNew = () => {

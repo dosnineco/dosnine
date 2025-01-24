@@ -7,7 +7,7 @@
       "@/public/*":["/public/*"],
       "@/seo/*":["/seo/*"],
       "@/pages/*":["/pages/*"],
-      "@/styles/*":["/styles/*"]
+      "@/styles/*":["styles/*"]
     }
   }
 }

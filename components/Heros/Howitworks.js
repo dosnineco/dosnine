@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './styles/howitworks.module.css';
-import YouTubeVideo from './YouTubeVideo';
+import styles from '../styles/howitworks.module.css';
+import YouTubeVideo from '../Misc/YouTubeVideo';
 
 const HowItWorks = () => {
   return (

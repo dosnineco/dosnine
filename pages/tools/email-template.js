@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import { supabase } from '../../lib/supabase';
 import { useRouter } from 'next/router';
 import { useUser } from '@clerk/nextjs';
 import dynamic from 'next/dynamic';
-import Notification from 'components/Notification';
-import TemplateTable from '../components/TemplateTable';
-import Pagination from '../components/Pagination';
-import SearchFilterSort from '../components/SearchFilterSort';
+import Notification from 'components/Misc/Notification';
+import TemplateTable from '../../components/Misc/TemplateTable';
+import Pagination from '../../components/Misc/Pagination';
+import SearchFilterSort from '../../components/Misc/SearchFilterSort';
 
-const QuillEditor = dynamic(() => import('../components/QuillEditor'), { ssr: false });
+const QuillEditor = dynamic(() => import('../../components/Misc/QuillEditor'), { ssr: false });
 
 export default function Dashboard() {
   const { isLoaded, isSignedIn, user } = useUser();

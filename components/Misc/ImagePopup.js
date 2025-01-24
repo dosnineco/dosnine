@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './styles/ImagePopup.module.css';
+import styles from '../styles/ImagePopup.module.css';
 
 const ImagePopup = ({ src, alt,width,height }) => {
   const [isOpen, setIsOpen] = useState(false);

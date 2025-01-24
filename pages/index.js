@@ -1,13 +1,11 @@
 
-import Services from 'components/Services';
-import Hero from 'components/Hero';
-import Faq from 'components/Faq';
-import WhatsNew from 'components/WhatsNew';
-import HowItWorks from 'components/Howitworks';
-import Seo from 'components/Seo';
-import CalendlyEmbed from 'components/CalendlyEmbed';
-import PhoneNumber from 'components/PhoneNumber';
-import CountdownTimer from 'components/CountdownTimer';
+import Hero from 'components/Heros/Hero';
+import Faq from 'components/Faqs/Faq';
+import WhatsNew from 'components/Heros/WhatsNew';
+import HowItWorks from 'components/Heros/Howitworks';
+import Seo from 'components/Misc/Seo';
+import PhoneNumber from 'components/Misc/PhoneNumber';
+import CountdownTimer from 'components/Misc/CountdownTimer';
 
 export default function Home() {
 
@@ -20,7 +18,6 @@ for common business needs.' url='www.dosnine.com'/>
       <PhoneNumber/>
       <HowItWorks />
       <WhatsNew />
-      {/* <CalendlyEmbed url='https://calendly.com/d/cmtr-dn6-xb7/dosnine-meeting'/> */}
       <Faq />
     </>
   );

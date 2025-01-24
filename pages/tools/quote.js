@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Calculator, Plus, Trash2, Download, Pencil } from "lucide-react";
-import { supabase } from '../lib/supabase';
+import { supabase } from '../../lib/supabase';
 import jsPDF from "jspdf";
 import { saveAs } from "file-saver";
 

@@ -7,19 +7,19 @@ import { FiSave, FiTrash, FiCopy } from 'react-icons/fi';
 
 // Dynamically import components with SSR disabled
 const componentMap = {
-  BreadCrumbs: dynamic(() => import("../components/BreadCrumbs"), { ssr: false }),
-  CalendlyEmbed: dynamic(() => import("../components/CalendlyEmbed"), { ssr: false }),
-  ContactForm: dynamic(() => import("../components/ContactForm"), { ssr: false }),
-  CountdownTimer: dynamic(() => import("../components/CountdownTimer"), { ssr: false }),
-  Faq: dynamic(() => import("../components/Faq"), { ssr: false }),
-  Footer: dynamic(() => import("../components/Footer"), { ssr: false }),
-  Header: dynamic(() => import("../components/Header"), { ssr: false }),
-  Hero: dynamic(() => import("../components/Hero"), { ssr: false }),
-  Howitworks: dynamic(() => import("../components/Howitworks"), { ssr: false }),
-  PhoneNumber: dynamic(() => import("../components/PhoneNumber"), { ssr: false }),
-  Services: dynamic(() => import("../components/Services"), { ssr: false }),
-  WhatsNew: dynamic(() => import("../components/WhatsNew"), { ssr: false }),
-  HeroCentered: dynamic(() => import("../components/Heros/HeroCentered.js"), { ssr: false }),
+  BreadCrumbs: dynamic(() => import("../../components/BreadCrumbs/BreadCrumbs"), { ssr: false }),
+  CalendlyEmbed: dynamic(() => import("../../components/Misc/CalendlyEmbed"), { ssr: false }),
+  ContactForm: dynamic(() => import("../../components/ContactForms/ContactForm"), { ssr: false }),
+  CountdownTimer: dynamic(() => import("../../components/Misc/CountdownTimer"), { ssr: false }),
+  Faq: dynamic(() => import("../../components/Faqs/Faq"), { ssr: false }),
+  Footer: dynamic(() => import("../../components/Footers/Footer"), { ssr: false }),
+  Header: dynamic(() => import("../../components/Headers/Header"), { ssr: false }),
+  Hero: dynamic(() => import("../../components/Heros/Hero"), { ssr: false }),
+  Howitworks: dynamic(() => import("../../components/Heros/Howitworks"), { ssr: false }),
+  PhoneNumber: dynamic(() => import("../../components/Misc/PhoneNumber"), { ssr: false }),
+  Services: dynamic(() => import("../../components/Services/Services"), { ssr: false }),
+  WhatsNew: dynamic(() => import("../../components/Heros/WhatsNew"), { ssr: false }),
+  HeroCentered: dynamic(() => import("../../components/Heros/HeroCentered.js"), { ssr: false }),
 
 };
 
