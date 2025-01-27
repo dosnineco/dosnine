@@ -1,141 +1,184 @@
+
+
 import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xgeggljb");
-  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(true);
 
-  const handleClick = () => {
-    setIsFormVisible(!isFormVisible);
-  };
-
-  const handleFormSubmit = (event) => {
-    handleSubmit(event);
+  const handleFormSubmit = async (event) => {
+    await handleSubmit(event);
     if (state.succeeded) {
-      setIsFormVisible(false); // Minimize form on successful submission
+      setIsFormVisible(false);
     }
   };
 
-  const handleClose = () => {
-    setIsFormVisible(false); // Close form when "X" button is clicked
-  };
-
   return (
-    <div className="max-w-full pt-10 mx-auto">
-     
-        <form
-          id="contact"
-          onSubmit={handleFormSubmit}
-          className="max-w-full	 bg-white  p-6 relative"
-        >
-    
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="relative bg-white rounded-2xl shadow-2xl p-8 sm:p-10 lg:p-12 border-4 border-orange-100/20">
+        {state.succeeded ? (
+          <div className="text-center space-y-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+              <svg
+                className="w-8 h-8 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Thank you!
+            </h2>
+            <p className="text-gray-600">
+              We'll be in touch shortly to discuss your project.
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleFormSubmit} className="space-y-6">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold text-gray-900 mb-3 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                Launch Your Online Presence
+              </h2>
+              <p className="text-lg text-gray-600">
+                Get your FREE website consultation in 24 hours
+              </p>
+            </div>
 
-          <h2 className="text-2xl font-semibold text-center mb-6 text-inherit">
-            Get Your Service Business Online
-          </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+                />
+                <ValidationError 
+                  prefix="Name" 
+                  field="name"
+                  errors={state.errors}
+                  className="text-red-600 text-sm"
+                />
+              </div>
 
-          <label htmlFor="name" className="block text-inherit font-medium mb-2">
-            Name
-          </label>
-          <input
-            id="name"
-            type="text"
-            name="name"
-            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
-          />
-          <ValidationError 
-            prefix="Name" 
-            field="name"
-            errors={state.errors}
-            className="text-red-600 text-sm mb-4"
-          />
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+                />
+                <ValidationError 
+                  prefix="Email" 
+                  field="email"
+                  errors={state.errors}
+                  className="text-red-600 text-sm"
+                />
+              </div>
 
-          <label htmlFor="email" className="block text-inherit font-medium mb-2">
-            Email Address
-          </label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
-          />
-          <ValidationError 
-            prefix="Email" 
-            field="email"
-            errors={state.errors}
-            className="text-red-600 text-sm mb-4"
-          />
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  type="tel"
+                  name="phone"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+                />
+                <ValidationError 
+                  prefix="Phone" 
+                  field="phone"
+                  errors={state.errors}
+                  className="text-red-600 text-sm"
+                />
+              </div>
 
-          <label htmlFor="phone" className="block text-inherit font-medium mb-2">
-            Phone Number
-          </label>
-          <input
-            id="phone"
-            type="tel"
-            name="phone"
-            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
-          />
-          <ValidationError 
-            prefix="Phone" 
-            field="phone"
-            errors={state.errors}
-            className="text-red-600 text-sm mb-4"
-          />
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Business Name
+                </label>
+                <input
+                  id="business"
+                  type="text"
+                  name="business"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+                />
+                <ValidationError 
+                  prefix="Business" 
+                  field="business"
+                  errors={state.errors}
+                  className="text-red-600 text-sm"
+                />
+              </div>
+            </div>
 
-          <label htmlFor="business" className="block text-inherit font-medium mb-2">
-            Business Name
-          </label>
-          <input
-            id="business"
-            type="text"
-            name="business"
-            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
-          />
-          <ValidationError 
-            prefix="Business" 
-            field="business"
-            errors={state.errors}
-            className="text-red-600 text-sm mb-4"
-          />
-
-          <label htmlFor="message" className="block text-inherit font-medium mb-2">
-            Message
-          </label>
-          <textarea
-            placeholder="Tell us about your business and what you need."
-            id="message"
-            name="message"
-            className="w-full px-4 py-2 border rounded-md text-inherit focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4"
-          />
-          <ValidationError 
-            prefix="Message" 
-            field="message"
-            errors={state.errors}
-            className="text-red-600 text-sm mb-4"
-          />
-
-          <button
-            type="submit"
-            disabled={state.submitting}
-            className="w-full flex justify-center items-center gap-2 bg-blue-500 text-inherit font-medium py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              aria-hidden="true"
-              focusable="false"
-              role="img"
-              width="20"
-              height="20"
-              className="fill-current text-white"
-            >
-              <path
-                d="M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376l0 103.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z"
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700">
+                How can we help you? <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Describe your business goals and target audience"
+                rows="4"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
               />
-            </svg>
-            Submit
-          </button>
-        </form>
+              <ValidationError 
+                prefix="Message" 
+                field="message"
+                errors={state.errors}
+                className="text-red-600 text-sm"
+              />
+            </div>
+
+            <div className="text-center pt-4">
+              <button
+                type="submit"
+                disabled={state.submitting}
+                className="w-full flex justify-center items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-orange-200"
+              >
+                {state.submitting ? (
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
+                ) : (
+                  <>
+                    <svg
+                      className="w-6 h-6 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                    </svg>
+                    Get My Free Consultation
+                  </>
+                )}
+              </button>
+              <p className="text-sm text-gray-500 mt-3">
+                We respect your privacy. No spam, ever.
+              </p>
+            </div>
+          </form>
+        )}
+      </div>
     </div>
   );
 }

@@ -7,11 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      keyframes: {
-        glitter: {
-          '0%': { backgroundPosition: '0 0' },
-          '100%': { backgroundPosition: '50px 50px' },
-        },
+      colors: {
+        "primary-color": "var(--primary)",
+        "secondary-color": "var(--shade)",
+
       },
       animation: {
         glitter: 'glitter 2s linear infinite',

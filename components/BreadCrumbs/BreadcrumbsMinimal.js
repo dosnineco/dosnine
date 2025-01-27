@@ -1,33 +1,35 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { FiHome, FiChevronRight, FiArrowRight } from 'react-icons/fi';
 
-const Breadcrumbs = () => {
+
+// Variation 1: Minimal Breadcrumbs
+const BreadcrumbsMinimal = () => {
   const router = useRouter();
   const [breadcrumbs, setBreadcrumbs] = useState([]);
 
   useEffect(() => {
-    const pathArray = router.asPath.split('/').filter((path) => path);
+    const pathArray = router.asPath.split('/').filter(path => path);
     const breadcrumbArray = pathArray.map((path, index) => {
       const href = '/' + pathArray.slice(0, index + 1).join('/');
       return { href, label: path };
     });
-
     setBreadcrumbs(breadcrumbArray);
   }, [router.asPath]);
 
   return (
-    <nav className="mb-3  border-y p-2 px-10 mx-5">
-      <ol className="list-none flex p-0 space-x-2">
+    <nav className="text-sm text-gray-600">
+      <ol className="flex space-x-2">
         <li>
-          <Link href="/" className="mx-1 text-inherit ">
+          <Link href="/" className="hover:text-blue-600 transition-colors">
             Home
           </Link>
         </li>
         {breadcrumbs.map((breadcrumb, index) => (
-          <li key={index} className="flex text-inherit items-center">
-            <span className="mx-1 text-inherit">/</span>
-            <Link href={breadcrumb.href} className="text-inherit ">
+          <li key={index} className="flex items-center">
+            <FiArrowRight className="mx-1 text-gray-400" />
+            <Link href={breadcrumb.href} className="hover:text-blue-600 transition-colors">
               {breadcrumb.label}
             </Link>
           </li>
@@ -37,4 +39,9 @@ const Breadcrumbs = () => {
   );
 };
 
-export default Breadcrumbs;
+
+
+
+
+
+export default BreadcrumbsMinimal;

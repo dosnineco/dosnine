@@ -7,9 +7,16 @@ import { FiSave, FiTrash, FiCopy } from 'react-icons/fi';
 
 // Dynamically import components with SSR disabled
 const componentMap = {
-  BreadCrumbs: dynamic(() => import("../../components/BreadCrumbs/BreadCrumbs"), { ssr: false }),
+  BreadcrumbsMinimal: dynamic(() => import("../../components/BreadCrumbs/BreadcrumbsMinimal"), { ssr: false }),
+  BreadcrumbsPillStyle: dynamic(() => import("../../components/BreadCrumbs/BreadcrumbsPillStyle"), { ssr: false }),
+  BreadcrumbsStepperStyle: dynamic(() => import("../../components/BreadCrumbs/BreadcrumbsStepperStyle"), { ssr: false }),
+  BreadcrumbsWithCurrentPage: dynamic(() => import("../../components/BreadCrumbs/BreadcrumbsWithCurrentPage"), { ssr: false }),
+  BreadcrumbsWithIcons: dynamic(() => import("../../components/BreadCrumbs/BreadcrumbsWithIcons"), { ssr: false }),
   CalendlyEmbed: dynamic(() => import("../../components/Misc/CalendlyEmbed"), { ssr: false }),
   ContactForm: dynamic(() => import("../../components/ContactForms/ContactForm"), { ssr: false }),
+  LegalContactForm: dynamic(() => import("../../components/ContactForms/LegalContactForm"), { ssr: false }),
+  MarketingContact: dynamic(() => import("../../components/ContactForms/MarketingContact"), { ssr: false }),
+  MedicalContactForm: dynamic(() => import("../../components/ContactForms/MedicalContactForm"), { ssr: false }),
   CountdownTimer: dynamic(() => import("../../components/Misc/CountdownTimer"), { ssr: false }),
   Faq: dynamic(() => import("../../components/Faqs/Faq"), { ssr: false }),
   Footer: dynamic(() => import("../../components/Footers/Footer"), { ssr: false }),
@@ -20,7 +27,17 @@ const componentMap = {
   Services: dynamic(() => import("../../components/Services/Services"), { ssr: false }),
   WhatsNew: dynamic(() => import("../../components/Heros/WhatsNew"), { ssr: false }),
   HeroCentered: dynamic(() => import("../../components/Heros/HeroCentered.js"), { ssr: false }),
-
+  HeroWithBackground: dynamic(() => import("../../components/Heros/HeroWithBackground.js"), { ssr: false }),
+  HeroFullscreen: dynamic(() => import("../../components/Heros/HeroFullscreen"), { ssr: false }),
+  HeroSplit: dynamic(() => import("../../components/Heros/HeroSplit"), { ssr: false }),
+  HeroMinimal: dynamic(() => import("../../components/Heros/HeroMinimal"), { ssr: false }),
+  HeroCards: dynamic(() => import("../../components/Heros/HeroCards"), { ssr: false }),
+  HeroVideo: dynamic(() => import("../../components/Heros/HeroVideo"), { ssr: false }),
+  AdventureGrid: dynamic(() => import("../../components/Services/AdventureGrid"), { ssr: false }),
+  IconCards: dynamic(() => import("../../components/Services/IconCards"), { ssr: false }),
+  SplitCards: dynamic(() => import("../../components/Services/SplitCards"), { ssr: false }),
+  OverlayShowcase: dynamic(() => import("../../components/Services/OverlayShowcase"), { ssr: false }),
+  FeatureCards: dynamic(() => import("../../components/Services/FeatureCards"), { ssr: false }),
 };
 
 const servicesList = Array.from({ length: 100 }, (_, i) => `Service ${i + 1}`);
@@ -153,125 +170,149 @@ export default function BespokeStudio() {
 
   return (
     <>
-      <header className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-6 shadow-md">
-        <h1 className="text-4xl font-extrabold text-center tracking-wide">Bespoke Studio</h1>
+      <header className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-6 shadow-lg">
+        <h1 className="text-3xl md:text-4xl font-bold text-center">Bespoke Studio</h1>
       </header>
-      <div className="min-h-screen bg-gray-100 w-full flex">
+
+      <div className="min-h-screen bg-gray-50 w-full flex flex-col md:flex-row">
         {/* Components Library */}
-        <aside className="m-3 rounded-lg w-64 h-screen bg-gray-100 p-4 border-r overflow-y-auto">
-          <h2 className="text-lg font-bold mb-4">Components Library</h2>
-          {Object.keys(componentMap).map((componentName) => (
-            <div
-              key={componentName}
-              draggable
-              onDragStart={(e) => handleDragStart(e, componentName)}
-              className="p-2 bg-white border rounded mb-2 shadow-sm cursor-pointer"
-            >
-              {componentName}
-            </div>
-          ))}
+        <aside className="md:w-64 w-full h-auto md:h-[calc(100vh-4rem)] p-4 bg-white border-r overflow-y-auto">
+          <h2 className="text-lg font-semibold mb-4 text-gray-700">Components Library</h2>
+          <div className="grid gap-2">
+            {Object.keys(componentMap).map((componentName) => (
+              <div
+                key={componentName}
+                draggable
+                onDragStart={(e) => handleDragStart(e, componentName)}
+                className="p-3 bg-white rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 transition-all cursor-move shadow-sm"
+              >
+                <span className="text-sm font-medium text-gray-600">{componentName}</span>
+              </div>
+            ))}
+          </div>
         </aside>
 
         {/* Main Content */}
-        <main
-          className="rounded-lg flex-1 m-3 h-screen bg-gray-100 p-4 overflow-y-auto"
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={handleDrop}
-        >
-          <div className="min-h-[500px] bg-gray-50 border rounded p-4">
-            <h2 className="text-lg font-bold mb-4">Canvas</h2>
-            {canvasItems.map((item, index) => {
-              const Component = componentMap[item.name];
-              return (
-                <div key={item.id} className="relative mb-2">
-                  <div className="absolute top-0 right-0 flex space-x-1">
-                    <button
-                      onClick={() => moveComponent(index, index - 1)}
-                      disabled={index === 0}
-                      className="bg-gray-300 text-black px-2 py-1 text-xs rounded disabled:opacity-50 flex items-center"
-                    >
-                      <LuArrowUp className="mr-1" />
-                    </button>
-                    <button
-                      onClick={() => moveComponent(index, index + 1)}
-                      disabled={index === canvasItems.length - 1}
-                      className="bg-gray-300 text-black px-2 py-1 text-xs rounded disabled:opacity-50 flex items-center"
-                    >
-                      <LuArrowDown className="mr-1" />
-                    </button>
-                    <button
-                      onClick={() => deleteComponent(index)}
-                      className="bg-red-500 text-white px-2 py-1 text-xs rounded flex items-center"
-                    >
-                      <LuTrash className="mr-1" />
-                    </button>
+        <main className="flex-1 p-4 md:h-[calc(100vh-4rem)] overflow-y-auto">
+          <div 
+            className="w-full min-h-[60vh] bg-white rounded-xl border-2 border-dashed border-gray-200 hover:border-blue-400 transition-colors p-4 md:p-6"
+            onDragOver={(e) => e.preventDefault()}
+            onDrop={handleDrop}
+          >
+            {canvasItems.length === 0 && (
+              <div className="w-full h-full flex items-center justify-center text-gray-400">
+                Drag components here to start building
+              </div>
+            )}
+            
+            <div className="space-y-4">
+              {canvasItems.map((item, index) => {
+                const Component = componentMap[item.name];
+                return (
+                  <div key={item.id} className="group relative border rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow">
+                    <div className="absolute -top-3 -right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <button
+                        onClick={() => moveComponent(index, index - 1)}
+                        disabled={index === 0}
+                        className="p-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200 disabled:opacity-50"
+                      >
+                        <LuArrowUp size={16} />
+                      </button>
+                      <button
+                        onClick={() => moveComponent(index, index + 1)}
+                        disabled={index === canvasItems.length - 1}
+                        className="p-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200 disabled:opacity-50"
+                      >
+                        <LuArrowDown size={16} />
+                      </button>
+                      <button
+                        onClick={() => deleteComponent(index)}
+                        className="p-1 bg-red-100 text-red-600 rounded hover:bg-red-200"
+                      >
+                        <LuTrash size={16} />
+                      </button>
+                    </div>
+                    <Component />
                   </div>
-                  <Component />
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-          <div className="mt-4 flex flex-col space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Business Name
-              </label>
-              <input
-                type="text"
-                value={businessName}
-                onChange={(e) => setBusinessName(e.target.value)}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              />
+
+          {/* Controls Section */}
+          <div className="mt-6 space-y-4">
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Business Name
+                </label>
+                <input
+                  type="text"
+                  value={businessName}
+                  onChange={(e) => setBusinessName(e.target.value)}
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Services Offered
+                </label>
+                <input
+                  type="text"
+                  value={servicesOffered}
+                  onChange={(e) => setServicesOffered(e.target.value)}
+                  className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Services Offered
-              </label>
-              <input
-                type="text"
-                value={servicesOffered}
-                onChange={(e) => setServicesOffered(e.target.value)}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              />
-            </div>
-            <div className="flex space-x-4">
-            <button
+
+            <div className="flex flex-wrap gap-3">
+              <button
                 onClick={saveTemplate}
-                className="px-4 py-2 bg-blue-500 text-white rounded shadow flex items-center space-x-2"
+                className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
-                <FiSave />
-                <span>Save</span>
+                <FiSave size={18} />
+                Save Template
               </button>
               <button
                 onClick={deleteTemplate}
-                className="px-4 py-2 bg-red-500 text-white rounded shadow flex items-center space-x-2"
+                className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
               >
-                <FiTrash />
-                <span>Delete</span>
+                <FiTrash size={18} />
+                Delete
               </button>
               <button
                 onClick={copyComponentsAsList}
-                className="px-4 py-2 bg-green-500 text-white rounded shadow flex items-center space-x-2"
+                className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
               >
-                <FiCopy />
-                <span>Copy Components</span>
+                <FiCopy size={18} />
+                Copy Components
               </button>
             </div>
           </div>
         </main>
 
         {/* Saved Templates */}
-        <aside className="m-3 rounded-lg w-64 h-screen bg-gray-100 p-4 border-l overflow-y-auto">
-          <h2 className="text-lg font-bold mb-4">Saved Templates</h2>
-          {savedTemplates.map((template) => (
-            <div
-              key={template.id}
-              onClick={() => loadTemplate(template)}
-              className="p-2 bg-white border rounded mb-2 shadow-sm cursor-pointer"
-            >
-              Business Name: {template.business_name || "Untitled"}
-            </div>
-          ))}
+        <aside className="md:w-64 w-full h-auto md:h-[calc(100vh-4rem)] p-4 bg-white border-l overflow-y-auto">
+          <h2 className="text-lg font-semibold mb-4 text-gray-700">Saved Templates</h2>
+          <div className="space-y-2">
+            {savedTemplates.map((template) => (
+              <div
+                key={template.id}
+                onClick={() => loadTemplate(template)}
+                className={`p-3 rounded-lg border cursor-pointer hover:border-blue-400 transition-colors ${
+                  selectedTemplate === template.id ? 'border-blue-400 bg-blue-50' : 'border-gray-200'
+                }`}
+              >
+                <p className="text-sm font-medium text-gray-600 truncate">
+                  {template.business_name || "Untitled Template"}
+                </p>
+                <p className="text-xs text-gray-400 mt-1">
+                  {new Date(template.created_at).toLocaleDateString()}
+                </p>
+              </div>
+            ))}
+          </div>
         </aside>
       </div>
     </>

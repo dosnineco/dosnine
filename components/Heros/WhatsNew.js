@@ -10,7 +10,7 @@ const WhatsNew = () => {
       When you get a site from us, you are sold a website template. You are provided with 18+ theme colors. This template now has quarterly,every six months and yearly payments to make owning a website painless.
       </p>
 
-      <button className="box-shadow m-2 relative bg-green-400 text-inherit text-xl font-bold py-4 px-10 rounded hover:bg-white-100 transition-colors"><a href='https://wa.me/message/5LXYP7EBAUHMD1' >WhatsApp Me</a></button>
+      <button className="box-shadow relative  bg-white text-black text-sm  font-bold py-4 sm:py-3 px-4  rounded w-auto"><a href='https://wa.me/message/5LXYP7EBAUHMD1' >WhatsApp Me</a></button>
     </div>
   );
 };
