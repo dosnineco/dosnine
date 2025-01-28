@@ -6,6 +6,7 @@ import HowItWorks from 'components/Heros/Howitworks';
 import Seo from 'components/Misc/Seo';
 import PhoneNumber from 'components/Misc/PhoneNumber';
 import CountdownTimer from 'components/Misc/CountdownTimer';
+import ContactForm from "components/ContactForms/ContactForm";
 
 export default function Home() {
 
@@ -15,9 +16,10 @@ export default function Home() {
 for common business needs.' url='www.dosnine.com'/>
       <CountdownTimer />
       <Hero />
-      <PhoneNumber/>
+      {/* <PhoneNumber/> */}
       <HowItWorks />
       <WhatsNew />
+      <ContactForm />
       <Faq />
     </>
   );
