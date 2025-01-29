@@ -10,7 +10,7 @@ const CountdownTimer = () => {
       const now = new Date();
       // Set target to end of current day (23:59:59.999)
       const targetDate = new Date(now);
-      targetDate.setHours(23, 59, 59, 999);
+      targetDate.setHours(0, 0, 0, 0);
       
       const difference = targetDate.getTime() - now.getTime();
 
