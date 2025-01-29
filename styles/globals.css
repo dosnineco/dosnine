@@ -149,9 +149,9 @@
 
 /* Default Dosnine Theme */
 .Default {
-  --bkg: #F5F5F7;
-  --primary: #4eb689; /* Bright mint green */
-  --shade: #4A4947;
+  --bkg: #edf2f4;
+  --primary: #d90429; /* Bright mint green */
+  --shade: #0b090a;
 }
 
 html,

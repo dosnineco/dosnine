@@ -16,25 +16,24 @@ const HowItWorks = () => {
       <span className={styles.stepNumber}>1</span>
       <div className={styles.stepText}>
         
-        <h3>You have to be a service business that does not sell products online.</h3>
-        <p>Take a look at this site. Yes! It was made with the template. Do you like it? </p>
-        {/* <YouTubeVideo url="https://youtu.be/EXfFBEuCAr0?si=lrIwWS3oVWik8_6V" /> */}
+        <h3>Check out a live demo</h3>
+        <p>See whats possible with Dosnine. Like it? Lets go!</p>
 
       </div>
     </div>
     <div className={styles.step}>
       <span className={styles.stepNumber}>2</span>
       <div className={styles.stepText}>
-        <h3>Are you all set on getting the template? </h3>
-        <p></p>
+        <h3>Ready to launch?</h3>
+        <p>Confirm youre a service-based business that doesnt sell products online.</p>
 
       </div>
     </div>
     <div className={styles.step}>
       <span className={styles.stepNumber}>3</span>
       <div className={styles.stepText}>
-        <h3>Make your payment for your template. </h3>
-        <p>Once payment is made, you have the option to make us pay for your domain name. Or if you would like to buy the domain and configure your DNS to connect to your template.
+        <h3>Make Your Payment</h3>
+        <p>You can also opt for us to buy & configure your domain.
 
         </p>
 
@@ -43,8 +42,8 @@ const HowItWorks = () => {
     <div className={styles.step}>
       <span className={styles.stepNumber}>4</span>
       <div className={styles.stepText}>
-        <h3>Your Website Is now live! </h3>
-        <p></p>
+        <h3>Your Website Goes Live! 🎉</h3>
+        <p>Its that simple</p>
 
       </div>
     </div>

@@ -45,7 +45,7 @@ function ContactForm() {
         ) : (
           <form onSubmit={handleFormSubmit} className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-4xl font-bold text-gray-900 mb-3 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+              <h2 className="text-4xl font-bold text-secondary-color mb-3 text-transparent">
                 Launch Your Online Presence
               </h2>
               <p className="text-lg text-gray-600">
@@ -63,7 +63,7 @@ function ContactForm() {
                   type="text"
                   name="name"
                   required
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+                  className="w-full px-4 py-3 border-2 border-gray-400 rounded-xl focus:ring-2 focus:ring-gray-400  focus:border-gray-400  transition-all"
                 />
                 <ValidationError 
                   prefix="Name" 
@@ -82,7 +82,7 @@ function ContactForm() {
                   type="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+                  className="w-full px-4 py-3 border-2  border-gray-400 rounded-xl focus:ring-2 focus:ring-gray-400  focus:border-gray-400 transition-all"
                 />
                 <ValidationError 
                   prefix="Email" 
@@ -100,7 +100,7 @@ function ContactForm() {
                   id="phone"
                   type="tel"
                   name="phone"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+                  className="w-full px-4 py-3 border-2  border-gray-400 rounded-xl focus:ring-2 focus:ring-gray-400  focus:border-gray-400 transition-all"
                 />
                 <ValidationError 
                   prefix="Phone" 
@@ -118,7 +118,7 @@ function ContactForm() {
                   id="business"
                   type="text"
                   name="business"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+                  className="w-full px-4 py-3 border-2  border-gray-400 rounded-xl focus:ring-2 focus:ring-gray-400  focus:border-gray-400 transition-all"
                 />
                 <ValidationError 
                   prefix="Business" 
@@ -139,7 +139,7 @@ function ContactForm() {
                 required
                 placeholder="Describe your business goals and target audience"
                 rows="4"
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
+                className="w-full px-4 py-3 border-2  border-gray-400 rounded-xl focus:ring-2 focus:ring-gray-400  focus:border-gray-400 transition-all"
               />
               <ValidationError 
                 prefix="Message" 
@@ -153,7 +153,7 @@ function ContactForm() {
               <button
                 type="submit"
                 disabled={state.submitting}
-                className="w-full flex justify-center items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-orange-200"
+                className="w-full flex justify-center items-center gap-3 bg-primary-color hover:bg-gray-400  text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-300 hover:scale-[1.02] shadow-lg over:shadow-gray-400 "
               >
                 {state.submitting ? (
                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>

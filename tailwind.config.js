@@ -11,6 +11,7 @@ module.exports = {
         "primary-color": "var(--primary)",
         "secondary-color": "var(--shade)",
 
+
       },
       animation: {
         glitter: 'glitter 2s linear infinite',

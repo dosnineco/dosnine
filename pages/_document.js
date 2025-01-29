@@ -59,7 +59,7 @@ class MyDocument extends Document {
           />
     
         </Head>     
-        <body className="snap-y snap-mandatory h-screen overflow-y-scroll theme-indigo ">
+        <body className="snap-y snap-mandatory h-screen overflow-y-scroll Default ">
           
           <Main />
           <NextScript />
