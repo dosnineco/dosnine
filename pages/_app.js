@@ -17,7 +17,7 @@ import { useRouter } from 'next/router';
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
-  const isIndexPage = router.pathname === '/' || router.pathname === '/register';
+  const isIndexPage = router.pathname === '/' || router.pathname === '/demo';
 
   return (
     <ClerkProvider {...pageProps}>
@@ -35,16 +35,16 @@ function MyApp({ Component, pageProps }) {
           <SignedOut>
             <div className="flex items-center justify-center min-h-screen bg-gray-50">
               <div className="text-center">
-                <h1 className="text-4xl font-semibold text-inherit mb-6">Email remains a top productivity blocker in offices.</h1>
+             
                 <p className="text-xl text-inherit mb-6">Please sign in to continue.</p>
                 <div className="flex space-x-4 justify-center">
                   <SignInButton>
-                    <button className="px-6 py-3 text-inherit bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                    <button className="px-6 py-3 text-white bg-black rounded-lg shadow-lg ">
                       Sign In
                     </button>
                   </SignInButton>
                   <SignUpButton>
-                    <button className="px-6 py-3 text-inherit bg-green-600 rounded-lg shadow-lg hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:outline-none">
+                    <button className="px-6 py-3 text-white bg-black  rounded-lg shadow-lg ">
                       Sign Up
                     </button>
                   </SignUpButton>

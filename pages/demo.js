@@ -16,13 +16,13 @@ export default function Home() {
       <>
         {/* <Header /> */}
         <HeroMinimal />
-        <PhoneNumber />
-        <FeatureCards />
-        <WhatsNew />
-        <ContactForm />
-        <MarketingContact/>
-<MedicalContactForm/>
-        <LegalContactForm/>
+        {/* <PhoneNumber /> */}
+        {/* <FeatureCards /> */}
+        {/* <WhatsNew /> */}
+        {/* <ContactForm /> */}
+        {/* <MarketingContact/> */}
+        <MedicalContactForm/>
+        {/* <LegalContactForm/> */}
         <HowItWorks/>
 
         {/* <Footer /> */}
