@@ -45,7 +45,7 @@ function ContactForm() {
         ) : (
           <form onSubmit={handleFormSubmit} className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-4xl font-bold text-secondary-color mb-3 text-transparent">
+              <h2 className="text-4xl font-bold text-secondary-color mb-3 ">
                 Launch Your Online Presence
               </h2>
               <p className="text-lg text-gray-600">
