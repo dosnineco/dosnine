@@ -17,7 +17,7 @@ import { useRouter } from 'next/router';
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
-  const isIndexPage = router.pathname === '/' || router.pathname === '/demo';
+  const isIndexPage = router.pathname === '/' || router.pathname === '/clickaway';
 
   return (
     <ClerkProvider {...pageProps}>
@@ -25,9 +25,9 @@ function MyApp({ Component, pageProps }) {
 
       {isIndexPage ? (
         <Layout className="container mx-auto px-4 py-8">
-          <Header />
+          {/* <Header /> */}
           <Component {...pageProps} />
-          <Footer />
+          {/* <Footer /> */}
 
         </Layout>
       ) : (
