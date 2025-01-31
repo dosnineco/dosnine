@@ -23,6 +23,14 @@ function App() {
       bgHover: "hover:bg-blue-50",
     },
     {
+      title: "Leaderboard",
+      description: "Track and analyze your Clickaway data",
+      icon: BarChart2,
+      path: "leaderboard",
+      color: "text-orange-600",
+      bgHover: "hover:bg-orange-50",
+    },
+    {
       title: "Text to Excel",
       description: "Convert text data to Excel format easily",
       icon: FileSpreadsheet,

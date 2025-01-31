@@ -5,7 +5,6 @@ import { supabase } from 'lib/supabase';
 
 export default function ClickAwayDashboard() {
   const [leaderboard, setLeaderboard] = useState([]);
-  const [competitionStart, setCompetitionStart] = useState('2025-02-01'); // Set competition start date
 
   useEffect(() => {
     fetchLeaderboard();
@@ -22,8 +21,7 @@ export default function ClickAwayDashboard() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6">
-      <h1 className="text-3xl font-bold text-center mb-4">🏆 ClickAway Leaderboard</h1>
-      <p className="text-center text-yellow-300 text-lg">Competition starts on: {competitionStart}</p>
+      <h1 className="text-3xl font-bold text-center mb-4">ClickAway Leaderboard</h1>
       <div className="mt-6 max-w-lg mx-auto bg-gray-800 p-4 rounded-xl shadow-lg">
         <h2 className="text-xl font-bold mb-3">Top Clickers</h2>
         <table className="w-full text-left border-collapse">
