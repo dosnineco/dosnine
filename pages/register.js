@@ -1,120 +1,185 @@
+
+
 import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-import { useRouter } from 'next/router';
 
-function ContactForm() {
+function Register() {
   const [state, handleSubmit] = useForm("xgeggljb");
   const [isFormVisible, setIsFormVisible] = useState(true);
-  const router = useRouter();
 
   const handleFormSubmit = async (event) => {
-    handleSubmit(event);
+    await handleSubmit(event);
     if (state.succeeded) {
       setIsFormVisible(false);
     }
   };
-
-  const goToHomePage = () => {
-    router.push('/');
-  };
-
-  if (!isFormVisible && state.succeeded) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100 text-gray-800">
-        <h2 className="text-2xl font-semibold mb-4">Thank you for your submission!</h2>
-        <p className="text-center mb-6">We’ll review your information and get back to you shortly.</p>
-        <button
-          onClick={goToHomePage}
-          className="bg-blue-500 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
-        >
-          Back to Home
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <div className="max-w-3xl mx-auto pt-10 p-6 bg-white rounded-md shadow-md">
-      <form id="contact" onSubmit={handleFormSubmit}>
-        <h2 className="text-2xl font-semibold text-center mb-6">Get Your Service Business Online</h2>
+    <div  className="min-h-screen bg-white w-full  px-4 sm:px-6 lg:px-8 py-12">
+      <div className="relative mx-auto bg-white max-w-2xl rounded-2xl   p-8 sm:p-10 lg:p-12 ">
+        {state.succeeded ? (
+          <div className="text-center space-y-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+              <svg
+                className="w-8 h-8 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Thank you!
+            </h2>
+            <p className="text-gray-600">
+              We'll be in touch shortly to discuss your project.
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleFormSubmit} className="space-y-6">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold text-secondary-color mb-3 ">
+                Launch Your Online Presence
+              </h2>
+              <p className="text-lg text-gray-600">
+                Get your FREE website consultation in 24 hours
+              </p>
+            </div>
 
-        <label htmlFor="name" className="block font-medium mb-2">Name</label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-        />
-        <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-600 text-sm mb-4" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-400 rounded-xl focus:ring-2 focus:ring-gray-400  focus:border-gray-400  transition-all"
+                />
+                <ValidationError 
+                  prefix="Name" 
+                  field="name"
+                  errors={state.errors}
+                  className="text-red-600 text-sm"
+                />
+              </div>
 
-        <label htmlFor="email" className="block font-medium mb-2">Email Address</label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-        />
-        <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-600 text-sm mb-4" />
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-3 border-2  border-gray-400 rounded-xl focus:ring-2 focus:ring-gray-400  focus:border-gray-400 transition-all"
+                />
+                <ValidationError 
+                  prefix="Email" 
+                  field="email"
+                  errors={state.errors}
+                  className="text-red-600 text-sm"
+                />
+              </div>
 
-        <label htmlFor="phone" className="block font-medium mb-2">Phone Number</label>
-        <input
-          id="phone"
-          type="tel"
-          name="phone"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-        />
-        <ValidationError prefix="Phone" field="phone" errors={state.errors} className="text-red-600 text-sm mb-4" />
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  type="tel"
+                  name="phone"
+                  className="w-full px-4 py-3 border-2  border-gray-400 rounded-xl focus:ring-2 focus:ring-gray-400  focus:border-gray-400 transition-all"
+                />
+                <ValidationError 
+                  prefix="Phone" 
+                  field="phone"
+                  errors={state.errors}
+                  className="text-red-600 text-sm"
+                />
+              </div>
 
-        <label htmlFor="business" className="block font-medium mb-2">Business Name</label>
-        <input
-          id="business"
-          type="text"
-          name="business"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-        />
-        <ValidationError prefix="Business" field="business" errors={state.errors} className="text-red-600 text-sm mb-4" />
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">
+                  Business Name
+                </label>
+                <input
+                  id="business"
+                  type="text"
+                  name="business"
+                  className="w-full px-4 py-3 border-2  border-gray-400 rounded-xl focus:ring-2 focus:ring-gray-400  focus:border-gray-400 transition-all"
+                />
+                <ValidationError 
+                  prefix="Business" 
+                  field="business"
+                  errors={state.errors}
+                  className="text-red-600 text-sm"
+                />
+              </div>
+            </div>
 
-        <label htmlFor="industry" className="block font-medium mb-2">Industry</label>
-        <select
-          id="industry"
-          name="industry"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-        >
-          <option value="">Select an industry</option>
-          <option value="retail">Retail</option>
-          <option value="healthcare">Healthcare</option>
-          <option value="technology">Technology</option>
-          <option value="education">Education</option>
-          <option value="other">Other</option>
-        </select>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700">
+                How can we help you? <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Describe your business goals and target audience"
+                rows="4"
+                className="w-full px-4 py-3 border-2  border-gray-400 rounded-xl focus:ring-2 focus:ring-gray-400  focus:border-gray-400 transition-all"
+              />
+              <ValidationError 
+                prefix="Message" 
+                field="message"
+                errors={state.errors}
+                className="text-red-600 text-sm"
+              />
+            </div>
 
-        <label htmlFor="features" className="block font-medium mb-2">Desired Features</label>
-        <textarea
-          id="features"
-          name="features"
-          placeholder="E.g., online store, booking system, portfolio gallery."
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-        />
-
-        <label htmlFor="message" className="block font-medium mb-2">Additional Information</label>
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Tell us more about your business and specific needs."
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-        />
-        <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-600 text-sm mb-4" />
-
-        <button
-          type="submit"
-          disabled={state.submitting}
-          className="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
-        >
-          Submit
-        </button>
-      </form>
+            <div className="text-center pt-4">
+              <button
+                type="submit"
+                disabled={state.submitting}
+                className="w-full flex justify-center items-center gap-3 bg-primary-color hover:bg-gray-400  text-white font-bold py-4 px-8 rounded-xl transform transition-all duration-300 hover:scale-[1.02] shadow-lg over:shadow-gray-400 "
+              >
+                {state.submitting ? (
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
+                ) : (
+                  <>
+                    <svg
+                      className="w-6 h-6 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                    </svg>
+                    Get My Free Consultation
+                  </>
+                )}
+              </button>
+              <p className="text-sm text-gray-500 mt-3">
+                We respect your privacy. No spam, ever.
+              </p>
+            </div>
+          </form>
+        )}
+      </div>
     </div>
   );
 }
 
-export default ContactForm;
+export default Register;

@@ -33,24 +33,24 @@ const Hero = () => {
 
       {/* CTAs */}
       <div className="flex flex-col sm:flex-row gap-4 mt-2 w-full justify-center items-center">
+      <a 
+    href="/register"
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="w-full sm:w-auto box-shadow flex items-center justify-center gap-3 bg-black-600 text-black font-semibold py-4 px-8 rounded-xl transition-transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-orange-200"
+  >
+   Get Started Now
+   </a>
   <a 
     href="https://dosnine.gumroad.com/l/yrccb?wanted=true"
     target="_blank" 
     rel="noopener noreferrer"
     className="w-full sm:w-auto box-shadow flex items-center justify-center gap-3 bg-primary-color text-white font-semibold py-4 px-8 rounded-xl transition-transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-orange-200"
-    aria-label="Get My Website Now"
   >
-   Get Started Now
+   Buy Now
   </a>
 
-  {/* <a 
-    href="/clickaway"
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="w-full sm:w-auto box-shadow flex items-center justify-center gap-3 bg-black-600 text-black font-semibold py-4 px-8 rounded-xl transition-transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-orange-200"
-  >
-    Click and Win
-  </a> */}
+
 </div>
 
 

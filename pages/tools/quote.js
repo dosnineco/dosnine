@@ -67,7 +67,7 @@ function App() {
 
   const calculateTotal = () => {
     const subtotal = calculateSubtotal();
-    const tax = subtotal * 0.1; // 10% tax
+    const tax = subtotal * 0.15; // 10% tax
     return subtotal + tax;
   };
 
@@ -82,7 +82,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const subtotal = calculateSubtotal();
-    const tax = subtotal * 0.1;
+    const tax = subtotal * 0.15;
     const total = calculateTotal();
 
     const quoteData = {
@@ -322,8 +322,8 @@ function App() {
                   <span>${calculateSubtotal().toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-inherit">
-                  <span>Tax (10%):</span>
-                  <span>${(calculateSubtotal() * 0.1).toFixed(2)}</span>
+                  <span>Tax (15%):</span>
+                  <span>${(calculateSubtotal() * 0.15).toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-lg font-semibold text-inherit">
                   <span>Total:</span>
