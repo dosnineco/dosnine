@@ -16,7 +16,7 @@ function ContactForm() {
 
   return (
     <div  className="min-h-screen bg-white w-full  px-4 sm:px-6 lg:px-8 py-12">
-      <div className="relative mx-auto bg-white max-w-2xl rounded-2xl   p-8 sm:p-10 lg:p-12 border-4 border-orange-100/20">
+      <div className="relative mx-auto bg-white max-w-2xl rounded-2xl   p-8 sm:p-10 lg:p-12 ">
         {state.succeeded ? (
           <div className="text-center space-y-4">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
