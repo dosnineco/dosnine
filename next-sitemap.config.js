@@ -6,6 +6,5 @@ module.exports = {
     },
     exclude: ["/api/*", "404","500", "/server-sitemap.xml"],
     robotsTxtOptions: {
-      additionalSitemaps: ["https://www.dosnine.com/server-sitemap.xml"],
     },
   };

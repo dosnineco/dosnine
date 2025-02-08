@@ -43,14 +43,14 @@ const Hero = () => {
    Get Started Now
   </a>
 
-  <a 
+  {/* <a 
     href="/clickaway"
     target="_blank" 
     rel="noopener noreferrer"
     className="w-full sm:w-auto box-shadow flex items-center justify-center gap-3 bg-black-600 text-black font-semibold py-4 px-8 rounded-xl transition-transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-orange-200"
   >
     Click and Win
-  </a>
+  </a> */}
 </div>
 
 
