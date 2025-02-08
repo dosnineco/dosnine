@@ -4,10 +4,10 @@ import Faq from 'components/Faqs/Faq';
 import WhatsNew from 'components/Heros/WhatsNew';
 import HowItWorks from 'components/Heros/Howitworks';
 import Seo from 'components/Misc/Seo';
-import PhoneNumber from 'components/Misc/PhoneNumber';
 import CountdownTimer from 'components/Misc/CountdownTimer';
 import ContactForm from "components/ContactForms/ContactForm";
 import SignupPopup from './../components/Misc/SignupPopup';
+import WhatsAppChat from 'components/Misc/WhatsAppChat';
 
 export default function Home() {
 
@@ -19,11 +19,11 @@ for common business needs.' url='www.dosnine.com'/>
       <SignupPopup />
 
       <Hero />
-      {/* <PhoneNumber/> */}
       <HowItWorks />
       <WhatsNew />
       <ContactForm />
       <Faq />
+      <WhatsAppChat/>
     </>
   );
 }

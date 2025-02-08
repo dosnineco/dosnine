@@ -18,15 +18,11 @@ const Header = () => {
       <nav className="flex items-center justify-between p-4">
         {/* Logo Section */}
         <div className="flex items-center space-x-2">
-          <MdOutlineVerified
-            className="text-inherit	" // Google Verified sky-blue color
-            size={24} // Icon size
-          />
           <span
             className="text-xl font-medium font-poppins text-inherit	"
           >
             <Link href="/" >
-            Dosnine.com
+            Dosnine
 
             </Link>
           </span>

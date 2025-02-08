@@ -12,6 +12,7 @@
     "@heroicons/react": "^2.2.0",
     "@supabase/supabase-js": "^2.47.10",
     "autoprefixer": "^10.4.20",
+    "browser-image-compression": "^2.0.2",
     "canvas-confetti": "^1.9.3",
     "chart.js": "^4.4.7",
     "dompurify": "^3.2.3",

@@ -15,7 +15,7 @@ function ContactForm() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div  className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="relative bg-white rounded-2xl shadow-2xl p-8 sm:p-10 lg:p-12 border-4 border-orange-100/20">
         {state.succeeded ? (
           <div className="text-center space-y-4">
@@ -53,7 +53,7 @@ function ContactForm() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
                   Name <span className="text-red-500">*</span>

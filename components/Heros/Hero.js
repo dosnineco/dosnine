@@ -21,7 +21,7 @@ const Hero = () => {
 
       <div className={styles.content}>
         <h1 >Ready-to-Use Website
-        <span className='text-primary-color' > in hours</span>! </h1>
+        <span className='text-primary-color' > in days</span>! </h1>
         <p className={styles.description}> Service-based business Template paired with 5+ workflow tools for common business needs. For only <strong>$178USD/1yr</strong>.   
           <span className="text-base text-red-600">(Save $321)</span>
         </p>
@@ -40,7 +40,7 @@ const Hero = () => {
     className="w-full sm:w-auto box-shadow flex items-center justify-center gap-3 bg-primary-color text-white font-semibold py-4 px-8 rounded-xl transition-transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-orange-200"
     aria-label="Get My Website Now"
   >
-    Order Now
+   Get Started Now
   </a>
 
   <a 
