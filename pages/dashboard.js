@@ -30,19 +30,12 @@ function App() {
       color: "text-orange-600",
       bgHover: "hover:bg-orange-50",
     },
-    {
-      title: "Text to Excel",
-      description: "Convert text data to Excel format easily",
-      icon: FileSpreadsheet,
-      path: "/tools/texttoexcel",
-      color: "text-green-600",
-      bgHover: "hover:bg-green-50",
-    },
+    
     {
       title: "Bespoke Studio",
       description: "See the vision of your site.",
       icon: Award,
-      path: "/tools/bespoke-studio",
+      path: "/studio",
       color: "text-yellow-600",
       bgHover: "hover:bg-yellow-50",
     },

@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lilita+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap'); 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 :root {
   --bkg: #ffffff;
@@ -13,11 +15,12 @@
   --heading-color-light: #343a40;
 }
 
-.theme-red {
-  --bkg: #fff5f5;
-  --primary: #e63946; /* Modern crimson */
-  --shade: #1d3557; /* Deep blue for contrast */
+#__next{
+  cursor: url('../public/cursor.png') 2 2, pointer;  
+  position: relative;
+  z-index: 1;
 }
+
 
 .theme-gray-light {
   --bkg: #f4faff;
@@ -165,11 +168,7 @@ body {
   scroll-snap-type: y mandatory;
 }
 
-#__next{
-  cursor: url('../public/cursor.png') 2 2, pointer;  
-  position: relative;
-  z-index: 1;
-}
+
 
 h1{
   margin: 0;
@@ -178,15 +177,10 @@ h1{
   line-height: 1.2;
   font-weight: 900;
   text-transform: capitalize;
+  font-family: "Rubik", serif;
 }
 
-h1{
-  color:var(--heading_color);
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
-  font-family: 'Lilita One';
-}
+
 
 h2,h3,h4,h5{
   color:var(--heading_color);
@@ -202,6 +196,7 @@ p{
   line-height: 1.8;
   font-size: 1.9em;
   margin-bottom: 2em;
+  font-weight: 400;
 }
 
 

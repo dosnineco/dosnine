@@ -7,6 +7,7 @@ import { FiSave, FiTrash, FiCopy } from 'react-icons/fi';
 
 // Dynamically import components with SSR disabled
 const componentMap = {
+
   BreadcrumbsMinimal: dynamic(() => import("../components/BreadCrumbs/BreadcrumbsMinimal"), { ssr: false }),
   BreadcrumbsPillStyle: dynamic(() => import("../components/BreadCrumbs/BreadcrumbsPillStyle"), { ssr: false }),
   BreadcrumbsStepperStyle: dynamic(() => import("../components/BreadCrumbs/BreadcrumbsStepperStyle"), { ssr: false }),
