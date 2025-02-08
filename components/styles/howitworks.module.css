@@ -7,6 +7,7 @@
     text-align: left;
     transition: background-color 0.3s, padding 0.3s;
   color:var(--bkg);
+  min-height: 100vh;
   }
   
   .worksTitle {

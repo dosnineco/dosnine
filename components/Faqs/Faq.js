@@ -23,14 +23,14 @@ const FAQ = () => {
   };
 
   return (
-    <section className=" rounded-lg py-10 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-gray-100 w-full rounded-lg py-10 px-4 sm:px-6 lg:px-8">
       <h2 className="text-3xl pt-6 font-bold text-inherit text-center mb-4">Frequently Asked Questions</h2>
       <p className="text-center text-sm text-inherit mb-8">Have no worries, we got you.</p>
-      <div className="max-w-4xl mx-auto space-y-4">
+      <div className="max-w-2xl mx-auto space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="border border-gray-200 rounded-lg bg-white shadow-sm transition-all"
+            className="border border-gray-200 rounded-lg bg-white  transition-all"
           >
             <div
               className="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-gray-50"

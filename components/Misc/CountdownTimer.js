@@ -35,7 +35,7 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className="w-full bg-yellow-300 flex items-center justify-center space-x-4 py-2 px-4">
+    <div className="w-full bg-yellow-300 flex items-center justify-center space-x-4 py-8 px-4">
       {isLive ? (
         <div className="flex items-center space-x-2">
           <span className="text-sm font-medium text-inherit">🎉 Software is live! Now for <strong>$178USD/1yr.</strong></span>
