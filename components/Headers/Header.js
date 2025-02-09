@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
-import { MdOutlineVerified } from "react-icons/md";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +40,11 @@ const Header = () => {
           <Link href="/register" className="text-inherit	  text-sm font-medium">
               Register
             </Link>
+          <Link href="/register" className="text-inherit	  text-sm font-medium">
+              Register
+            </Link>
             <Link href="/dashboard" className=" text-inherit	 text-sm font-medium">
+              Login
               Login
             </Link>
           </SignedOut>
