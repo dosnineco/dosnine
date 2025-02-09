@@ -38,12 +38,12 @@ function MyApp({ Component, pageProps }) {
                 <p className="text-xl text-inherit mb-6">Please sign in to continue.</p>
                 <div className="flex space-x-4 justify-center">
                   <SignInButton>
-                    <button className="px-6 py-3 text-white bg-black rounded-lg shadow-lg ">
+                    <button className="px-6 py-3 text-white bg-primary-color  rounded-lg shadow-lg ">
                       Sign In
                     </button>
                   </SignInButton>
                   <SignUpButton>
-                    <button className="px-6 py-3 text-white bg-black  rounded-lg shadow-lg ">
+                    <button className="px-6 py-3 text-white bg-primary-color  rounded-lg shadow-lg ">
                       Sign Up
                     </button>
                   </SignUpButton>

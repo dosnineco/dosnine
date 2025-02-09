@@ -30,6 +30,8 @@ const Header = () => {
 
         {/* Navigation Links */}
         <div className="flex items-center space-x-4">
+      
+            <UserButton />
           <SignedIn>
             <Link href="/dashboard" className="text-inherit	  text-sm font-medium">
               Dashboard
@@ -38,8 +40,11 @@ const Header = () => {
           </SignedIn>
 
           <SignedOut>
+          <Link href="/register" className="text-inherit	  text-sm font-medium">
+              Register
+            </Link>
             <Link href="/dashboard" className=" text-inherit	 text-sm font-medium">
-              Dashboard
+              Login
             </Link>
           </SignedOut>
         </div>

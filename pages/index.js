@@ -8,6 +8,7 @@ import CountdownTimer from 'components/Misc/CountdownTimer';
 import ContactForm from "components/ContactForms/ContactForm";
 import SignupPopup from './../components/Misc/SignupPopup';
 import WhatsAppChat from 'components/Misc/WhatsAppChat';
+import SocialMedia from 'components/Misc/SocialMedia';
 
 export default function Home() {
 
@@ -22,7 +23,10 @@ for common business needs.' url='www.dosnine.com'/>
       <HowItWorks />
       <WhatsNew />
       <ContactForm />
+      <SocialMedia/>
+
       <Faq />
+
       <WhatsAppChat/>
     </>
   );
