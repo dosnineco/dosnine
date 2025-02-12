@@ -98,7 +98,7 @@ export default function ClickBattle() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6 w-full relative overflow-hidden">
+    <div className="min-h-screen bg-secondary-color text-white p-6 w-full relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-20">
         <div className="animate-pulse-slow absolute top-20 left-1/4 w-32 h-32 bg-purple-500 rounded-full mix-blend-screen" />

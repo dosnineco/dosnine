@@ -22,7 +22,7 @@ const Header = () => {
             className="text-xl font-medium font-poppins text-inherit	"
           >
             <Link href="/" >
-            Dosnine
+            @dosnine_media_
 
             </Link>
           </span>
@@ -31,7 +31,6 @@ const Header = () => {
         {/* Navigation Links */}
         <div className="flex items-center space-x-4">
       
-            <UserButton />
           <SignedIn>
             <Link href="/dashboard" className="text-inherit	  text-sm font-medium">
               Dashboard

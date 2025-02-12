@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from '../styles/howitworks.module.css';
 import YouTubeVideo from '../Misc/YouTubeVideo';
+import Link from "next/link";
+
 
 const HowItWorks = () => {
   return (
@@ -16,7 +18,7 @@ const HowItWorks = () => {
       <span className={styles.stepNumber}>1</span>
       <div className={styles.stepText}>
         
-        <h3>Check out a live demo</h3>
+        <h3>Check out a live <Link className='text-blue-900' href='https://glowwithcam.vercel.app/'>demo</Link></h3>
         <p>See whats possible with Dosnine. Like it? Lets go!</p>
 
       </div>
