@@ -1,8 +1,8 @@
 import '../styles/globals.css';
 import Layout from "../components/Misc/Layout";
 import Header from '../components/Headers/Header';
-import Footer from 'components/Footers/Footer';
-import PageViewTracker from "components/Misc/PageViewTracker";
+import Footer from '../components/Footers/Footer';
+import PageViewTracker from "../components/Misc/PageViewTracker";
 
 import {
   ClerkProvider,

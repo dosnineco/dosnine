@@ -1,14 +1,14 @@
 
-import Hero from 'components/Heros/Hero';
-import Faq from 'components/Faqs/Faq';
-import WhatsNew from 'components/Heros/WhatsNew';
-import HowItWorks from 'components/Heros/Howitworks';
-import Seo from 'components/Misc/Seo';
-import CountdownTimer from 'components/Misc/CountdownTimer';
-import ContactForm from "components/ContactForms/ContactForm";
+import Hero from './../components/Heros/Hero';
+import Faq from './../components/Faqs/Faq';
+import WhatsNew from './../components/Heros/WhatsNew';
+import HowItWorks from './../components/Heros/Howitworks';
+import Seo from './../components/Misc/Seo';
+import CountdownTimer from './../components/Misc/CountdownTimer';
+import ContactForm from "./../components/ContactForms/ContactForm";
 import SignupPopup from './../components/Misc/SignupPopup';
-import WhatsAppChat from 'components/Misc/WhatsAppChat';
-import SocialMedia from 'components/Misc/SocialMedia';
+import WhatsAppChat from './../components/Misc/WhatsAppChat';
+import SocialMedia from './../components/Misc/SocialMedia';
 
 export default function Home() {
 
