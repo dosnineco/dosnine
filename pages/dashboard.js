@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { 
   BarChart2, 
-  FileSpreadsheet, 
   Calculator, 
   Mail, 
   DollarSign,

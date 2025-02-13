@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { supabase } from 'lib/supabase';
+import { supabase } from '../lib/supabase';
 
 const MATCH_START_DATE = new Date('2025-01-30T23:12:00Z'); // Set the match start date here
 

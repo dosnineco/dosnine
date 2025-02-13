@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic"; // For dynamic imports
-import { supabase } from "lib/supabase";
+import { supabase } from "../lib/supabase";
 import { arrayMove } from "@dnd-kit/sortable";
 import { LuArrowUp, LuArrowDown, LuTrash } from "react-icons/lu";
 import { FiSave, FiTrash, FiCopy } from 'react-icons/fi';

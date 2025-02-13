@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '/lib/supabase';
+import { supabase } from '../../lib/supabase';
 import { useUser } from '@clerk/nextjs';
 import imageCompression from 'browser-image-compression';
 

@@ -1,14 +1,14 @@
 
-import Hero from './../components/Heros/Hero';
-import Faq from './../components/Faqs/Faq';
-import WhatsNew from './../components/Heros/WhatsNew';
-import HowItWorks from './../components/Heros/Howitworks';
-import Seo from './../components/Misc/Seo';
-import CountdownTimer from './../components/Misc/CountdownTimer';
-import ContactForm from "./../components/ContactForms/ContactForm";
-import SignupPopup from './../components/Misc/SignupPopup';
-import WhatsAppChat from './../components/Misc/WhatsAppChat';
-import SocialMedia from './../components/Misc/SocialMedia';
+import Hero from '../components/Heros/Hero';
+import Faq from '../components/Faqs/Faq';
+import WhatsNew from '../components/Heros/WhatsNew';
+import HowItWorks from '../components/Heros/Howitworks';
+import Seo from '../components/Misc/Seo';
+import CountdownTimer from '../components/Misc/CountdownTimer';
+import ContactForm from "../components/ContactForms/ContactForm";
+import WhatsAppChat from '../components/Misc/WhatsAppChat';
+import SocialMedia from '../components/Misc/SocialMedia';
+import PricingComponent from '../components/Misc/PricingComponent';
 
 export default function Home() {
 
@@ -22,11 +22,10 @@ for common business needs.' url='www.dosnine.com'/>
       <Hero />
       <HowItWorks />
       <WhatsNew />
+      <PricingComponent/>
       <ContactForm />
       <SocialMedia/>
-
       <Faq />
-
       <WhatsAppChat/>
     </>
   );
