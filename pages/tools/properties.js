@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '/lib/supabase';
-import Pagination from '/components/Misc/Pagination';
-import CreatePropertyForm from 'components/Property/CreatePropertyForm';
+import { supabase } from '../../lib/supabase';
+import Pagination from '../../components/Misc/Pagination';
+import CreatePropertyForm from '../../components/Property/CreatePropertyForm';
 
 const ITEMS_PER_PAGE = 9;
 

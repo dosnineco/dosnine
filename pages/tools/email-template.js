@@ -3,7 +3,7 @@ import { supabase } from '../../lib/supabase';
 import { useRouter } from 'next/router';
 import { useUser } from '@clerk/nextjs';
 import dynamic from 'next/dynamic';
-import Notification from 'components/Misc/Notification';
+import Notification from '../../components/Misc/Notification';
 import TemplateTable from '../../components/Misc/TemplateTable';
 import Pagination from '../../components/Misc/Pagination';
 import SearchFilterSort from '../../components/Misc/SearchFilterSort';

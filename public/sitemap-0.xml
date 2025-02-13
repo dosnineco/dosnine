@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://www.dosnine.com</loc><lastmod>2025-01-20T02:48:14.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.dosnine.com/bespoke-studio</loc><lastmod>2025-01-20T02:48:14.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.dosnine.com/dashboard</loc><lastmod>2025-01-20T02:48:14.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.dosnine.com/dashboard/new</loc><lastmod>2025-01-20T02:48:14.368Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.dosnine.com/email-template</loc><lastmod>2025-01-20T02:48:14.369Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.dosnine.com/quote</loc><lastmod>2025-01-20T02:48:14.369Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.dosnine.com/register</loc><lastmod>2025-01-20T02:48:14.369Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.dosnine.com/salary-to-hourly</loc><lastmod>2025-01-20T02:48:14.369Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.dosnine.com/texttoexcel</loc><lastmod>2025-01-20T02:48:14.369Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.dosnine.com/website-traffic</loc><lastmod>2025-01-20T02:48:14.369Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.dosnine.com</loc><lastmod>2025-02-13T10:43:01.506Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.dosnine.com/clickaway</loc><lastmod>2025-02-13T10:43:01.506Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.dosnine.com/dashboard</loc><lastmod>2025-02-13T10:43:01.506Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.dosnine.com/dashboard/new</loc><lastmod>2025-02-13T10:43:01.506Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.dosnine.com/leaderboard</loc><lastmod>2025-02-13T10:43:01.506Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.dosnine.com/register</loc><lastmod>2025-02-13T10:43:01.506Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.dosnine.com/studio</loc><lastmod>2025-02-13T10:43:01.506Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.dosnine.com/tools/email-template</loc><lastmod>2025-02-13T10:43:01.506Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.dosnine.com/tools/properties</loc><lastmod>2025-02-13T10:43:01.506Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.dosnine.com/tools/quote</loc><lastmod>2025-02-13T10:43:01.506Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.dosnine.com/tools/website-traffic</loc><lastmod>2025-02-13T10:43:01.506Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
