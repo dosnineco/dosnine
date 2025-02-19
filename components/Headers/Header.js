@@ -37,14 +37,11 @@ const Header = () => {
           </SignedIn>
 
           <SignedOut>
-          <Link href="/register" className="text-inherit	  text-sm font-medium">
-              Register
-            </Link>
+    
           <Link href="/register" className="text-inherit	  text-sm font-medium">
               Register
             </Link>
             <Link href="/dashboard" className=" text-inherit	 text-sm font-medium">
-              Login
               Login
             </Link>
           </SignedOut>
