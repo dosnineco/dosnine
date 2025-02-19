@@ -12,8 +12,9 @@ const Hero = () => {
   return (
     <section className={styles.promoSection}>
       <div className={styles.imageWrapper}>
-        <ImagePopup src="./design.png" alt="themes" width={1135} height={1016} />
+        <ImagePopup src="./qr.png" alt="themes" width={1135} height={1016} />
         {/* <YouTubeVideo url="https://youtu.be/y5NUxNAveAQ" /> */}
+
         {/* <PhoneNumber/> */}
 
       </div>
