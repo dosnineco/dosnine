@@ -16,7 +16,6 @@
 }
 
 #__next{
-  cursor: url('../public/cursor.png') 2 2, pointer;  
   position: relative;
   z-index: 1;
 }
@@ -146,9 +145,9 @@
 
 /* Default Dosnine Theme */
 .Default {
-  --bkg: #edf2f4;
-  --primary: #006241; /* Bright mint green */
-  --shade: #001910  ;
+  --bkg: #F8FAFC;       /* Softer, premium off-white */
+  --primary: #005EEA;   /* Richer blue for a more modern, tech feel */
+  --shade: #0A1F44; 
 }
 
 
