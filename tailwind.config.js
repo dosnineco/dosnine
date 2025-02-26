@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         "primary-color": "var(--primary)",
         "secondary-color": "var(--shade)",
+        "main": "var(--bkg)",
 
 
       },

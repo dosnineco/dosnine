@@ -139,17 +139,17 @@
 
 
 ::selection{
-  background-color: #59c178;
+  background-color: #2ecc71;
   color:#fff;
 }
 
 /* Default Dosnine Theme */
 .Default {
-  --bkg: #F8FAFC;       /* Softer, premium off-white */
-  --primary: #005EEA;   /* Richer blue for a more modern, tech feel */
-  --shade: #0A1F44; 
+  --bkg: #CCCCFF;       /* Softer, premium off-white */
+  --primary:#2ecc71;   /* Richer blue for a more modern, tech feel */
+  --shade: #011942; 
 }
-
+ 
 
 
 html,

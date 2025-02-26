@@ -1,8 +1,6 @@
 import React from 'react';
-import { useForm, ValidationError } from '@formspree/react';
 
 const PricingComponent = () => {
-  const [state, handleSubmit] = useForm("YOUR_FORMSPREE_ID");
 
   return (
     <div className="w-full  py-16">
@@ -12,7 +10,7 @@ const PricingComponent = () => {
         {/* <h3 className="text-2xl text-white font-bold text-center mb-6">Pricing</h3> */}
 
         {/* Pricing Card */}
-        <div className="bg-black text-white rounded-2xl shadow-xl overflow-hidden max-w-2xl mx-auto">
+        <div className="bg-secondary-color text-white rounded-2xl shadow-xl overflow-hidden max-w-2xl mx-auto">
           <div className="px-8 py-12">
             <div className="text-center">
               <div className="inline-flex items-baseline mb-6">
