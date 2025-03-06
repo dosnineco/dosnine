@@ -9,3 +9,12 @@ module.exports = {
     domains: ['images.unsplash.com'], // Add the domain here
   },
 };
+
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development', // Disable PWA in development
+});
+
+module.exports = withPWA({
+  reactStrictMode: true,
+});
