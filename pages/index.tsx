@@ -318,9 +318,15 @@ function App() {
             rel="noopener noreferrer"
             className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
           >
-            <Phone className="mr-3 w-6 h-6" />
             Vectorize
-            <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-200" />
+          </a>
+           <a 
+            href="/vect" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
+          >
+            Vectorize 2
           </a>
           
                   </div>
