@@ -23,7 +23,7 @@ function App() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const websitePrice = 38500;
-  const capPrice = 10000;
+  const capPrice = 11500;
 
   return (
     <div className="w-full  min-h-screen ">
@@ -130,7 +130,7 @@ function App() {
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">Professional embroidery</span>
+                  <span className="text-gray-700">Professional htv material</span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
@@ -142,7 +142,7 @@ function App() {
                 </div>
               </div>
               <div className="text-xl font-bold text-green-600 mb-4">
-                JMD $10,000 per dozen
+                JMD $11,500 per dozen
               </div>
             </div>
           </div>
@@ -312,7 +312,18 @@ function App() {
           <p className="text-blue-100 mt-6 text-sm">
             Free consultation • Fast quotes • Professional service
           </p>
-        </div>
+  <a 
+            href="/vector" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
+          >
+            <Phone className="mr-3 w-6 h-6" />
+            Vectorize
+            <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-200" />
+          </a>
+          
+                  </div>
       </section>
 
       
