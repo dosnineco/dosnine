@@ -15,6 +15,14 @@ import {
   Award
 } from 'lucide-react';
 
+// Define the main navigation items
+const navItems = [
+    { name: 'Services', href: '#services' },
+    { name: 'Pricing', href: '#pricing' },
+    { name: 'About Us', href: '#about' },
+    { name: 'Contact', href: '#contact' },
+];
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [websiteQuantity, setWebsiteQuantity] = useState(1);
@@ -22,21 +30,70 @@ function App() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  // Prices are for calculation
   const websitePrice = 38500;
   const capPrice = 11500;
 
   return (
-    <div className="w-full  min-h-screen ">
-      
-      <section className="bg-white">
-        <div className="max-w-7xl mx-auto">
+    // Removed unnecessary w-full class, body padding handles this.
+    <div className="min-h-screen bg-gray-50"> 
+
+      {/* --- Navigation Bar (Fixed for better UX) --- */}
+      <nav className="bg-white shadow-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <a href="#" className="flex items-center text-2xl font-bold text-red-700">
+              Dosnine Media
+            </a>
+            <div className="hidden md:flex space-x-8">
+              {navItems.map((item) => (
+                <a 
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-600 hover:text-red-600 font-medium transition duration-150"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+            <div className="md:hidden">
+              <button 
+                onClick={toggleMenu}
+                className="text-gray-600 hover:text-red-600 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+              >
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={toggleMenu}
+                className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-red-50 hover:text-red-600"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        )}
+      </nav>
+
+      {/* --- Hero Section --- */}
+      <header className="py-20 md:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6 animate-pulse">
+            <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium mb-6 animate-pulse">
               🇯🇲 Proudly Serving Jamaica
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Affordable Websites &<br />
-              <span className="text-blue-600 ">
+              <span className="text-red-600 ">
                 Custom Logo Merchandise
               </span>
             </h1>
@@ -47,27 +104,25 @@ function App() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="#services" 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center group"
+                className="bg-gradient-to-r from-red-600 to-red-800 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center group"
               >
                 Get Started Today
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
               <a 
                 href="#pricing" 
-                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
+                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:border-red-600 hover:text-red-600 transition-all duration-300"
               >
                 View Pricing
               </a>
             </div>
           </div>
         </div>
-      </section>
+      </header>
 
-  
-
-      {/* Services Section */}
-      <section id="services" className="py-4 px-2 bg-blue-50 rounded mt-20">
-        <div className="w-full max-w-7xl mx-auto ">
+      {/* --- Services Section --- */}
+      <section id="services" className="py-20 bg-red-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What We Offer</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -75,14 +130,14 @@ function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Website Design */}
-            <div className="bg-white rounded-3xl p-8 shadow-sm ">
+            <div className="bg-white rounded-3xl p-8 shadow-xl">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-500 rounded flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mr-4 shadow-md">
                   <Globe className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Website Design</h3>
+                <h3 className="text-2xl font-bold text-gray-900">Professional Website Design</h3>
               </div>
               <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                 Professional, responsive websites to boost your business online. Perfect for service-based businesses, 
@@ -90,31 +145,32 @@ function App() {
               </p>
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  {/* Changed CheckCircle color to red-500 */}
+                  <CheckCircle className="w-5 h-5 text-red-500 mr-3" /> 
                   <span className="text-gray-700">Mobile-responsive design</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  <CheckCircle className="w-5 h-5 text-red-500 mr-3" />
                   <span className="text-gray-700">SEO optimized</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  <CheckCircle className="w-5 h-5 text-red-500 mr-3" />
                   <span className="text-gray-700">Fast loading speeds</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  <CheckCircle className="w-5 h-5 text-red-500 mr-3" />
                   <span className="text-gray-700">Professional design</span>
                 </div>
               </div>
-              <div className="text-xl font-bold text-blue-600 mb-4">
+              <div className="text-xl font-bold text-red-600 mb-4">
                 Starting at JMD $38,500
               </div>
             </div>
 
             {/* Custom Logo Caps */}
-            <div className="bg-white rounded-3xl p-8 shadow-sm h">
+            <div className="bg-white rounded-3xl p-8 shadow-xl">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-500 rounded flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mr-4 shadow-md">
                   <Shirt className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Custom Logo Caps</h3>
@@ -125,23 +181,24 @@ function App() {
               </p>
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  {/* Changed CheckCircle color to red-500 */}
+                  <CheckCircle className="w-5 h-5 text-red-500 mr-3" /> 
                   <span className="text-gray-700">High-quality materials</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  <CheckCircle className="w-5 h-5 text-red-500 mr-3" />
                   <span className="text-gray-700">Professional htv material</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  <CheckCircle className="w-5 h-5 text-red-500 mr-3" />
                   <span className="text-gray-700">Multiple color options</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  <CheckCircle className="w-5 h-5 text-red-500 mr-3" />
                   <span className="text-gray-700">Bulk discounts available</span>
                 </div>
               </div>
-              <div className="text-xl font-bold text-green-600 mb-4">
+              <div className="text-xl font-bold text-red-600 mb-4">
                 JMD $11,500 per dozen
               </div>
             </div>
@@ -149,7 +206,7 @@ function App() {
         </div>
       </section>
 
-      {/* Pricing Calculator */}
+      {/* --- Pricing Calculator --- */}
       <section id="pricing" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -157,12 +214,13 @@ function App() {
             <p className="text-xl text-gray-600">Calculate your total investment and get started today</p>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 shadow-xl">
+          {/* Calculator Card */}
+          <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-3xl p-8 shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Website Calculator */}
               <div className="bg-white rounded-2xl p-6 shadow-lg">
                 <div className="flex items-center mb-4">
-                  <Globe className="w-6 h-6 text-blue-600 mr-3" />
+                  <Globe className="w-6 h-6 text-red-600 mr-3" />
                   <h3 className="text-xl font-semibold text-gray-900">Websites</h3>
                 </div>
                 <div className="mb-4">
@@ -170,7 +228,7 @@ function App() {
                   <select 
                     value={websiteQuantity}
                     onChange={(e) => setWebsiteQuantity(Number(e.target.value))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                   >
                     <option value={0}> No website</option>
                     <option value={1}>1 website</option>
@@ -180,7 +238,7 @@ function App() {
                     <option value={5}>5+ websites</option>
                   </select>
                 </div>
-                <div className="text-2xl font-bold text-blue-600">
+                <div className="text-2xl font-bold text-red-600">
                   JMD ${(websitePrice * websiteQuantity).toLocaleString()}
                 </div>
               </div>
@@ -188,7 +246,7 @@ function App() {
               {/* Caps Calculator */}
               <div className="bg-white rounded-2xl p-6 shadow-lg">
                 <div className="flex items-center mb-4">
-                  <Shirt className="w-6 h-6 text-green-600 mr-3" />
+                  <Shirt className="w-6 h-6 text-gray-700 mr-3" />
                   <h3 className="text-xl font-semibold text-gray-900">Logo Caps</h3>
                 </div>
                 <div className="mb-4">
@@ -196,7 +254,7 @@ function App() {
                   <select 
                     value={capQuantity}
                     onChange={(e) => setCapQuantity(Number(e.target.value))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                   >
                     <option value={1}>1 dozen caps</option>
                     <option value={2}>2 dozen caps</option>
@@ -205,22 +263,22 @@ function App() {
                     <option value={5}>5+ dozen caps</option>
                   </select>
                 </div>
-                <div className="text-2xl font-bold text-green-600">
+                <div className="text-2xl font-bold text-red-600">
                   JMD ${(capPrice * capQuantity).toLocaleString()}
                 </div>
               </div>
             </div>
 
             {/* Total */}
-            <div className="mt-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-6 text-white text-center">
+            <div className="mt-8 bg-gradient-to-r from-red-600 to-red-800 rounded-2xl p-6 text-white text-center">
               <h3 className="text-xl font-semibold mb-2">Total Investment</h3>
               <div className="text-4xl font-bold mb-4">
                 JMD ${((websitePrice * websiteQuantity) + (capPrice * capQuantity)).toLocaleString()}
               </div>
-              <p className="text-blue-100 mb-6">Professional package to grow your business</p>
+              <p className="text-red-100 mb-6">Professional package to grow your business</p>
               <a 
                 href="#contact" 
-                className="inline-flex items-center bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                className="inline-flex items-center bg-white text-red-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
                 Order Now
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -231,36 +289,36 @@ function App() {
       </section>
 
 
-      {/* About Section */}
-      <section id="about" className="w-full py-20 bg-white">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* --- About Section --- */}
+      <section id="about" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Ready to Grow Your Business?
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                At Dosnine Media, we understand that every Jamaican business deserves a strong online presence 
+                At **Dosnine Media**, we understand that every Jamaican business deserves a strong online presence 
                 and professional branding. Our affordable solutions help you compete with larger companies 
                 while maintaining that personal touch your customers love.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <CheckCircle className="w-6 h-6 text-green-500 mr-3" />
+                  <CheckCircle className="w-6 h-6 text-red-500 mr-3" /> {/* Changed color */}
                   <span className="text-gray-700 text-lg">100% satisfaction guarantee</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-6 h-6 text-green-500 mr-3" />
+                  <CheckCircle className="w-6 h-6 text-red-500 mr-3" /> {/* Changed color */}
                   <span className="text-gray-700 text-lg">Local support and service</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-6 h-6 text-green-500 mr-3" />
+                  <CheckCircle className="w-6 h-6 text-red-500 mr-3" /> {/* Changed color */}
                   <span className="text-gray-700 text-lg">Affordable pricing for all budgets</span>
                 </div>
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-8 text-white">
+              <div className="bg-gradient-to-br from-red-600 to-red-800 rounded-3xl p-8 text-white shadow-2xl">
                 <h3 className="text-2xl font-bold mb-4">Why Choose Dosnine Media?</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center">
@@ -286,53 +344,68 @@ function App() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-blue-600 to-purple-600">
+      {/* --- Contact Section --- */}
+      <section id="contact" className="py-20 bg-gradient-to-r from-red-600 to-red-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Get Your Professional Website and Branded Merchandise Today
           </h2>
-          <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-red-100 mb-12 max-w-2xl mx-auto">
             Ready to take your business to the next level? Contact us now for a free consultation 
             and quote tailored to your specific needs.
           </p>
 
-        
+          
           <a 
             href="https://wa.me/18763369045" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
+            // Retaining green for WhatsApp for branding/trust, but using a red-based shadow.
+            className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl shadow-red-900/50 transform hover:scale-105 transition-all duration-300 group"
           >
             <Phone className="mr-3 w-6 h-6" />
             Contact Us on WhatsApp
             <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-200" />
           </a>
 
-          <p className="text-blue-100 mt-6 text-sm">
+          <p className="text-red-100 mt-6 text-sm">
             Free consultation • Fast quotes • Professional service
           </p>
-  <a 
-            href="/vector" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
-          >
-            Vectorize
-          </a>
-           <a 
-            href="/vect" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
-          >
-            Vectorize 2
-          </a>
           
-                  </div>
+          {/* Vectorization Links (Grouped and styled as secondary CTA) */}
+          <div className="mt-8 flex justify-center space-x-4">
+             <a 
+              href="/vector" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center border border-white text-white px-6 py-3 rounded-full font-medium text-base hover:bg-white hover:text-red-600 transition-colors"
+            >
+              Vectorize
+            </a>
+            <a 
+              href="/vect" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center border border-white text-white px-6 py-3 rounded-full font-medium text-base hover:bg-white hover:text-red-600 transition-colors"
+            >
+              Vectorize 2
+            </a>
+          </div>
+        </div>
       </section>
 
-      
+      {/* --- Footer --- */}
+      <footer className="bg-gray-900 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+          <div className="flex justify-center space-x-6 mb-4">
+            <Mail className="w-5 h-5" />
+            <MapPin className="w-5 h-5" />
+          </div>
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} Dosnine Media. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
