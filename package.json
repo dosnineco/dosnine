@@ -13,6 +13,7 @@
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-dropdown-menu": "^2.1.6",
     "@supabase/supabase-js": "^2.47.10",
+    "@tailwindcss/postcss": "^4.1.14",
     "add": "^2.0.6",
     "autoprefixer": "^10.4.21",
     "browser-image-compression": "^2.0.2",
